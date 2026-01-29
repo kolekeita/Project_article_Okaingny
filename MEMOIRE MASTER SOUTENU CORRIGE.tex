@@ -1,0 +1,2399 @@
+\documentclass[12pt,a4paper,openany,oneside]{book}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor} 
+\usepackage[french]{babel}
+%\makeindex
+%\usepackage{array,multirow,makecell}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%\usepackage{kurier}
+\usepackage{graphicx}
+%\usepackage[final]{pdfpages}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parindent}{0.5cm}
+\setlength{\parskip}{0.1cm} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Création d'en-tetes et et les pieds de page
+%\pagestyle{plain}%le style par défaut: seul le numéro de page est affiché au centre du pied de page.
+%\pagestyle{headings}
+\usepackage{fancyhdr}% personnaliser les en-têtes et les pieds de page
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}%pour forcer l'affichage d'une ligne horizontale
+ \renewcommand{\chaptermark}[1]{%
+ \markboth{\chaptername
+ \ \thechapter.\ #1}{}}
+ \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%  \newcommand{\helv}{%
+% \fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
+%  \fancyhf{}
+% \fancyfoot[C]{\helv \thepage}
+% \fancyhead[L]{\helv \rightmark}
+% \fancyhead[R]{\helv \leftmark}
+%\fancyhead[C]{} 
+%\fancyhead[L]{\rightmark}
+%\fancyhead[R]{\leftmark}
+%\fancyfoot[C]{} 
+%\fancyfoot[R]{ \thepage} 
+
+
+%\renewcommand{\thechapter}{\Roman{chapter}}
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}% Pour personnaliser des listes
+\newtheorem{theorem}{Théorème}[chapter]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}{Lemme}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{property}{Propriété}[chapter]
+\newtheorem{definition}{Définition}[chapter]
+\newtheorem*{remark}{Remarque}% Pour ajouter des remarques non numérotées
+\newtheorem*{example}{Exemple} % Pour ajouter des exemples non numérotés
+\newtheorem*{preuve}{\textbf{Preuve}}
+
+\begin{document}
+%\maketitle{} % Pour generer le titre
+
+\frontmatter
+\chapter*{Dédicace\markboth{Dédicace}{}}
+\addcontentsline{toc}{chapter}{Dédicace}
+Au terme de ce travail, je remercie tout d’abord, \textbf{JÉSUS CHRIST} le Seigneur Dieu tout puissant pour la volonté et la santé qu’il m’a donné, me permettant de mener à bien ce mémoire.\\
+Je dédie ce travail à mes regrettés géniteurs OKPO Okaingni et ABE Chabé Marcelline à qui je dois tout ce que je suis aujourd'hui. Grâce à vous j'ai été scolarisé, merci pour votre soutien durant votre existence sur terre. Je vous en suis infiniment reconnaissant. 
+
+\chapter*{Remerciements\markboth{Remerciements}{}}
+\addcontentsline{toc}{chapter}{Remerciements}
+Je suis heureux d'exprimer ici mes remerciements les plus sincères et ma profonde reconnaissance à tous ceux qui de près ou de loin m'ont aidé à réaliser ce travail.
+\begin{center}
+Je remercie Madame ADOHI Adjo Viviane Epouse KROU, Professeur Titulaire, Présidente de l'Université Jean Lourougnon Guédé de Daloa, pour avoir accepté notre soutenance au sein de l'Université ainsi tous ses efforts pour la bonne marche de l'institution.
+\end{center}
+%
+\begin{center} 
+Je remercie Monsieur SORO Dogniméton, Professeur Titulaire, Vice-président Chargé de la Pédagogie, de la Vie Universitaire, de la Recherche et de l'Innovation Technologie de l'Université Jean Lourougnon Guédé qui a toujours été disponible pour répondre à nos préoccupations au plan académique. Je remercie également Monsieur KONE Issiaka, Professeur Titulaire, Vice-président Chargé de la Planification et des rélations Extérieures de l'Université Jean Lourougnon Guédé pour son implication au bien-être des étudiants.
+\end{center}
+%
+\begin{center}
+Grand merci à Madame OHOU Marie Jeanne Epouse YAO, Maître de Conférences, Directrice du CFC (Centre de Formation Continue), pour sa disponibilté, ses conseils de sagesse dont nous avons bénéficié.
+\end{center}
+%
+\begin{center}
+Je tiens à remercier Monsieur DOSSO Mouhamadou, Maître de Conférences à l'Université Félix Houphouët Boigny de Cocody, Directeur scientifique ce travail pour le suivi sans faille des activités de recherche, son soutien et l'amour pour le travail bien fait.
+\end{center}
+%
+\begin{center}
+Mention spéciale à Monsieur Keita Kolé, Maître-Assistant à l'Université Jean Lourougnon Guédé, Encadrant de ce Mémoire  pour m’avoir initié à la recherche; sa disponibilité, sa maitrise du sujet et sa rigueur scientifique m’ont permis de beaucoup apprendre et d’avancer dans ce travail.
+\end{center}
+%
+\begin{center}
+Je remercie Monsieur DIARRA Moussa, Maître de Conférences  à l'Université Jean Lourougnon Guédé, Président du Jury, pour sa contribution à l'amélioration de ce document.
+\end{center}
+%
+\begin{center}
+Je remercie aussi Monsieur N’GUESSAN Tetchi Albin, Maître-Assistant à l'Université Félix Houphouët Boigny de Cocody, Examinateur, pour ses critiques constructives pour une très bonne compréhension du thème de ce Mémoire et sa contribution à l'amélioration de ce document.
+\end{center}
+%
+\begin{center}
+Je tiens à remercier particulièrement Monsieur OKOU A. Kpétihi Soua Hypolithe, Maître de Conférences à l'Université Félix Houphouët Boigny, Responsable de la filière Mathématiques et Informatique pour son écoute et ses conseils durant ces années académiques 2022-2023 et 2023-2024 .
+\end{center}
+%
+\begin{center}
+Je tiens à signifier toute ma reconnaissance à Monsieur KOFFI N’Dodo Boni Clovis, Maître de Conférences  à l'Université Jean Lourougnon Guédé qui m’a encouragé à poursuivre ce master au moment où je n’y croyais plus.
+\end{center}
+%
+\begin{center}
+Je remercie l'ensemble des enseignants et du personnel du Centre de Formation Continue(CFC) de l'Université Jean Lourougnon Guédé de Daloa qui ont contribué à notre formation.\\
+Mention spéciale à mon épouse AMAN Kousso Annick Rachel, ma famille chrétienne pour leurs soutiens indéfectibles  et leur disponibilité.\\
+Merci à mes amis de promotion de la filière Maths-info et mes amis proches pour leurs soutiens. Que Dieu nous aide à atteindre nos différents objectifs.
+\end{center}
+
+
+%%
+\tableofcontents
+\chapter*{Notations\markboth{Notations}{}}
+\addcontentsline{toc}{chapter}{Notations}
+
+\section*{Ensembles et espaces mathématiques}
+\vspace{0.5cm}
+$\begin{array}{lll}
+\mathbb{R} & \textrm{Ensemble des nombres réels}\\
+\mathbb{R}_{+} & \textrm{Ensemble des nombres réels positifs}\\
+\mathbb{R}^{p} & \textrm{Ensemble des vecteurs à p composantes réelles}\\
+\mathbb{C} & \textrm{Ensemble des nombres complexes}\\
+\mathcal{M}_{n,m} & \textrm{Ensemble des matrices d'ordre $ (n,\;m)$}\\
+\mathcal{M}_{n} & \textrm{Ensemble des matrices carrées d'ordre $ n $}\\
+$[a,b]$ & \textrm {Intervalle fermé a,\;b} \\
+B_{r} & \textrm {Boule fermée de rayon $r$} \\
+L^{2}(\Omega,K) & \textrm{Espace de fonctions de carré integrable d'un espace mesuré $\Omega$ et à valeurs dans $K$ }\\
+\mathcal{C}^{0}(I,K) &\textrm{Ensemble des fonctions continues d'un intervalle $ I$ à valeurs dans un ensemble $K$}\\
+\mathcal{C}^{1}(I,K) &\textrm{Ensemble des fonctions de classe $ \mathcal{C}^{1}$  d'un intervalle $ I$ à valeurs dans un ensemble $K$}\\
+\end{array}$
+%
+\section*{Symboles}
+\vspace{0.5cm}
+$\begin{array}{lll}
+\partial_{t} & \textrm{dérivée partielle par rapport à la variable temps}\\
+ \Delta & \textrm{opérateur laplacien}\\
+$[.,.]$ & \textrm{opérateur commutateur}\\
+\{.,.\} & \textrm{opérateur anticommutateur}\\
+\langle.\rangle  & \textrm{moyenne d'un observable}\\
+\vert.\vert & \textrm{module}\\
+$Tr(.)$ & \textrm {trace} \\
+$det(.)$ & \textrm{déterminant }\\
+$\textrm{diag}(.) $ & \textrm{matrice diagonale à partir d'un vecteur }\\
+$\textrm{Diag}(.) $ & \textrm{vecteur avec les éléments diagonaux d'une matrice } \\
+\textrm{Diag}^{N}(.)& \textrm{vecteur avec les éléments situés au dessus de la diagonale d'une matrice } \\
+\end{array}$
+%
+\section*{}
+$\begin{array}{lll}
+\Re{(.)}& \textrm {partie rélle} \\
+\Im{(.)}& \textrm {partie imaginaire} \\
+\overline{(.)}& \textrm {conjugué} \\
+\Vert M \Vert_{\infty} & \textrm{norme matricielle infinie d'une matrice M}\\
+\Vert f \Vert_{\infty} & \textrm{norme uniforme d'une fonction f}\\
+\Vert . \Vert_{2} & \textrm{norme euclidienne }\\
+\end{array}$
+%
+\section*{Variables}
+\vspace{0.5cm}
+$\begin{array}{lll}
+r=(x,y,z) & \textrm{variable d'epace}\\
+t & \textrm{variable du temps}\\
+\rho & \textrm{matrice densité}\\
+\psi  & \textrm{vecteur d'état d'un système quantique}\\
+\psi^{*} & \textrm {adjoint de $\psi$} \\
+\psi_{j} & \textrm{fonction propre du niveau $ j $}\\
+
+\end{array}$
+%
+\section*{opérateurs et paramètres quantiques}
+\vspace{0.5cm}
+$\begin{array}{lll}
+\textrm{c} & \textrm{bande de conduction}\\
+\textrm{v}& \textrm{bande de valence} \\
+w_{jk} & \textrm{fréquence de transition entre les niveaux $j$ et $k$} \\
+W & \textrm{matrice des termes de relaxation dans le modèle Bloch}\\ 
+V^{C} & \textrm{matrice de l'interaction de Coulomb dans le modèle Bloch}\\
+e_{j} & \textrm{énergie du niveau quantique $j$ }\\
+E_{0} & \textrm{matrice diagonale des énergies propres}\\
+\hat{\psi} & \textrm{opérateur de champ d’annihilation}\\
+\hat{\psi}^{\dagger} & \textrm{opérateur de champ de création}\\
+c_{j}, v_{k} & \textrm{opérateurs d’annihilation des électrons respectivement des états $j$ et $k$}\\
+c_{j}^{\dagger}, v_{k}^{\dagger} & \textrm{opérateurs de création des électrons respectivement des états $j$ et $k$}\\
+H & \textrm{hamiltonien}\\
+\end{array}$
+%
+\section*{paramètres physiques}
+\vspace{0.5cm}
+$\begin{array}{lll}
+e & \textrm{charge de l'électron}\\
+\hbar & \textrm{constante de planck reduite }\\
+k_{B} & \textrm{constante de Boltzmann}\\
+T & \textrm{temperature}\\
+k_{C} & \textrm{constante de Coulomb}\\
+m_{e} & \textrm{masse de l’électron}.
+
+\end{array}$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\chapter*{Introduction\markboth{Introduction}{}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Les équations de Bloch sont des systèmes d'équations très courants pour représenter l'évolution temporelle de particules quantiques (par exemple des électrons). Ils permettent d'étudier des materiaux tels que des semi-conducteurs, des cristaux, des gaz d'électrons etc. Ces matériaux sont des systèmes quantiques. Ils sont susceptibles de conduire un courant électrique suite à un traitement spécifique nommé dopage. Ce procédé peut s’effectuer soit par diffusion, par implantation ionique, par transmutation nucléaire ou par technique laser.\\
+Le modèle de type Bloch décrit donc l'évolution temporelle des probabilités de présence des particules dans ces systèmes quantiques qui sont soit des ﬁls quantiques, soit des puits quantiques, soit les boîtes quantiques selon le confinement des particules. 
+Ce modèle est dérivé à partir de l' équation de Schrödinger en posant une variable densité qui correspond au produit de la variable d'état et son adjoint et aussi de l'équation de Heisenberg en utilisant la théorie de la deuxième quantification développée par exemple dans les revues (\cite{mareference1}, \cite{mareference11}, \cite{mareference10}, \cite{mareference5}).\\                                                                                 Dans la littérature, les différents modèles de type Bloch prennent en compte les termes de relaxation (voir par exemple \cite{mareference2}, \cite{mareference4}), termes non linéaires tels que l'interaction de Coulomb (voir par exemple \cite{mareference6}, \cite{mareference7}, \cite{mareference10}) et l'interaction électron-phonon (voir par exemple \cite{mareference9}). Dans les articles cités, nous retrouvons: 
+\begin{itemize}[label=$\bullet$]
+\item des résultats mathématiques tels que l'existence et l'unicité de la solution,
+\item des propriétés qualitatives comme l'hermicité, la positivité  et la conservation de la trace de la matrice densité dans les systèmes quantiques (atomes et boîtes quantiques),
+\item des méthodes numériques de Crank-Nicolson et de splitting pour simuler l'interaction entre le laser et les cristaux non linéaires.
+L'étude du modèle de type Bloch explique la réponse à cette interaction avec les sources laser (ondes électromagnétiques). Ces simulations numériques ont permis de vérifier les résultats mathématiques et les propriétés physiques de la matrice densité.
+\end{itemize}
+
+Le modèle type Bloch avec les termes de relaxation étudiés dans \cite{mareference2}, \cite{mareference4}, \cite{mareference8} a été étudié à $N$ niveaux quantiques, mais les simulations numériques ont été faites avec deux niveaux d'énergie. Dans d'autres articles tels que \cite{mareference9}, des modèles à 3 niveaux ont été étudiés.\\
+  Dans ce mémoire, nous considérons un modèle de type Bloch à 3 trois niveaux d'énergie qui prend en compte  l'interaction de Coulomb donnée dans \cite{mareference1}. \\
+ L'objectif général de ce travail est d'étudier des propriétés mathématiques et qualitatives  d'un système dynamique à variables réelles, obtenu à partir d'un modèle de type Bloch non linéaire. Spécifiquement il s'agira de:
+ \begin{itemize}[label=$\blacktriangleright$]
+ \item développer d'abord un système dynamique à variables réelles à partir du modèle de type Bloch présenté et ce système dynamique est non autonome et non linéaire.
+\item montrer ensuite que le problème de Cauchy associé à ce système dynamique obtenu admet une unique solution localement en temps.
+\item A la suite étudier des propriétés qualitatives de ce système dynamique,
+\item déterminer un état d'équilibre.
+ \end{itemize}
+ Ce mémoire se repartit en quatre (4) chapitres.
+ \begin{enumerate}
+ \item Le chapitre 1 présente un modèle de type Bloch pour les boîtes quantiques à trois niveaux et le développement d'un système dynamique dont la variable vectorielle contient neuf (9) composantes à valeurs réelles.                                                                                                
+\item Le chapitre 2 porte sur l'étude du système dynamique développé au chapitre 1 et montre  l'existence et l’unicité de la solution locale en temps du problème de Cauchy associé.
+\item Le chapitre 3 concerne les propriétés qualitatives du système dynamique telles la conservation de la trace et la positivité de la solution.
+\item Quant au chapitre 4, il détermine un état d'équilibre du système dynamique linéaire.
+ \end{enumerate}
+ Ce mémoire se termine par une conclusion et des perspectives de recherche.
+ 
+ \chapter{Modèle de type Bloch}
+ 
+ \section{Généralités}
+ Le modèle de Bloch donne les dynamiques des densités énergétiques des états quantiques des systèmes. Ces dynamiques dépendent de l’énergie totale du système. Plusieurs types d’énergies existent au sein des systèmes quantiques. Nous pouvons citer:
+ \begin{itemize}[label=$\centerdot$]
+ \item l’énergie libre associée aux particules libres,
+ \item l’énergie de Coulomb engendrée par les interactions entre les particules du système,
+ \item l’énergie de collision et de relaxation,
+ \item l’énergie provenant de l’interaction avec les champs extérieurs.
+ \end{itemize}
+%
+L’énergie totale est la somme de toutes ces énergies.\\
+Deux types de dérivation classique des équations de type Bloch (équation de Liouville) détaillés dans la thèse(\cite{mareference1}) sont utilisés .
+\subsection{Deux dérivations du modèle de Bloch classique}
+\subsubsection{Première quantiﬁcation} 
+En mécanique quantique, l’état d’un système est déterminé par un vecteur appelé vecteur d’état, de carré intégrable sur tout le domaine. Ce vecteur appartient à un espace de Hilbert et dépend du temps $ t $ et de la variable d’espace $ r \in \mathbb{R}^{3} $ ; on le note $ \psi(r,t)$. Il est déterminé via l’équation de Schrödinger:
+\begin{equation}
+i\hbar\partial_{t}\psi(r,t)=H\psi(r,t),
+\end{equation} 
+où $ H $  est l’hamiltonien total du système, dépendant d’un potentiel $ V (r, t),$
+$$ H = -\dfrac{\hbar^{2}}{2m_{e}}\Delta + V (r, t), $$
+%
+et $ m_{e}$ est la masse de l’électron.\\
+La norme du vecteur d’état $ \psi(r,t)$ est la probabilité de trouver la particule à la position
+$ r $ et au temps $ t $.\\
+Dans ce formalisme, l’équation de Liouville se dérive à partir de l’équation de Schrödinger. La matrice densité est égale au produit du vecteur d’état par son adjoint:
+$$ \rho =\psi(r,t)\psi^{*}(r,t) $$
+%
+La dynamique de la matrice densité $\rho $ (équation de Bloch) se déduit de celle du vecteur
+d’état $ \psi(r,t)$ (équation de Schrödinger). La dynamique de l’adjoint $ \psi^{*}(r,t) $ est
+ $$ -i\hbar\partial_{t}\psi^{*}(r,t)=\psi^{*}(r,t)H, $$
+car l’hamiltonien $ H $ est un opérateur hermitien (postulat de la mécanique quantique).\\
+La dérivée temporelle de $ \rho $ donne:
+$$
+i\hbar\partial_{t}\rho(t)= i\hbar\partial_{t}\psi(r,t)\psi^{*}(r,t)+\psi(r,t)i\hbar\partial_{t}\psi^{*}(r,t) = H \rho - \rho H
+$$
+Alors 
+\begin{equation}
+i\hbar\partial_{t}\rho(t) = [H, \rho].
+\end{equation}
+%
+Cette équation s’appelle l’équation de Liouville.
+
+\subsubsection{Seconde quantiﬁcation} 
+Dans le formalisme de la seconde quantiﬁcation, la variable d’état $ \psi(r,t)$ et son adjoint
+$ \psi^{*}(r,t)$ sont remplacés respectivement par les opérateurs de champ $\hat{\psi}(r,t)$ et %
+$\hat{\psi}^{\dagger}(r,t)$ donnés dans la thèse (\cite{mareference1}). Ces opérateurs de champ $\hat{\psi}(r,t)$ et $\hat{\psi}^{\dagger}(r,t)$ permettent respectivement de détruire et de créer les électrons suivant les états propres du système. Ces opérateurs se décomposent suivant les états propres d’un système à une seule particule et cette décomposition fait intervenir les opérateurs d’annihilation $c_{j}$ et de création $c_{j}^{\dagger}$.\\
+Les opérateurs de champ $\hat{\psi}(r,t)$ et $\hat{\psi}^{\dagger}(r,t)$ sont définis  par:
+\begin{equation}\label{operateur de champ}
+\hat{\psi}(r,t)=\sum_{j}c_{j}\psi_{j}(r) \quad \textrm{et}\quad  \hat{\psi}(r,t)=\sum_{j}c_{j}^{\dagger}\psi_{j}^{*}(r) 
+\end{equation} 
+où les fonctions $ \psi_{j}(r) $ sont les fonctions propres obtenues à partir de l’équation aux valeurs propres de Schrödinger qui est donnée pour tout $j\in \{1, ..., N\} $ :
+$$ H\psi_{j}= e_{j}\psi_{j} $$
+où $ e_{j} $ est l’énergie propre associée à la fonction propre $ \psi_{j}$.
+\par
+La matrice densité est égale à la moyenne du produit des deux opérateurs de champ $\hat{\psi}(r,t)$ et $\hat{\psi}^{\dagger}(r,t)$ . Cette moyenne se note:
+$$ \rho(t)=\langle\hat{\psi}(r,t)\hat{\psi}^{\dagger}(r,t) \rangle $$
+En remplaçant ces opérateurs par les décompositions (\ref{operateur de champ}), on obtient:
+$$ \rho_{jk}= \langle c_{k}^{\dagger}c_{j}\rangle $$
+L’élément $\rho_{jk} $ est égal à l’observable qui permet d’annihiler un électron à l’état $ j $ et créer
+un autre électron à l’état $ k $.\\
+Les éléments de la matrice densité $ \rho_{jk} $ rentrent dans le cadre de la représentation de
+Heisenberg (voir \cite{mareference15}), qui permet de déterminer l’évolution temporelle de l’observable associé à l’opérateur $ \hat{A}$. L’observable de l’opérateur $ \hat{A}$ se calcule par rapport à un opérateur statistique $ \hat{S_{0}}$ la densité initiale du système (voir par exemple \cite{mareference6}).
+$$ \langle\hat{A}\rangle = \textrm{Tr}(\hat{S_{0}}\hat{A}).$$
+
+La variation temporelle de $ \hat{A}$ est donnée par l’équation de Heisenberg:
+\begin{equation}\label{equation Heisenberg}
+ i\hbar\partial_{t}\langle\hat{A}\rangle =\langle[\hat{A}, H]\rangle.
+\end{equation}
+En remplaçant l’opérateur $ \hat{A}$ par $ c_{k}^{\dagger}c_{j} $ dans l'équation (\ref{equation Heisenberg}), nous obtenons 
+\begin{equation}
+ i\hbar\partial_{t}\rho_{jk}=\langle[c_{k}^{\dagger}c_{j}, H]\rangle.
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{0.3cm}
+\par
+La variable du modèle de type Bloch est une matrice appelée matrice densité et notée $ \rho $, ($ \rho\in \mathcal{M}_{N}(\mathbb{C})$). 
+Cette matrice fournit des informations sur les taux d'occupation des états quantiques et les probabilités de transition entre ces états. 
+\begin{itemize}[label=$\bullet$] 
+\item Les éléments diagonaux de la matrice $ \rho $ noté $ \rho_{jj} $ avec $ j\in\{1;\cdots;N\}$ correspondent aux probabilités d’occupation du niveau quantique $j$.
+ \item Les éléments non diagonaux $ \rho_{jk}$ sont des nombres complexes dont les modules, notés $\vert\rho_{jk}\vert$, avec $ j,k \in\{1;\cdots;N\}$ et $ j\neq k $, peuvent être interprètés comme des probabilités de transition entre les niveaux quantiques $j$ et  $k$.
+\end{itemize}
+ Les éléments diagonaux et non diagonaux  sont appelés respectivement populations et cohérences (voir dans \cite{mareference1} à la page 17). \\
+La forme générale du modèle de type Bloch avec les termes de relaxation et de Coulomb  est donnée par :
+
+\begin{equation}\label{modèle de base}
+\left\{
+   \begin{array}{rcl}
+   
+   \partial_{t}\rho & = & -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]\Big)+ W(\rho), \forall t>0 \\
+   \rho(0)          & = & \rho^{0},
+   
+   \end{array}
+ \right.
+\end{equation}
+
+où 
+\begin{itemize}[label=$\centerdot$]
+\item $ \rho^{0}\in \mathcal{M}_{N}(\mathbb{C}) $,
+\item $ E_{0}= diag((e_{j})_{j}) $  où $j\in \{1,\ldots, N\}, \; e_{j}$ est une énergie propre libre du niveau quantique $j$ et représente une valeur propre de l'opérateur de Schrödinger non stationnaire et sans les potentiels d'interaction,
+\item $ W(\rho)\in \mathcal{M}_{N}(\mathbb{C}) $ correspond aux termes de relaxation issus de l'équation maîtresse de Pauli donnés dans \cite{mareference2},
+\item $ V^{\textrm{C}}(\rho)\in \mathcal{M}_{N}(\mathbb{C}) $ correspond aux termes de Coulomb issus de l'interaction de Coulomb entre les particules (électrons et trous) donnés dans \cite{mareference1}. Les termes de Coulomb correspondent au comportement des particules dans les systèmes quantiques à plusieurs particules. Ces particules étant chargées se repoussent ou s’attirent et ce sont ces deux actions (répulsion et attraction) qui constituent l’interaction de Coulomb (voir dans \cite{mareference1} à la page 31).                              
+\end{itemize}
+Ces systèmes quantiques cités plus haut étant des semi-conducteurs sont des matériaux électriquement intermédiaires entre les matériaux isolants et les matériaux conducteurs. Ils possèdent deux bandes d'énergie, notamment une bande de valence et une bande de conduction.\\
+Ainsi dans ce mémoire, nous nous intéressons à un modèle de type Bloch à trois niveaux quantiques c'est à dire $N=3$ dont deux niveaux dans la bande de valence (notés 1 et 2) et un seul niveau dans la bande de conduction (noté 3).\medskip
+
+\subsection{Termes de relaxation de Pauli }
+Les termes de relaxation de l'équation maîtresse de Pauli sont représentés dans une matrice notée $ W(\rho)$ dans les travaux \cite{mareference2}. 
+Les éléments de cette matrice sont définis ainsi:\\
+pour tout $ j,k \in \{1,2,3\}$,
+$$
+\begin{array}{rcl}
+ W(\rho)_{jj} & = & \displaystyle\sum_{k=1,k\neq j}^{3} (w_{jk}\rho_{k}-w_{kj}\rho_{j}), \\
+W(\rho)_{jk} & = & \gamma_{jk}\rho_{jk},j\neq k 
+
+\end{array}
+$$
+avec $ w_{jk}, \gamma_{jk}\in\mathbb{R}_{+}.$\\
+
+
+La relaxation du système vers les états d’équilibre n'est possible qu'en imposant :
+$$
+ w_{jk} = w_{kj}\exp\left(\dfrac{e_{k}-e_{j}}{k_{B}T}\right),\quad \forall j,k \in \{1,2,3\}.
+$$ 
+où $ k_{B} $ est la constante de Boltzmann et $ T $ la température.\\
+Nous posons:
+$$
+ \forall j\in \{1,2,3\}, a_{j} = \exp\left(\dfrac{e_{j}}{k_{B}T}\right).
+$$ 
+
+Alors:
+$$
+ \forall j,k \in \{1,2,3\}, w_{jk} = w_{kj}\dfrac{a_{k}}{a_{j}}.
+$$ 
+
+\textbf{Les termes diagonaux }
+
+Les termes diagonaux de la matrice $ W(\rho)$ sont développés selon la forme:
+\begin{eqnarray*}
+  W(\rho)_{11} & = & \displaystyle\sum_{k=1,k\neq 1}^{3} (w_{1k}\rho_{kk}-w_{k1}\rho_{11})= -(w_{21} + w_{31})\rho_{11} + w_{12}\rho_{22} + w_{13}\rho_{33}.          
+  \end{eqnarray*}  
+  \begin{eqnarray*}
+  W(\rho)_{22} & = & \displaystyle\sum_{k=1,k\neq 2}^{3} (w_{2k}\rho_{kk}-w_{k2}\rho_{22})= w_{21}\rho_{11}-(w_{12} + w_{32})\rho_{22} + w_{23}\rho_{33}.            
+  \end{eqnarray*}  
+ \begin{eqnarray*}
+  W(\rho)_{33} & = & \displaystyle\sum_{k=1,k\neq 3}^{3} (w_{3k}\rho_{kk}-w_{k3}\rho_{33})= w_{31}\rho_{11} + w_{32}\rho_{22}-(w_{13} + w_{23})\rho_{33}.           
+  \end{eqnarray*}
+
+\textbf{Quant aux termes non diagonaux }, 
+ 
+les éléments non diagonaux sont explicités sous la forme:
+   \begin{eqnarray*}
+   \begin{array}{lcl}
+    W(\rho)_{12} = \gamma_{12}\rho_{12} & \; , \; & W(\rho)_{13} = \gamma_{13}\rho_{13}\\
+ W(\rho)_{21} =  \gamma_{21}\rho_{21} & \; , \; & W(\rho)_{23} = \gamma_{23}\rho_{23} \\ 
+ W(\rho)_{31} =  \gamma_{31}\rho_{31} & \; , \; & W(\rho)_{32} = \gamma_{32}\rho_{32}.  
+   \end{array}     
+  \end{eqnarray*}
+
+\subsection{Termes de Coulomb}
+La matrice $V^{\textrm{C}}(\rho)$ du phénomène de Coulomb définie dans \cite{mareference1}(page 46) est donnée  pour $N$ niveaux d'énergie. Ainsi la matrice $V^{\textrm{C}}(\rho)$ se définit selon:
+ \renewcommand{\arraystretch}{1.5}
+  {\setlength{\jot}{2cm}
+  \begin{eqnarray*}
+   V^{\textrm{C}}(\rho)  
+ & = & \begin{pmatrix}
+\Lambda^{\textsc{v}}_{11}(\rho)+\zeta^{\textsc{c}}_{11}(\rho)+\kappa^{\textsc{v}}_{11} & \Lambda^{\textsc{v}}_{12}(\rho)+\zeta^{\textsc{c}}_{12}(\rho)+\kappa^{\textsc{v}}_{12}   & \gamma^{\textsc{v-c}}_{13}(\rho)\\
+\Lambda^{\textsc{v}}_{21}(\rho)+\zeta^{\textsc{c}}_{21}(\rho)+\kappa^{\textsc{v}}_{21}  & \Lambda^{\textsc{v}}_{22}(\rho)+\zeta^{\textsc{c}}_{22}(\rho)+\kappa^{\textsc{v}}_{22}  & \gamma^{\textsc{v-c}}_{23}(\rho)\\
+\gamma^{\textsc{c-v}}_{31}(\rho) & \gamma^{\textsc{c-v}}_{32}(\rho) & \Lambda^{\textsc{c}}_{33}(\rho)+\zeta^{\textsc{v}}_{33}(\rho)+\eta^{\textsc{c-v}}_{33}
+    \end{pmatrix}         
+  \end{eqnarray*}
+    {\setlength{\jot}{1cm}
+  \renewcommand{\arraystretch}{1}
+  
+ Les éléments de la matrice $V^{\textrm{C}}(\rho)$ donnés dans \cite{mareference1}(Pages 42 à 45), s'écrivent comme suit: 
+ $$
+ \begin{array}{lclclcl}
+  \Lambda^{\textsc{v}}_{jk}(\rho) &=& 2\displaystyle\sum_{\alpha_{1},\alpha_{2}}(R^{\textsc{v}}_{j\alpha_{1}k\alpha_{2}}-R^{\textsc{v}}_{j\alpha_{1}\alpha_{2}k})\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}} & \; , \; &
+ \Lambda^{\textsc{c}}_{jk}(\rho) &=& 2\displaystyle\sum_{\alpha_{1},\alpha_{2}}(R^{\textsc{c}}_{j\alpha_{1}k\alpha_{2}}-R^{\textsc{c}}_{j\alpha_{1}\alpha_{2}k})\rho^{\textsc{c}}_{\alpha_{2}\alpha_{1}}\\ 
+\zeta^{\textsc{v}}_{jk}(\rho) &=& \displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{j\alpha_{1}k\alpha_{2}}\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}} & \; , \; &
+\zeta^{\textsc{c}}_{jk}(\rho) &=& \displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{1}j\alpha_{2}k}\rho^{\textsc{c}}_{\alpha_{2}\alpha_{1}}\\
+ \gamma^{\textsc{v-c}}_{jk}(\rho) &=& -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{1}jk\alpha_{2}}\rho^{\textsc{vc}}_{\alpha_{2}\alpha_{1}} & \; , \; &
+\gamma^{\textsc{c-v}}_{jk}(\rho) &=& -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{j\alpha_{1}\alpha_{2}k}\rho^{\textsc{cv}}_{\alpha_{2}\alpha_{1}}\\
+\eta^{\textsc{c-v}}_{jk} &=& -\displaystyle\sum_{\alpha}R^{\textsc{c-v}}_{j\alpha k \alpha} & \; , \; &
+  \kappa^{\textsc{v}}_{jk} &=& 2\displaystyle\sum_{\beta}(R^{\textsc{v}}_{\beta jk \beta}-R^{\textsc{v}}_{\beta j \beta k}).
+ \end{array}
+$$
+
+Les termes dans les différentes sommes sont appelés les paramètres de Coulomb et dépendent des fonctions propres des diﬀérents états d'énergies du système quantique.\\
+ Les expressions de ces paramètres sont données dans \cite{mareference10} (page 6) et se présentent ainsi:
+\begin{eqnarray*}
+R^{\textsc{c}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} &= &\dfrac{N^{2}}{2}\iint \psi^{\textsc{c*}}_{\alpha_{1}}(r)\psi^{\textsc{c*}}_{\alpha_{2}}(r')V^{\textsc{c}}(r,r')\psi^{\textsc{c}}_{\alpha'_{2}}(r')\psi^{\textsc{c}}_{\alpha'_{1}}(r)\,\mathrm{d}r\mathrm{d}r'\\
+R^{\textsc{v}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} &=& \dfrac{N^{2}}{2}\iint \psi^{\textsc{v}}_{\alpha'_{1}}(r)\psi^{\textsc{v}}_{\alpha'_{2}}(r')V^{\textsc{v}}(r,r')\psi^{\textsc{v*}}_{\alpha_{2}}(r')\psi^{\textsc{v*}}_{\alpha_{1}}(r)\,\mathrm{d}r\mathrm{d}r'\\
+R^{\textsc{c-v}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} &= &-N^{2}\iint \psi^{\textsc{c*}}_{\alpha_{1}}(r)\psi^{\textsc{v}}_{\alpha'_{2}}(r')V^{\textsc{c-v}}(r,r')\psi^{\textsc{v*}}_{\alpha_{2}}(r')\psi^{\textsc{c}}_{\alpha'_{1}}(r)\,\mathrm{d}r\mathrm{d}r'.
+ \end{eqnarray*}
+
+ où $ V^{\textsc{c}}$ , $V^{\textsc{v}}$ et $ V^{\textsc{c-v}}$ sont les potentiels de Coulomb définis comme suit:
+ $$ V^{\textsc{c}}(r,r')= V^{\textsc{v}}(r,r')=\dfrac{k_{\textrm{C}}}{\vert r-r'\vert}\quad \mathrm{et}\quad V^{\textsc{c-v}}=-\dfrac{k_{\textrm{C}}}{\vert r-r'\vert},$$
+avec $ k_{\textrm{C}}$ la constante de Coulomb.\\
+
+Les symétries dans les integrales ci-dessus induisent la propriéte suivante donnée dans \cite{mareference10} (Page 6)
+\begin{property}
+Puisque $ V(r,r')$ est une fonction paire de $r-r'$, les variables $r$ et $r'$ jouent le même rôle et
+$$ R^{\textsc{c}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} = R^{\textsc{c}}_{\alpha_{2}\alpha_{1}\alpha'_{2}\alpha'_{1}}, \qquad  R^{\textsc{v}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} = R^{\textsc{v}}_{\alpha_{2}\alpha_{1}\alpha'_{2}\alpha'_{1}}$$
+
+Comme $ V(r,r')$ est une fonction à valeurs réelles alors 
+
+$$ R^{\textsc{c}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} = R^{\textsc{c*}}_{\alpha'_{1}\alpha'_{2}\alpha_{1}\alpha_{2}}, \qquad  R^{\textsc{v}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} = R^{\textsc{v*}}_{\alpha'_{1}\alpha'_{2}\alpha_{1}\alpha_{2}}$$
+$$ R^{\textsc{c-v}}_{\alpha_{1}\alpha_{2}\alpha'_{1}\alpha'_{2}} = (R^{\textsc{c-v}}_{\alpha'_{1}\alpha'_{2}\alpha_{1}\alpha_{2}})^{*}$$
+\end{property}
+
+Écrivons la matrice $V^{\textrm{C}}(\rho)$ comme une somme de deux matrices (l'une dépendant de $\rho$).
+Nous obtenons:
+\renewcommand{\arraystretch}{1.5}
+{\setlength{\jot}{2cm}
+  \begin{eqnarray*}
+   V^{\textrm{C}}(\rho)  
+ & = &\underbrace{\begin{pmatrix}
+                            \kappa^{\textsc{v}}_{11} & \kappa^{\textsc{v}}_{12} & 0\\
+                  \kappa^{\textsc{v}}_{21} & \kappa^{\textsc{v}}_{22} & 0\\
+                                         0 & 0                        & \eta^{\textsc{c-v}}_{33}
+         \end{pmatrix}}_{V_{1}^{\textrm{C}}} + \underbrace{\begin{pmatrix}
+\Lambda^{\textsc{v}}_{11}(\rho)+\zeta^{\textsc{c}}_{11}(\rho) & \Lambda^{\textsc{v}}_{12}(\rho)+\zeta^{\textsc{c}}_{12}(\rho)   & \gamma^{\textsc{v-c}}_{13}(\rho)\\
+\Lambda^{\textsc{v}}_{21}(\rho)+\zeta^{\textsc{c}}_{21}(\rho) & \Lambda^{\textsc{v}}_{22}(\rho)+\zeta^{\textsc{c}}_{22}(\rho)   & \gamma^{\textsc{v-c}}_{23}(\rho)\\
+\gamma^{\textsc{c-v}}_{31}(\rho) & \gamma^{\textsc{c-v}}_{32}(\rho) & \Lambda^{\textsc{c}}_{33}(\rho)+\zeta^{\textsc{v}}_{33}(\rho)
+         \end{pmatrix}}_{V_{2}^{\textrm{C}}(\rho)}     
+  \end{eqnarray*}
+  {\setlength{\jot}{1cm}
+ \renewcommand{\arraystretch}{1}
+
+La matrice $ V_{1}^{\textrm{C}} $ est indépendante de la matrice densité $\rho$ et s'écrit:
+\renewcommand{\arraystretch}{2}
+ $$
+   V_{1}^{\textrm{C}} = \begin{pmatrix}
+                  \kappa^{\textsc{v}}_{11} & \kappa^{\textsc{v}}_{12} & 0\\
+                  \kappa^{\textsc{v}}_{21} & \kappa^{\textsc{v}}_{22} & 0\\
+                                         0 & 0                        & \eta^{\textsc{c-v}}_{33}
+         \end{pmatrix} \\
+$$
+\renewcommand{\arraystretch}{1}
+ {\setlength{\jot}{0.35cm}
+Les éléments de la matrice $ V_{1}^{\textrm{C}} $ sont calculés comme suit:
+\begin{eqnarray*}
+ \kappa^{\textsc{v}}_{11} & = & 2\displaystyle\sum_{\beta=1}^{2}(R^{\textsc{v}}_{\beta 11 \beta}-R^{\textsc{v}}_{\beta 1 \beta 1})  = 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121}) \\  
+\kappa^{\textsc{v}}_{12} & = & 2\displaystyle\sum_{\beta=1}^{2}(R^{\textsc{v}}_{\beta 12 \beta}-R^{\textsc{v}}_{\beta 1 \beta 2})= 2(R^{\textsc{v}}_{1121}-R^{\textsc{v}}_{1112})= 0 \\
+ \kappa^{\textsc{v}}_{21}& = & 2\displaystyle\sum_{\beta=1}^{2}(R^{\textsc{v}}_{\beta 21 \beta}-R^{\textsc{v}}_{\beta 2\beta 1})= 2\left[(R^{\textsc{v}}_{1211}-R^{\textsc{v}}_{1211})+(R^{\textsc{v}}_{2212}-R^{\textsc{v}}_{2221}) \right]=0 \\
+\kappa^{\textsc{v}}_{22}& = & 2\displaystyle\sum_{\beta=1}^{2}(R^{\textsc{v}}_{\beta 22 \beta}-R^{\textsc{v}}_{\beta 2\beta 2}) = 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121}) \\
+\eta^{\textsc{c-v}}_{33}& = & -\displaystyle\sum_{\alpha=1}^{2}R^{\textsc{c-v}}_{3 \alpha 3 \alpha}= -(R^{\textsc{c-v}}_{3131}+R^{\textsc{c-v}}_{3232})  
+\end{eqnarray*}             
+ 
+Finalement la matrice $ V_{1}^{\textrm{C}} $ est diagonale et s'écrit ainsi:
+\renewcommand{\arraystretch}{2}
+\begin{equation}
+ V_{1}^{\textrm{C}} = \begin{pmatrix}
+         2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121}) &                   0                            & 0\\
+                                   0                    & 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121}) & 0\\
+                                   0                    & 0  & -(R^{\textsc{c-v}}_{3131}+R^{\textsc{c-v}}_{3232}) 
+         \end{pmatrix}
+\end{equation}
+\renewcommand{\arraystretch}{1}\\
+
+Quant à la matrice $V_{2}^{\textrm{C}}(\rho) $, elle s'écrit:
+ \renewcommand{\arraystretch}{2.2}
+  {\setlength{\jot}{0.35cm}
+  \begin{eqnarray*}
+V_{2}^{\textrm{C}}(\rho)  
+ & = & \begin{pmatrix}
+\Lambda^{\textsc{v}}_{11}(\rho)+\zeta^{\textsc{c}}_{11}(\rho) & \Lambda^{\textsc{v}}_{12}(\rho)+\zeta^{\textsc{c}}_{12}(\rho)   & \gamma^{\textsc{v-c}}_{13}(\rho)\\
+\Lambda^{\textsc{v}}_{21}(\rho)+\zeta^{\textsc{c}}_{21}(\rho) & \Lambda^{\textsc{v}}_{22}(\rho)+\zeta^{\textsc{c}}_{22}(\rho)   & \gamma^{\textsc{v-c}}_{23}(\rho)\\
+\gamma^{\textsc{c-v}}_{31}(\rho) & \gamma^{\textsc{c-v}}_{32}(\rho) & \Lambda^{\textsc{c}}_{33}(\rho)+\zeta^{\textsc{v}}_{33}(\rho)
+         \end{pmatrix}
+  \end{eqnarray*}
+  
+Ces éléments dépendent de la matrice densité $\rho$ et se présentent comme suit:
+\begin{itemize}[label=$\bullet$]
+\item Les termes $ \Lambda^{\textsc{v}}_{jk}(\rho) $ sont définis par:
+\begin{eqnarray*}
+\Lambda^{\textsc{v}}_{11}(\rho) &=& 2\sum_{\alpha_{1}=1}^{2}\sum_{\alpha_{2}=1}^{2}(R^{\textsc{v}}_{1\alpha_{1}1\alpha_{2}}-R^{\textsc{v}}_{1\alpha_{1}\alpha_{2}1})\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}}= 2(R^{\textsc{v}}_{1212}-R^{\textsc{v}}_{1221})\rho_{22}\\ 
+\Lambda^{\textsc{v}}_{12}(\rho)&=&2\sum_{\alpha_{1}=1}^{2}\sum_{\alpha_{2}=1}^{2}(R^{\textsc{v}}_{1\alpha_{1}2\alpha_{2}}-R^{\textsc{v}}_{1\alpha_{1}\alpha_{2}2})\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}}= 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{12}\\
+\Lambda^{\textsc{v}}_{21}(\rho)&=&2\sum_{\alpha_{1}=1}^{2}\sum_{\alpha_{2}=1}^{2}(R^{\textsc{v}}_{2\alpha_{1}1\alpha_{2}}-R^{\textsc{v}}_{2\alpha_{1}\alpha_{2}1})\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}}= 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{21}\\
+\Lambda^{\textsc{v}}_{22}(\rho) &=& 2\sum_{\alpha_{1}=1}^{2}\sum_{\alpha_{2}=1}^{2}(R^{\textsc{v}}_{2\alpha_{1}2\alpha_{2}}-R^{\textsc{v}}_{2\alpha_{1}\alpha_{2}2})\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}} =  -2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{11}
+\end{eqnarray*}
+\item le terme $ \Lambda^{\textsc{c}}_{33}(\rho) $ s'écrit: 
+$$ \Lambda^{\textsc{c}}_{33}(\rho) = 2(R^{\textsc{c}}_{3333}-R^{\textsc{c}}_{3333})\rho_{33}=0 $$
+
+\item le terme $\zeta^{\textsc{v}}_{33}(\rho) $ s'écrit:        
+\begin{eqnarray*}
+\zeta^{\textsc{v}}_{33}(\rho)  &=& R^{\textsc{c-v}}_{3131}\rho_{11}+R^{\textsc{c-v}}_{3132}\rho_{21}+R^{\textsc{c-v}}_{3231}\rho_{12}+R^{\textsc{c-v}}_{3232}\rho_{22}\\                                                                                                &=& R^{\textsc{c-v}}_{3131}\rho_{11}+2\Re(R^{\textsc{c-v}}_{3231}\rho_{12})+R^{\textsc{c-v}}_{3232}\rho_{22}                                                                                                  
+\end{eqnarray*}
+\item Les termes $ \zeta^{\textsc{c}}_{jk}(\rho) $ sont définis par:
+$$ \zeta^{\textsc{c}}_{11}(\rho)= R^{\textsc{c-v}}_{3131}\rho_{33}\; ,\; \zeta^{\textsc{c}}_{12}(\rho) = R^{\textsc{c-v}}_{3132}\rho_{33}=\overline{\zeta^{\textsc{c}}_{21}(\rho)}\quad \mathrm{et} \quad\zeta^{\textsc{c}}_{22}(\rho) = R^{\textsc{c-v}}_{3232}\rho_{33} $$
+\item Les termes $ \gamma^{\textsc{c-v}}_{jk}(\rho) $ sont définis par:
+$$ \gamma^{\textsc{c-v}}_{31}(\rho)= -\left( R^{\textsc{c-v}}_{3131}\rho_{31}+ R^{\textsc{c-v}}_{3231}\rho_{32}\right)\;\mathrm{et}\; \gamma^{\textsc{c-v}}_{32}(\rho) = -\left( R^{\textsc{c-v}}_{3132}\rho_{31}+ R^{\textsc{c-v}}_{3232}\rho_{32}\right) $$
+\item Les termes $ \gamma^{\textsc{v-c}}_{jk}(\rho) $ sont définis par:
+$$ \gamma^{\textsc{v-c}}_{13}(\rho)= -\left( R^{\textsc{c-v}}_{3131}\rho_{13}+ R^{\textsc{c-v}}_{3132}\rho_{23}\right)\;\textrm{et} \; \gamma^{\textsc{v-c}}_{23}(\rho) = -\left( R^{\textsc{c-v}}_{3231}\rho_{13}+ R^{\textsc{c-v}}_{3232}\rho_{23}\right) $$
+
+\end{itemize}
+Par conséquent la matrice $ V_{2}^{\textrm{C}}(\rho) $ nous donne:
+  \begin{scriptsize}
+  \begin{eqnarray*}  
+V_{2}^{\textrm{C}}(\rho)  
+ & = & \begin{pmatrix}
+-2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{22}+R^{\textsc{c-v}}_{3131}\rho_{33} & 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{12}+R^{\textsc{c-v}}_{3132}\rho_{33}   & -\left( R^{\textsc{c-v}}_{3131}\rho_{13}+ R^{\textsc{c-v}}_{3132}\rho_{23}\right)\\
+2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{21}+R^{\textsc{c-v}}_{3231}\rho_{33} & -2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\rho_{11}+R^{\textsc{c-v}}_{3232}\rho_{33}   & -\left( R^{\textsc{c-v}}_{3231}\rho_{13}+ R^{\textsc{c-v}}_{3232}\rho_{23}\right)\\
+-\left( R^{\textsc{c-v}}_{3131}\rho_{31}+ R^{\textsc{c-v}}_{3231}\rho_{32}\right) & -\left( R^{\textsc{c-v}}_{3132}\rho_{31}+ R^{\textsc{c-v}}_{3232}\rho_{32}\right) & R^{\textsc{c-v}}_{3131}\rho_{11}+2\Re(R^{\textsc{c-v}}_{3231}\rho_{12})+R^{\textsc{c-v}}_{3232}\rho_{22}                                                                                                 
+         \end{pmatrix}
+  \end{eqnarray*}     
+  \end{scriptsize}\\
+  
+  La matrice $ V_{2}^{\textrm{C}}(\rho) $ dépend explicitement de la matrice densité $\rho $ et nous conduit à la proposition suivante:
+  \begin{proposition}
+  La matrice $ V_{2}^{\textrm{C}}(\rho) $ dépend explicitement des éléments de $ \rho $ alors elle rend le modéle de type Bloch (\ref{modèle de base}) non linéaire.
+  \end{proposition}
+  
+  \begin{proof}
+  La solution $ \rho $ du modèle de Bloch (\ref{modèle de base}) vérifie l'équation:
+$$ \partial_{t}\rho  = -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]\Big)+ W(\rho) $$
+Comme $ V^{\textrm{C}}(\rho)= V_{1}^{\textrm{C}}+ V_{2}^{\textrm{C}}(\rho) $, alors 
+$$ \partial_{t}\rho  = -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V_{1}^{\textrm{C}},\rho]+[V_{2}^{\textrm{C}}(\rho),\rho]\Big)+ W(\rho) $$
+Soit $ \alpha $ un scalaire et vérifions que 
+$$ \partial_{t}(\alpha\rho) \neq \alpha\partial_{t}\rho $$
+On a:
+$$ \partial_{t}(\alpha\rho) = -\dfrac{i}{\hbar}\alpha\Big([E_{0},\rho]+[V_{1}^{\textrm{C}},\rho]\Big)+ \alpha W(\rho)-\dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\alpha\rho),\alpha\rho] $$
+Or $$ V_{2}^{\textrm{C}}(\alpha\rho)= \alpha V_{2}^{\textrm{C}}(\rho).$$
+D'où
+$$ [V_{2}^{\textrm{C}}(\alpha\rho),\alpha\rho] = \alpha^{2}[V_{2}^{\textrm{C}}(\rho),\rho] $$
+Alors
+$$ \partial_{t}(\alpha\rho) = -\dfrac{i}{\hbar}\alpha\Big([E_{0},\rho]+[V_{1}^{\textrm{C}},\rho] + \alpha[V_{2}^{\textrm{C}}(\rho),\rho]\Big)+ \alpha W(\rho) .$$
+Donc 
+$$ \partial_{t}(\alpha\rho) \neq \alpha\partial_{t}\rho .$$
+Par conséquent, la matrice $ V_{2}^{\textrm{C}}(\rho) $ rend le modéle de type Bloch (\ref{modèle de base}) non linéaire.
+
+  \end{proof}
+  
+\section{Problème de Cauchy}  
+
+L’existence de solutions aux systèmes de Maxwell–Bloch, dans les cas simplifiés ou seulement avec les énergies libres des électrons et interaction laser–matière, est prouvée localement en temps dans le livre \cite{mareference11} et globalement dans le journal \cite{mareference12}. L’existence globale de solution pour les modèles de Maxwell–Bloch avec les termes de relaxation est prouvée dans \cite{mareference13}, \cite{mareference14}.\\
+L’étude du problème de Cauchy local en temps a été effectuée pour les modèles de Bloch pour les milieux différents des boîtes quantiques. Dans le livre \cite{mareference11}, on retrouve une étude de l’existence de la solution d’un modèle de Bloch considérant les termes de relaxations et cette étude est
+similaire à celle du modèle sans relaxation car les termes de relaxation sont linéaires. Les
+modèles de Maxwell–Bloch y sont linéaires en la variable $\rho $.\\
+Dans notre cas, les modèles de Bloch associés à interaction de Coulomb sont non-linéaires et l'étude du problème de Cauchy a été effectué dans la thèse \cite{mareference1}.
+
+
+\section{Propriétés qualitatives} \label{section proprietes qualitatives}
+La solution du modèle de type Bloch  doit conserver au cours du temps certaines propriétés qui sont
+nécessaires pour sa validation mathématique et physique. La particularité du modèle provient de l’interaction de Coulomb qui le rend non-linéaire et complique sa structure algébrique. 
+Pour montrer que ce modèle de Bloch est un bon candidat pour la modélisation des boîtes quantiques, nous allons montrer que les propriétés telles que la conservation de
+la trace, l’hermicité et la positivté de sa solution sont conservées au cours du temps. 
+Le modèle de type Bloch (\ref{modèle de base}) vérifie certaines propriétés données dans \cite{mareference1}.
+
+\subsection{Conservation de la trace}
+
+Dans la thèse \cite{mareference1} (page 66), il est écrit que la trace de la matrice densité est la somme des probabilités d’occupation des états propres du système.
+\`{A} l’instant initial, la somme des éléments diagonaux de la matrice densié est égale à 1.
+La conservation de la trace est donc équivalente à une trace égale à la trace initiale.\\
+Pour une densité initiale $\rho_{0}$ donnée, nous avons la théorème suivant.
+
+\begin{theorem}
+ Pour tout $ t\geq 0$ , 
+ $$ \textrm{Tr}(\rho(t))= \textrm{Tr}(\rho_{0}).$$
+\end{theorem}
+
+\begin{proof}
+Nous posons $$ V(t,\rho)= E_{0} +  V^{\textrm{C}}(\rho). $$
+Alors l'équation du système (\ref{modèle de base}) devient:
+\begin{equation}\label{equation du modele de base}
+\partial_{t}\rho(t) = W(\rho)-\dfrac{i}{\hbar}\left[V(t,\rho(t)),\rho(t)\right].
+\end{equation}
+Calculons $ \partial_{t}\textrm{Tr}(\rho(t))$ .
+\begin{eqnarray*}
+\partial_{t}\textrm{Tr}(\rho(t)) & = & \textrm{Tr}(\partial_{t}\rho(t))\\
+                     & =  & \textrm{Tr}\left(W(\rho)-\dfrac{i}{\hbar}\left[V(t,\rho(t)),\rho(t)\right]\right)\\
+                     & =  & \textrm{Tr}\left(W(\rho)\right)
+\end{eqnarray*}
+car la trace du commutateur de deux opérateurs est nulle.\\
+Calculons la trace de $ W(\rho) $:
+%
+\begin{eqnarray*}
+\begin{split}
+\textrm{Tr}\left(W(\rho)\right) & =  \sum_{j=1}^{3} W(\rho)_{j} \\ 
+& = \displaystyle\sum_{j=1}^{3}\sum_{k=1,k\neq j}^{3} (w_{jk}\rho_{kk}-w_{kj}\rho_{jj})\\
+& =  -(w_{21} + w_{31})\rho_{11} + w_{12}\rho_{22} + w_{13}\rho_{33} + w_{21}\rho_{11}-(w_{12} + w_{32})\rho_{22}  \\
+&\quad + w_{23}\rho_{33}+ w_{31}\rho_{11} + w_{32}\rho_{22}-(w_{13} + w_{23})\rho_{33}\\
+& = 0
+\end{split}
+\end{eqnarray*}
+Alors $ \forall t>0 , \quad \partial_{t}\textrm{Tr}(\rho(t)) = 0 \Rightarrow \textrm{Tr}(\rho(t))= \textrm{Tr}(\rho_{0}),\quad \forall t\geq 0 $
+\end{proof}
+
+\subsection{Hermicité de la matrice densité}  
+Dans la thèse \cite{mareference1} (page 67), l’hermicité est une propriété très importante de la matrice densité car elle permet notamment d’aﬃrmer que les cohérences qui sont les éléments $\rho_{jk}^{\delta}$ et $\rho_{kj}^{\delta}$ pour tout $j \neq k$ ont les mêmes modules, c'est à dire que les probabilités de transition j vers k et k vers j sont identiques.\\
+En considérant une matrice densité hermitienne à l’instant initial $(\rho_{0}^{*}=\rho_{0})$, on a alors
+le théorème suivant avec le modèle (\ref{modèle de base}).
+
+\begin{theorem}
+Si $ \rho_{0}^{*} = \rho_{0} $ alors pour tout temps $t>0$, on a
+$$ \rho^{*}(t) = \rho(t) $$
+\end{theorem}
+
+\begin{proof}
+Nous considérons l'équation (\ref{equation du modele de base})
+\begin{eqnarray*}
+\partial_{t}\rho(t)  = W(\rho)-\dfrac{i}{\hbar}\left[V(t,\rho(t)),\rho(t)\right].
+\end{eqnarray*}
+
+Appliquons l'opérateur adjoint.
+ $$  
+\left(\partial_{t}\rho(t)\right)^{*} = \left(W(\rho(t))\right)^{*} + \dfrac{i}{\hbar}\left([V(t,\rho),\rho(t)]\right)^{*}.
+$$
+On sait que 
+$$ \left(\partial_{t}\rho(t)\right)^{*} = \partial_{t}\rho^{*}(t).$$  
+Pour tous opérateurs $ \hat{A} $ et $ \hat{B} $, on a:
+
+$$
+\left(\left[\hat{A},\hat{B}\right]\right)^{*} = \left[\hat{B}^{*},\hat{A}^{*}\right] = -\left[\hat{A}^{*},\hat{B}^{*}\right].
+$$
+
+On obtient alors :
+$$  
+\partial_{t}\rho^{*}(t) = \left(W(\rho(t))\right)^{*} - \dfrac{i}{\hbar}[V(t,\rho)^{*},\rho^{*}(t)].
+$$
+ 
+Calculons l'adjoint de la matrice $ V(t,\rho)$\\
+ \begin{equation}\label{adjoint de V}
+  V(t,\rho)^{*} = E_{0}^{*} + V^{\textrm{C}}(\rho)^{*}.
+\end{equation}  
+L'adjoint de la matrice $ E_{0} $ nous donne  $ E_{0}^{*} = E_{0} $ ( car $ E_{0} $ est une matrice diagonale à valeurs réelles ).
+\medskip
+  \begin{eqnarray*}
+  V^{\textrm{C}}(\rho)^{*}  
+ & = & \begin{pmatrix}
+                            \overline{\kappa^{\textsc{v}}_{11}} & \overline{\kappa^{\textsc{v}}_{21}}   &          0 \\
+                            \overline{\kappa^{\textsc{v}}_{12}} & \overline{\kappa^{\textsc{v}}_{22}}   &          0 \\
+                                     0          &        0              &   \overline{\eta^{\textsc{c-v}}_{33}}
+         \end{pmatrix}  + \begin{pmatrix}
+\overline{\Lambda^{\textsc{v}}_{11}}(\rho)+\overline{\zeta^{\textsc{c}}_{11}}(\rho) & \overline{\Lambda^{\textsc{v}}_{21}}(\rho)+\overline{\zeta^{\textsc{c}}_{21}}(\rho)   & \overline{\gamma^{\textsc{c-v}}_{31}}(\rho)\\
+\overline{\Lambda^{\textsc{v}}_{12}}(\rho)+\overline{\zeta^{\textsc{c}}_{12}}(\rho) & \overline{\Lambda^{\textsc{v}}_{22}}(\rho)+ \overline{\zeta^{\textsc{c}}_{22}}(\rho)   & \overline{\gamma^{\textsc{v-c}}_{32}}(\rho)\\
+\overline{\gamma^{\textsc{v-c}}_{13}}(\rho)& \overline{\gamma^{\textsc{v-c}}_{23}}(\rho) & \overline{\Lambda^{\textsc{c}}_{33}}(\rho)+ \overline{\zeta^{\textsc{v}}_{33}}(\rho)
+         \end{pmatrix}
+  \end{eqnarray*} 
+  
+  où les barres représentent les conjugués. \\
+  Calculons les conjugués des éléments à l'intérieur des matrices.
+ % 
+  Pour $ \delta\in\{\textsc{c , v }\} $ ,
+ \begin{eqnarray*}
+\overline{\Lambda^{\delta}_{jk}}(\rho) & = & 2\sum_{\alpha_{1},\alpha_{2}}\left(\overline{R^{\delta}_{j\alpha_{1}k\alpha_{2}}}-\overline{R^{\delta}_{j\alpha_{1}\alpha_{2}k}}\right)\overline{\rho^{\delta}_{\alpha_{2}\alpha_{1}}}\\
+& = & 2\sum_{\alpha_{1},\alpha_{2}}(R^{\delta}_{k\alpha_{2}j\alpha_{1}}-R^{\delta}_{\alpha_{2}kj\alpha_{1}})\overline{\rho^{\delta}_{\alpha_{2}\alpha_{1}}}\\ 
+& = & 2\sum_{\alpha_{1},\alpha_{2}}(R^{\delta}_{k\alpha_{2}j\alpha_{1}}-R^{\delta}_{k\alpha_{2}\alpha_{1}j})(\rho^{*})^{\delta}_{\alpha_{1}\alpha_{2}}\\
+ & = & \Lambda^{\delta}_{kj}(\rho^{*})
+\end{eqnarray*}  
+ %
+ \begin{eqnarray*}
+\overline{\zeta^{\textsc{c}}_{jk}}(\rho) & = & \displaystyle\sum_{\alpha_{1},\alpha_{2}}\overline{R^{\textsc{c-v}}_{\alpha_{1}j\alpha_{2}k}}\:\overline{\rho^{\textsc{c}}_{\alpha_{2}\alpha_{1}}}\\
+& = & \displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{2}k\alpha_{1}j}\overline{\rho^{\textsc{c}}_{\alpha_{2}\alpha_{1}}}\\
+& = & \displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{2}k\alpha_{1}j}(\rho^{*})^{\textsc{c}}_{\alpha_{1}\alpha_{2}}\\
+& = & \zeta^{\textsc{c}}_{kj}(\rho^{*})
+\end{eqnarray*}   
+%  
+\begin{eqnarray*}
+\overline{\zeta^{\textsc{v}}_{jk}}(\rho) & = & \displaystyle\sum_{\alpha_{1},\alpha_{2}}\overline{R^{\textsc{c-v}}_{j\alpha_{1}k\alpha_{2}}}\:\overline{\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}}}\\
+& = & \displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{k\alpha_{2}j\alpha_{1}}\overline{\rho^{\textsc{v}}_{\alpha_{2}\alpha_{1}}}\\
+& = & \displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{k\alpha_{2}j\alpha_{1}}(\rho^{*})^{\textsc{v}}_{\alpha_{1}\alpha_{2}}\\
+& = & \zeta^{\textsc{v}}_{kj}(\rho^{*})
+\end{eqnarray*} 
+%
+Nous avons:  
+$$
+\gamma^{\textsc{v-c}}_{jk}(\rho) = -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{1}jk\alpha_{2}}\rho^{\textsc{vc}}_{\alpha_{2}\alpha_{1}}
+\quad
+\textrm{et} 
+\quad
+\gamma^{\textsc{c-v}}_{jk}(\rho) = -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{j\alpha_{1}\alpha_{2}k}\rho^{\textsc{cv}}_{\alpha_{2}\alpha_{1}}
+$$  
+%
+Alors 
+\begin{eqnarray*}
+\overline{\gamma^{\textsc{v-c}}_{jk}}(\rho) & = & -\displaystyle\sum_{\alpha_{1},\alpha_{2}}\overline{R^{\textsc{c-v}}_{\alpha_{1}jk\alpha_{2}}}\:\overline{\rho^{\textsc{vc}}_{\alpha_{2}\alpha_{1}}}\\
+& = & -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{k\alpha_{2}\alpha_{1}j}\overline{\rho^{\textsc{vc}}_{\alpha_{2}\alpha_{1}}}\\
+& = & -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{k\alpha_{2}j\alpha_{1}}(\rho^{*})^{\textsc{cv}}_{\alpha_{1}\alpha_{2}}\\
+& = & \gamma^{\textsc{c-v}}_{kj}(\rho^{*})
+\end{eqnarray*} 
+ %
+\begin{eqnarray*}
+\overline{\gamma^{\textsc{c-v}}_{jk}}(\rho) & = & -\displaystyle\sum_{\alpha_{1},\alpha_{2}}\overline{R^{\textsc{c-v}}_{j\alpha_{1}\alpha_{2}k}}\:\overline{\rho^{\textsc{cv}}_{\alpha_{2}\alpha_{1}}}\\
+& = & -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{2}kj\alpha_{1}}\overline{\rho^{\textsc{cv}}_{\alpha_{2}\alpha_{1}}}\\
+& = & -\displaystyle\sum_{\alpha_{1},\alpha_{2}}R^{\textsc{c-v}}_{\alpha_{2}kj\alpha_{1}}(\rho^{*})^{\textsc{vc}}_{\alpha_{1}\alpha_{2}}\\
+& = & \gamma^{\textsc{v-c}}_{kj}(\rho^{*})
+\end{eqnarray*} 
+ %
+$$ \eta^{\textsc{c-v}}_{jk}=-\displaystyle\sum_{\alpha}R^{\textsc{c-v}}_{j \alpha k \alpha} 
+\quad \mathrm{et}\quad \kappa^{\textsc{v}}_{jk}=2\displaystyle\sum_{\beta}(R^{\textsc{v}}_{\beta jk \beta}-R^{\textsc{v}}_{\beta j \beta k}).$$\\
+Ainsi 
+\begin{eqnarray*}
+   \overline{\eta^{\textsc{c-v}}_{jk}} & = & -\displaystyle\sum_{\alpha}\overline{R^{\textsc{c-v}}_{j \alpha k \alpha}}\\
+                            & = & -\displaystyle\sum_{\alpha}R^{\textsc{c-v}}_{k\alpha j\alpha}\\                  
+                            & = & \eta^{\textsc{c-v}}_{kj}
+  \end{eqnarray*}
+  Et 
+\begin{eqnarray*}
+  \overline{\kappa^{\textsc{v}}_{jk}} & = & 2\displaystyle\sum_{\beta}\overline{R^{\textsc{v}}_{\beta jk \beta}}\\
+                            & = & 2\displaystyle\sum_{\beta}{R^{\textsc{v}}_{k \beta \beta j}}\\
+                            & = & 2\displaystyle\sum_{\beta}{R^{\textsc{v}}_{\beta kj\beta}}\\
+                            & = & \kappa^{\textsc{v}}_{kj}
+  \end{eqnarray*}
+  
+
+Alors 
+\begin{small}
+  \begin{eqnarray*}
+  V^{\textrm{C}}(\rho)^{*}  
+ & = &  \begin{pmatrix}
+                            \kappa^{\textsc{v}}_{11} & \kappa^{\textsc{v}}_{12}   &          0 \\
+                            \kappa^{\textsc{v}}_{21} & \kappa^{\textsc{v}}_{22}   &          0 \\
+                                     0          &        0              &   \eta^{\textsc{c-v}}_{33}
+         \end{pmatrix}  +  \begin{pmatrix}
+\Lambda^{\textsc{v}}_{11}(\rho^{*})+\zeta^{\textsc{c}}_{11}(\rho^{*}) & \Lambda^{\textsc{v}}_{12}(\rho^{*})+\zeta^{\textsc{c}}_{12}(\rho^{*})   & \gamma^{\textsc{c-v}}_{13}(\rho^{*})\\
+\Lambda^{\textsc{v}}_{21}(\rho^{*})+ \zeta^{\textsc{c}}_{21}(\rho^{*}) & \Lambda^{\textsc{v}}_{22}(\rho^{*})+ \zeta^{\textsc{c}}_{22}(\rho^{*})   & \gamma^{\textsc{v-c}}_{23}(\rho^{*})\\
+\gamma^{\textsc{v-c}}_{31}(\rho^{*})& \gamma^{\textsc{v-c}}_{32}(\rho^{*}) & \Lambda^{\textsc{c}}_{33}(\rho^{*})+ \zeta^{\textsc{v}}_{33}(\rho^{*})
+         \end{pmatrix}      
+  \end{eqnarray*} 
+\end{small} 
+
+D'où
+ \begin{equation}\label{adjoint de Vc}
+ V^{\textrm{C}}(\rho)^{*} = V^{\textrm{C}}(\rho^{*}).
+\end{equation}
+
+De (\ref{adjoint de V}) et (\ref{adjoint de Vc}, on obtient 
+$$ V(t,\rho)^{*} = V(t,\rho^{*}) . $$ 
+Calculons les éléments de l'adjoint de $ W(\rho) $.
+
+Sachant que $w_{jk}$ et $\gamma_{jk}$ sont des réels positifs et $ \gamma_{jk} = \gamma_{kj}$ pour tout    $ j,k \in \{1,2,3\},$
+
+\begin{eqnarray*}
+\overline{W(\rho)_{jj}} & = & \displaystyle\sum_{k=1,k\neq j}^{3} \left(\overline{w_{jk}\rho_{kk}}- \overline{w_{kj}\rho_{jj}}\right), \\
+ & = & \displaystyle\sum_{k=1,k\neq j}^{3} (w_{jk}\rho_{kk}- w_{kj}\rho_{jj}), \\
+ & = & W(\rho^{*})_{jj}
+\end{eqnarray*}
+ $$ (W(\rho)^{*})_{jj}= W(\rho^{*})_{jj} $$
+
+\begin{eqnarray*}
+\overline{W(\rho)_{jk}} & = & \overline{\gamma_{jk}\rho_{jk}}\\
+                                 & = & \gamma_{kj}\overline{\rho_{jk}}\\
+                                 & = & \gamma_{kj}(\rho^{*})_{kj}       
+\end{eqnarray*}
+Alors $$ (W(\rho)^{*})_{jk}= W(\rho^{*})_{jk} $$
+%
+Finalement nous obtenons:
+%
+$$  
+\forall t>0, \partial_{t}\rho^{*}(t) = W(\rho^{*})(t) - \dfrac{i}{\hbar}[V(t,\rho^{*}),\rho^{*}(t)].
+$$
+Alors $ \rho^{*} $ est solution de l'equation (\ref{equation du modele de base}).
+%
+En tenant compte de l'unicité de la solution que nous avons présenté précédemment, on a:                        
+$$\rho^{*}(t) = \rho(t), \quad \forall t>0. $$
+%
+À partir de ce résultat, nous pouvons établir que:
+\begin{eqnarray*}
+\overline{\rho_{jj}}= \rho_{jj} & \Rightarrow & \rho_{jj} \in \mathbb{R} \Rightarrow \Im(\rho_{jj})=0 \quad \forall j
+\end{eqnarray*}
+\begin{eqnarray}\label{FA}
+\overline{\rho_{jk}}= \rho_{kj} &\Rightarrow & \Re(\rho_{jk}) = \Re(\rho_{kj})\quad \textrm{et}\quad \Im(\rho_{jk}) = -\Im(\rho_{kj}) \quad \forall j\neq k.                     
+\end{eqnarray}
+\end{proof}
+
+\section{Système dynamique réel non linéaire}
+
+Dans cette partie, nous allons écrire le modèle de Bloch (\ref{modèle de base}) comme un système dynamique avec des variables réelles.
+
+Considérons le modèle donné par l'équation :
+
+\begin{equation}
+   \partial_{t}\rho(t)  = W(\rho)-\dfrac{i}{\hbar}\left([E_{0},\rho]+[V^{C}(\rho),\rho]\right),\quad \forall t>0. 
+\end{equation}
+
+Comme $ V^{C}(\rho)= V_{1}^{\textrm{C}}+V_{2}^{\textrm{C}}(\rho) $, on peut écrire:
+ 
+\begin{equation}\label{Dynamique de densité}
+\partial_{t}\rho(t)  =  W(\rho)-\dfrac{i}{\hbar}[E_{0}+V_{1}^{\textrm{C}},\rho] - \dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\rho),\rho].
+\end{equation}
+
+Pour la simplicité des calculs, nous allons définir deux opérateurs à partir de  l'équation (\ref{Dynamique de densité}) à savoir:
+\begin{eqnarray*}
+ \left\{
+ \begin{split}
+ P^{L}(\rho)(t) & =  W(\rho)-\dfrac{i}{\hbar}[E_{0}+V_{1}^{\textrm{C}},\rho] \\
+ P^{N}(\rho)(t) & = - \dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\rho),\rho]  
+  \end{split}  
+   \right.   
+  \end{eqnarray*}
+  
+À partir des éléments de la matrice densité $ \rho $, nous définissons les vecteurs suivants:
+\begin{eqnarray*}
+ U_{p} = \begin{pmatrix}\rho_{11}\\ \rho_{22}\\ \rho_{33}\end{pmatrix} &
+ \quad \textrm{et} \quad U_{c} = \begin{pmatrix}\rho_{12}\\ \rho_{13}\\ \rho_{23}\end{pmatrix}. 
+\end{eqnarray*}
+Puis nous allons ramener la matrice densité $ \rho $ en un vecteur $ U $ qui a trois blocs de composantes et qui se présente sous la forme suivante:
+\begin{eqnarray}\label{vecteurs colonnes}
+U = \begin{pmatrix}U_{p}\\ \Re(U_{c})\\ \Im(U_{c})\end{pmatrix}.
+\end{eqnarray}
+
+Les deux opérateurs définis vont être décomposés conformément aux composantes de $ U $.\\
+Définissons aussi les opérateurs notés $ \textrm{diag} $, $ \textrm{Diag} $ et $ \textrm{Diag}^{N} $.
+\begin{itemize}
+\item $ \textrm{diag} $ crée une matrice diagonale à partir d'un vecteur et les éléments du vecteur sont sur la diagonale de la matrice créée,
+\item  $ \textrm{Diag} $  crée un vecteur avec les éléments diagonaux d'une matrice,
+\item $ \textrm{Diag}^{N} $ crée un vecteur avec les éléments situés au dessus de la diagonale d'une matrice.
+\end{itemize}
+
+\subsection{L'opérateur $  P^{L} $}
+
+On a:
+\begin{equation}\label{second membre linéaire} 
+P^{L}(\rho)= W(\rho)-\dfrac{i}{\hbar}[E_{0}+V_{1}^{\textrm{C}},\rho]
+\end{equation}\\
+
+Les éléments diagonaux de $ P^{L}(\rho) $ se définissent comme suit:
+ \begin{eqnarray*}
+ \left\{
+ \begin{split}
+ P^{L}(\rho)_{11} & =  -(w_{21} + w_{31})\rho_{11} + w_{21}\dfrac{a_{2}}{a_{1}}\rho_{22}+ w_{31}\dfrac{a_{3}}{a_{1}}\rho_{33} \\
+P^{L}(\rho)_{22} & = w_{21}\rho_{11}-(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32})\rho_{22} + w_{32}\dfrac{a_{3}}{a_{2}}\rho_{33} \\
+ P^{L}(\rho)_{33} & =  w_{31}\rho_{11}+ w_{32}\rho_{22}-(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}})\rho_{33}  
+  \end{split}  
+   \right.   
+  \end{eqnarray*}
+
+ Sous forme matricielle, on peut écrire :
+
+\begin{equation}\label{FM1}
+\textrm{Diag}(P^{L}(\rho))= W_{1}U_{p}
+\end{equation}
+avec
+$$
+ W_{1}= 
+\begin{pmatrix}
+-(w_{21} + w_{31}) & w_{21}\dfrac{a_{2}}{a_{1}} & w_{31}\dfrac{a_{3}}{a_{1}}\\
+            w_{21} & -(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32}) & w_{32}\dfrac{a_{3}}{a_{2}}\\
+            w_{31} &                                 w_{32} & -(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}})
+\end{pmatrix}
+$$\\
+
+Les éléments non diagonaux de $ P^{L}(\rho) $ se définissent comme suit:
+ \begin{equation*}
+  \left\{
+  \begin{split}
+P^{L}(\rho)_{12} &= \gamma_{12}\rho_{12}-\dfrac{i}{\hbar}(e_{1}-e_{2})\rho_{12} \\
+P^{L}(\rho)_{13} &= \gamma_{13}\rho_{13}-\dfrac{i}{\hbar}\Big[(e_{1}-e_{3})+2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+(R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232})\Big]\rho_{13}\\ 
+P^{L}(\rho)_{23} &= \gamma_{23}\rho_{23}-\dfrac{i}{\hbar}\Big[(e_{2}-e_{3})+2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+(R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232})\Big]\rho_{23}
+  \end{split}
+  \right.
+  \end{equation*}
+
+La matrice densité $ \rho $ étant hermitienne, alors la propriété suivante est vérifiée:
+$$ \forall j\neq k , \quad \partial_{t}\rho_{jk} = \overline{\partial_{t}\rho_{kj}}. $$
+
+En appliquant la propriété ci dessus, nous nous retrouvons avec le système suivant:
+ \begin{eqnarray*}
+ \left\{
+ \begin{split}
+ P^{L}(\rho)_{21} &= \gamma_{12}\rho_{21}+\dfrac{i}{\hbar}(e_{1}-e_{2})\rho_{21} \\
+P^{L}(\rho)_{31} &= \gamma_{13}\rho_{31}+\dfrac{i}{\hbar}\Big[(e_{1}-e_{3})-2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})-(R^{\textsc{c-v}}_{3131}+ R^{\textsc{c-v}}_{3232})\Big]\rho_{31}\\ 
+ P^{L}(\rho)_{32}&= \gamma_{23}\rho_{32}+\dfrac{i}{\hbar}\Big[(e_{2}-e_{3})+2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+(R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232})\Big]\rho_{32}
+  \end{split}
+  \right.
+  \end{eqnarray*}\\
+
+Déterminons les parties réelles et imaginaires de $ P^{L}(\rho) $.
+Nous rappelons les propriétés suivantes pour tout nombre complexe: 
+ $$ \forall j\neq k , \quad \partial_{t}\Re(\rho_{jk})= \dfrac{\partial_{t}\rho_{jk} +\overline{\partial_{t}\rho_{jk}}}{2} \quad \textrm{et}\quad \partial_{t}\Im(\rho_{jk})= \dfrac{\partial_{t}\rho_{jk} -\overline{\partial_{t}\rho_{jk}}}{2i}$$\\
+ 
+ En appliquant les propriétés ci-dessus, nous obtenons le système suivant
+
+$$ \left\{
+   \begin{array}{rcl}
+\Re(P^{L}(\rho)_{12}) & = & \gamma_{12}\Re(\rho_{12})+\dfrac{1}{\hbar}(e_{1}-e_{2})\Im(\rho_{12}) \\
+\Im(P^{L}(\rho)_{12}) & = & \gamma_{12}\Im(\rho_{12})-\dfrac{1}{\hbar}(e_{1}-e_{2})\Re(\rho_{12})
+   \end{array}
+ \right. $$
+ 
+Par analogie, nous obtenons aussi:
+%\begin{small}
+$$\left\{
+   \begin{array}{rcl}
+\Re(P^{L}(\rho)_{13}) & = & \gamma_{13}\Re(\rho_{13})+\dfrac{1}{\hbar}\Big[(e_{1}-e_{3})+ 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121}) + R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232}\Big]\Im(\rho_{13}) \\
+\Im(P^{L}(\rho)_{13}) & = & \gamma_{13}\Im(\rho_{13})-\dfrac{1}{\hbar}\Big[(e_{1}-e_{3})+ 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232}\Big]\Re(\rho_{13}) 
+   \end{array}
+ \right. $$
+et 
+$$\left\{
+   \begin{array}{rcl}
+\Re(P^{L}(\rho)_{23}) & = & \gamma_{23}\Re(\rho_{23})+\dfrac{1}{\hbar}\Big[(e_{2}-e_{3})+2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121}) + R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232}\Big]\Im(\rho_{23}) \\
+\Im(P^{L}(\rho)_{23}) & = & \gamma_{23}\Im(\rho_{23})-\dfrac{1}{\hbar}\Big[(e_{2}-e_{3})+2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232}\Big]\Re(\rho_{23}) 
+   \end{array}
+ \right. $$
+%\end{small}
+
+L'écriture sous la forme matricielle nous donne:
+\begin{eqnarray}\label{FM2}
+\left\{
+\begin{split}
+\Re(\textrm{Diag}^{N}(P^{L}(\rho)) &= D_{\gamma}\Re(U_{c})-(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C})\Im(U_{c})\\
+\Im(\textrm{Diag}^{N}(P^{L}(\rho))) &= (\mathcal{E}_{0}+ \mathcal{R}^{0}_{C})\Re(U_{c})+D_{\gamma}\Im(U_{c})
+\end{split}
+\right.
+\end{eqnarray}
+avec 
+$$ D_{\gamma} = \textrm{diag}(\gamma_{12},\gamma_{13}, \gamma_{23}), \quad \mathcal{E}_{0} = - \dfrac{1}{\hbar}  \textrm{diag}(e_{1}-e_{2},e_{1}-e_{3}, e_{2}-e_{3}) $$
+
+et 
+$$ \mathcal{R}^{0}_{C} =- \dfrac{1}{\hbar}  \textrm{diag}(0,\nu^{C}, \nu^{C})$$
+où \quad
+  $ \nu^{C} = 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232} $ , $ \nu^{C} \in \mathbb{R}. $\\
+
+En regroupant les formes matricielles (\ref{FM1}) et (\ref{FM2}), on peut écrire :
+\begin{equation}\label{matricePL}
+\begin{pmatrix} \textrm{Diag}(P^{L}(\rho)) \\ \Re(\textrm{Diag}^{N}(P^{L}(\rho))) \\ \Im(\textrm{Diag}^{N}(P^{L}(\rho)))\end{pmatrix} = A^{L}U(t)
+\end{equation} 
+avec
+\begin{equation}
+ \textrm{Diag}^{N}(P^{L}(\rho))= \begin{pmatrix} P^{L}(\rho)_{12} \\ P^{L}(\rho)_{13} \\ P^{L}(\rho)_{23}\end{pmatrix}
+\; \mathrm{et} \; 
+A^{L}=
+\begin{pmatrix}
+W_{1} &      0                    & 0                       \\
+    0 & D_{\gamma}                &  -\big(\mathcal{E}_{0}+\mathcal{R}^{0}_{C}\big)  \\
+    0 & \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}\label{matrice Al}
+\end{equation}
+
+\subsection{L'opérateur $  P^{N} $} 
+On a:
+\begin{equation}\label{second membre non linéaire} 
+P^{N}(\rho)= -\dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\rho),\rho]
+\end{equation}\\
+
+
+La matrice densité $ \rho $ est hermitienne. Alors la matrice $ V_{2}^{\textrm{C}}(\rho) $ est aussi hermitienne car 
+$ V_{2}^{\textrm{C}}(\rho)^{*} = V_{2}^{\textrm{C}}(\rho^{*})= V_{2}^{\textrm{C}}(\rho) $.\\
+Donc le commutateur $ [V_{2}^{\textrm{C}}(\rho),\rho] $ est antihermitien. En effet,
+$$ [V_{2}^{\textrm{C}}(\rho),\rho]^{*} = -[V_{2}^{\textrm{C}}(\rho)^{*},\rho^{*}]= -[V_{2}^{\textrm{C}}(\rho),\rho] .$$
+On obtient pour tout $ j,k \in \{1;2;3\} $
+$$
+\overline{[V_{2}^{\textrm{C}}(\rho),\rho]_{jj}} = -[V_{2}^{\textrm{C}}(\rho),\rho]_{jj} \Rightarrow[V_{2}(\rho),\rho]_{jj} \in i\mathbb{R}
+$$
+$$
+\overline{[V_{2}^{\textrm{C}}(\rho),\rho]_{jk}} = -[V_{2}^{\textrm{C}}(\rho),\rho]_{kj} \quad j\neq k.
+$$\\
+
+Les éléments diagonaux de $  P^{N}(\rho) $ sont définis comme suit:
+ \begin{eqnarray*}
+ \left\{
+\begin{split}
+P^{N}(\rho)_{11} &= \dfrac{2}{\hbar}\Im\Big(R^{\textsc{c-v}}_{3231}(\rho_{13}\rho_{32}-\rho_{12}\rho_{33})\Big)\\
+P^{N}(\rho)_{22} &= -\dfrac{2}{\hbar}\Im\Big(R^{\textsc{c-v}}_{3231}(\rho_{13}\rho_{32}-\rho_{12}\rho_{33})\Big)\\
+P^{N}(\rho)_{33} &= 0
+\end{split}
+\right.
+ \end{eqnarray*}\\
+ 
+Déterminons la partie imaginaire de $ R^{\textsc{c-v}}_{3231}(\rho_{13}\rho_{32}-\rho_{12}\rho_{33})$. \\
+
+Rappelons que pour deux nombres complexes $ z_{1} $ et $ z_{2} $, la forme algébrique du produit 
+$ z_{1}\times z_{2} $ est: 
+
+$$ z_{1}\times z_{2}=\big[\Re(z_{1})\Re(z_{2})-\Im(z_{1})\Im(z_{2})\big]+\big[\Re(z_{1})\Im(z_{2})+\Re(z_{2})\Im(z_{1})\big]. $$
+
+En appliquant ce résultat, on a:
+\begin{eqnarray*}
+ \left\{
+\begin{split}
+\rho_{13}\rho_{32} &=  [ \Re(\rho_{13})\Re(\rho_{23})+\Im(\rho_{13})\Im(\rho_{23})] + i[\Re(\rho_{23})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{23}] \\
+\rho_{12}\rho_{33} &=  \rho_{33}\Re(\rho_{12}) + i\rho_{33}\Im(\rho_{12})                    
+\end{split}
+\right.
+ \end{eqnarray*}\\
+D'où 
+\begin{eqnarray*}
+\begin{split}
+\rho_{13}\rho_{32}-\rho_{12}\rho_{33} &= [ \Re(\rho_{13})\Re(\rho_{23})+\Im(\rho_{13})\Im(\rho_{23})-\rho_{33}\Re(\rho_{12})] \\
+&\quad + i[\Re(\rho_{23})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{23})-\rho_{33}\Im(\rho_{12})]
+\end{split}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\begin{split}
+R^{\textsc{c-v}}_{3231}\big(\rho_{13}\rho_{32}-\rho_{12}\rho_{33}\big) &=\overline{R^{\textsc{c-v}}_{3132}} \big(\rho_{13}\rho_{32}-\rho_{12}\rho_{33}\big)\\
+&= \big[\Re(R^{\textsc{c-v}}_{3132})-i\Im(R^{\textsc{c-v}}_{3132})\big](\rho_{13}\rho_{32}-\rho_{12}\rho_{33})\\
+&= \Re(R^{\textsc{c-v}}_{3132})\big[\Re(\rho_{13})\Re(\rho_{23})+\Im(\rho_{13})\Im(\rho_{23})-\rho_{33}\Re(\rho_{12})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\Re(\rho_{23})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{23})-\rho_{33}\Im(\rho_{12})\big]\\
+&\quad +i\Big[\Re(R^{\textsc{c-v}}_{3132})\big(\Re(\rho_{23})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{23})-\rho_{33}\Im(\rho_{12})\big)\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})\big(\Re(\rho_{13})\Re(\rho_{23})+\Im(\rho_{13})\Im(\rho_{23})-\rho_{33}\Re(\rho_{12})\big)\Big]
+\end{split}
+\end{eqnarray*}\\
+
+Donc la partie imaginaire de $ R^{\textsc{c-v}}_{3231}(\rho_{13}\rho_{32}-\rho_{12}\rho_{33})$ est donnée par:
+
+\begin{eqnarray*}
+\begin{split}
+\Im\Big(R^{\textsc{c-v}}_{3231}\big(\rho_{13}\rho_{32}-\rho_{12}\rho_{33}\big)\Big) &= \Big[\Re(R^{\textsc{c-v}}_{3132})\big(\Re(\rho_{23})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{23})-\rho_{33}\Im(\rho_{12})\big)\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})\big(\Re(\rho_{13})\Re(\rho_{23})+\Im(\rho_{13})\Im(\rho_{23})-\rho_{33}\Re(\rho_{12})\big)\Big]
+\end{split}
+\end{eqnarray*}
+
+
+
+Finalement, les éléments diagonaux de $  P^{N}(\rho) $ s'écrivent:
+
+
+ \begin{eqnarray*}
+  \left\{
+\begin{split}
+P^{N}(\rho)_{11} &= \dfrac{2}{\hbar}\Big[\Im(R^{\textsc{c-v}}_{3132})\rho_{33}\Re(\rho_{12})-\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{23})\Re(\rho_{13})+\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})\Re(\rho_{23})\\
+&\quad -\Re(R^{\textsc{c-v}}_{3132})\rho_{33}\Im(\rho_{12})-\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})\Im(\rho_{13})-\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})\Im(\rho_{23})\Big]\\
+P^{N}(\rho)_{22} &= \dfrac{2}{\hbar}\Big[-\Im(R^{\textsc{c-v}}_{3132})\rho_{33}\Re(\rho_{12})+\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{23})\Re(\rho_{13})-\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})\Re(\rho_{23})\\
+&\quad +\Re(R^{\textsc{c-v}}_{3132})\rho_{33}\Im(\rho_{12})+\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})\Im(\rho_{13})+\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})\Im(\rho_{23})\Big]\\
+P^{N}(\rho)_{33} &= 0
+\end{split}
+\right.
+ \end{eqnarray*}
+
+ 
+ L'écriture matricielle nous donne : 
+ \begin{eqnarray} \label{matrice des elts diagonaux de PN}
+\begin{split}
+\textrm{Diag}(P^{N}(\rho))&= \mathcal{R}^{1}_{C}(U)\Re(U_{c}) + \mathcal{R}^{2}_{C}(U)\Im(U_{c})
+\end{split}
+\end{eqnarray}
+
+avec 
+
+ \begin{eqnarray*}
+ \begin{split}
+\mathcal{R}^{1}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+\Im(R^{\textsc{c-v}}_{3132})U_{3}& -\Im(R^{\textsc{c-v}}_{3132})U_{6} & \Re(R^{\textsc{c-v}}_{3132})U_{8}\\
+-\Im(R^{\textsc{c-v}}_{3132})U_{3}& \Im(R^{\textsc{c-v}}_{3132})U_{6}& -\Re(R^{\textsc{c-v}}_{3132})U_{8}\\
+            0 &                               0 & 0
+\end{pmatrix} \quad \textrm{et} \\
+\mathcal{R}^{2}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+-\Re(R^{\textsc{c-v}}_{3132})U_{3} & -\Im(R^{\textsc{c-v}}_{3132})U_{9} & -\Re(R^{\textsc{c-v}}_{3132})U_{5}\\
+\Re(R^{\textsc{c-v}}_{3132})U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{9} & \Re(R^{\textsc{c-v}}_{3132})U_{5}\\
+            0 &                               0 & 0
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}\\
+ 
+ Les éléments non diagonaux de $ P^{N}(\rho)$ se définissent comme suit:
+ \begin{itemize}[label=$\bullet$]
+ \item \begin{equation*}
+  \begin{split}
+P^{N}(\rho)_{12} &= -\dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\rho),\rho]_{12}\\
+&= -\dfrac{i}{\hbar}\Big[(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})( \rho_{12}\rho_{33} - \rho_{13}\rho_{32}) \\ 
+& \quad + R^{\textsc{c-v}}_{3132}( \rho_{22}\rho_{33} -\rho_{11}\rho_{33}
+ - \rho_{23}\rho_{32}+\rho_{13}\rho_{31})\Big]
+\end{split}
+\end{equation*}
+ \item \begin{equation*}
+  \begin{split}
+P^{N}(\rho)_{13} &= -\dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\rho),\rho]_{13}\\
+&= -\dfrac{i}{\hbar}\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]( \rho_{12}\rho_{23} - \rho_{13}\rho_{22})\\
+&\quad + R^{\textsc{c-v}}_{3132}( \rho_{11}\rho_{23} - \rho_{13}\rho_{21})\Big]
+\end{split}
+\end{equation*}
+ \item \begin{equation*}
+  \begin{split}
+P^{N}(\rho)_{23} &= -\dfrac{i}{\hbar}[V_{2}^{\textrm{C}}(\rho),\rho]_{23}\\ 
+&= -\dfrac{i}{\hbar}\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+ R^{\textsc{c-v}}_{3131}\big]( \rho_{13}\rho_{21} - \rho_{11}\rho_{23}) \\
+&\quad + R^{\textsc{c-v}}_{3231}( \rho_{13}\rho_{22} - \rho_{12}\rho_{23})\Big]
+\end{split}
+\end{equation*}
+ \end{itemize}
+ 
+ 
+Écrivons sous forme algébrique les éléments non diagonaux de $ P^{N}(\rho)$ .\\
+
+Les produits $\rho_{12}\rho_{23}$ et $\rho_{13}\rho_{21}$ sous forme algébrique s'écrivent:
+\begin{eqnarray*}
+\left\{
+\begin{split}
+\rho_{12}\rho_{23} &= [ \Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})] + i[\Re(\rho_{12})    
+                          \Im(\rho_{23})+\Im(\rho_{12})\Re(\rho_{23})]\\
+\rho_{13}\rho_{21} &= [ \Re(\rho_{12})\Re(\rho_{13})+\Im(\rho_{12})\Im(\rho_{13})] + i[\Re(\rho_{12})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{12})] 
+\end{split}
+\right.                              
+\end{eqnarray*}
+On a:
+\begin{eqnarray*}
+\begin{split}
+[V_{2}^{\textrm{C}}(\rho),\rho]_{12}&= (R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})\Big[\rho_{33}\Re(\rho_{12})-\Re(\rho_{13})\Re(\rho_{23})-\Im(\rho_{13})\Im(\rho_{23})\Big] +  \\
+&\quad \Re(R^{\textsc{c-v}}_{3132})\Big[\rho_{22}\rho_{33}-\rho_{11}\rho_{33}-\Re^{2}(\rho_{23})-\Im^{2}(\rho_{23})+\Re^{2}(\rho_{13})+\Im^{2}(\rho_{13})\Big]\\
+&\quad +i\Big[\rho_{33}\Im(\rho_{12})-\Re(\rho_{23})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{23}) + \\
+&\quad \Im(R^{\textsc{c-v}}_{3132})\big(\rho_{22}\rho_{33}-\rho_{11}\rho_{33}-\Re^{2}(\rho_{23})-\Im^{2}(\rho_{23})+\Re^{2}(\rho_{13})+\Im^{2}(\rho_{13})\big)\Big]
+\end{split}
+\end{eqnarray*}
+
+On obtient donc 
+\begin{eqnarray*}
+\begin{split}
+P^{N}(\rho)_{12} &=\dfrac{1}{\hbar}\Big[\rho_{33}\Im(\rho_{12})-\Re(\rho_{23})\Im(\rho_{13}+\Re(\rho_{13})\Im(\rho_{23})\\ 
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big(\rho_{22}\rho_{33}-\rho_{11}\rho_{33}-\Re^{2}(\rho_{23})-\Im^{2}(\rho_{23})+\Re^{2}(\rho_{13})+\Im^{2}(\rho_{13})\big)\Big]\\
+&\quad -\dfrac{i}{\hbar}\Bigg[(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})\Big[\rho_{33}\Re(\rho_{12})-\Re(\rho_{13})\Re(\rho_{23}-\Im(\rho_{13})\Im(\rho_{23})\Big]\\ 
+&\quad + \Re(R^{\textsc{c-v}}_{3132})\Big[\rho_{22}\rho_{33}-\rho_{11}\rho_{33}-\Re^{2}(\rho_{23})-\Im^{2}(\rho_{23})+\Re^{2}(\rho_{13})+\Im^{2}(\rho_{13})\Big]\Bigg]
+\end{split}
+\end{eqnarray*}
+
+Nous avons:
+\begin{eqnarray*}
+\begin{split}
+\rho_{12}\rho_{23} - \rho_{13}\rho_{22} &= \Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})-\rho_{22}\Re(\rho_{13})\\
+&\quad +i\big[\Re(\rho_{12})\Im(\rho_{23})+\Im(\rho_{12})\Re(\rho_{23})-\rho_{22}\Im(\rho_{13})\big]\\
+\textrm{et}&\\
+ \rho_{11}\rho_{23} - \rho_{13}\rho_{21} &= \big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\\
+&\quad +i\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]
+\end{split}
+\end{eqnarray*}
+
+On obtient:
+\begin{eqnarray*}
+\begin{split}
+R^{\textsc{c-v}}_{3132}\big(\rho_{11}\rho_{23} - \rho_{13}\rho_{21}\big) &= \big[\Re(R^{\textsc{c-v}}_{3132})+i\Im(R^{\textsc{c-v}}_{3132})\big](\rho_{11}\rho_{23} - \rho_{13}\rho_{21})\\
+&= \Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\\
+&\quad +i\Big[\Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\Big]
+\end{split}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\begin{split}
+[V_{2}^{\textrm{C}}(\rho),\rho]_{13} &= \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})-\rho_{22}\Re(\rho_{13})\Big]\\
+&\quad + \Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\\ 
+&\quad +i\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\big[\Re(\rho_{12})\Im(\rho_{23})+\Im(\rho_{12})\Re(\rho_{23})\\
+&\quad -\rho_{22}\Im(\rho_{13})\big] +\Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\\
+&\quad + \Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\Big]\\
+\end{split}
+\end{eqnarray*}
+
+
+Alors la forme algébrique de $ P^{N}(\rho)_{13}$ est:
+
+\begin{eqnarray*}
+\begin{split}
+P^{N}(\rho)_{13}&= \dfrac{1}{\hbar}\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\big[\Re(\rho_{12})\Im(\rho_{23})+\Im(\rho_{12})\Re(\rho_{23})-\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\\
+&\quad + \Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\Big]\\
+ &\quad -\dfrac{i}{\hbar}\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})\big]\\
+&\quad -\rho_{22}\Re(\rho_{13})+ \Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\Big]
+\end{split}
+\end{eqnarray*}
+
+
+On a:
+\begin{eqnarray*}
+\begin{split}
+[V_{2}^{\textrm{C}}(\rho),\rho]_{23} &= \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+ R^{\textsc{c-v}}_{3131}\big]( \rho_{13}\rho_{21} - \rho_{11}\rho_{23}) + R^{\textsc{c-v}}_{3231}( \rho_{13}\rho_{22} - \rho_{12}\rho_{23})\\
+&= -\overline{R^{\textsc{c-v}}_{3132}}( \rho_{12}\rho_{23} - \rho_{13}\rho_{22})- \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]( \rho_{11}\rho_{23} - \rho_{13}\rho_{21})
+\end{split}                         
+\end{eqnarray*}\\
+
+Or 
+\begin{eqnarray*}
+\begin{split}
+-\overline{R^{\textsc{c-v}}_{3132}}\big(\rho_{12}\rho_{23} - \rho_{13}\rho_{22}\big) &= \big[-\Re(R^{\textsc{c-v}}_{3132})+i\Im(R^{\textsc{c-v}}_{3132})\big](\rho_{12}\rho_{23} - \rho_{13}\rho_{22})\\
+&= \Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Re(\rho_{23})+\Im(\rho_{12})\Im(\rho_{23})+\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +i\Big[\Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})-\rho_{22}\Re(\rho_{13})\big]\Big]
+\end{split}
+\end{eqnarray*}
+
+Alors la forme algébrique de $ [V_{2}^{\textrm{C}}(\rho),\rho]_{23}$ est:
+
+\begin{eqnarray*}
+\begin{split}
+[V_{2}^{\textrm{C}}(\rho),\rho]_{23}&= \Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Re(\rho_{23})+\Im(\rho_{12})\Im(\rho_{23})+\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\big[-\rho_{11}\Re(\rho_{23})+\Re(\rho_{12})\Re(\rho_{13})\\
+&\quad +\Im(\rho_{12})\Im(\rho_{13})\big]\\
+&\quad +i\Big[\Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})-\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\big[-\rho_{11}\Im(\rho_{23})+\Re(\rho_{12})\Im(\rho_{13})\\
+& \quad -\Re(\rho_{13})\Im(\rho_{12})\big] \Big]
+\end{split}
+\end{eqnarray*}
+
+Donc nous obtenons:
+\begin{eqnarray*}
+\begin{split}
+P^{N}(\rho)_{23}&= \dfrac{1}{\hbar}\Big[\Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})-\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\big[-\rho_{11}\Im(\rho_{23})+\Re(\rho_{12})\Im(\rho_{13})-\Re(\rho_{13})\Im(\rho_{12})\big] \Big]\\
+&\quad -\dfrac{i}{\hbar}\Big[\Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Re(\rho_{23})+\Im(\rho_{12})\Im(\rho_{23})+\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\big[-\rho_{11}\Re(\rho_{23})+\Re(\rho_{12})\Re(\rho_{13})+\Im(\rho_{12})\Im(\rho_{13})\big]\Big]
+\end{split}
+\end{eqnarray*}
+
+Finalement, les éléments non diagonaux de $  P^{N}(\rho) $ s'écrivent:
+\begin{eqnarray*}
+\left\{
+\begin{split}
+P^{N}(\rho)_{12}&=\dfrac{1}{\hbar}\Big[\rho_{33}\Im(\rho_{12})-\Re(\rho_{23})\Im(\rho_{13}+\Re(\rho_{13})\Im(\rho_{23})\\ 
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\rho_{22}\rho_{33}-\rho_{11}\rho_{33}-\Re^{2}(\rho_{23})-\Im^{2}(\rho_{23})+\Re^{2}(\rho_{13})+\Im^{2}(\rho_{13})\big]\Big]\\
+&\quad -\dfrac{i}{\hbar}\Bigg[(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})\Big[\rho_{33}\Re(\rho_{12})-\Re(\rho_{13})\Re(\rho_{23}-\Im(\rho_{13})\Im(\rho_{23})\Big]\\ 
+&\quad + \Re(R^{\textsc{c-v}}_{3132})\Big[\rho_{22}\rho_{33}-\rho_{11}\rho_{33}-\Re^{2}(\rho_{23})-\Im^{2}(\rho_{23})+\Re^{2}(\rho_{13})+\Im^{2}(\rho_{13})\Big]\Bigg]\\
+\end{split}
+\right.
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\left\{
+\begin{split}
+P^{N}(\rho)_{13}&= \dfrac{1}{\hbar}\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\big[\Re(\rho_{12})\Im(\rho_{23})+\Im(\rho_{12})\Re(\rho_{23})\\
+&\quad -\rho_{22}\Im(\rho_{13})\big]+\Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\\
+&\quad + \Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\Big]\\
+ &\quad -\dfrac{i}{\hbar}\Big[\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})\\
+&\quad -\rho_{22}\Re(\rho_{13})\big]+ \Re(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Re(\rho_{23})-\Re(\rho_{12})\Re(\rho_{13})-\Im(\rho_{12})\Im(\rho_{13})\big]\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})\big[\rho_{11}\Im(\rho_{23})-\Re(\rho_{12})\Im(\rho_{13})+\Re(\rho_{13})\Im(\rho_{12})\big]\Big]\\
+P^{N}(\rho)_{23} &= \dfrac{1}{\hbar}\Big[\Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[\Re(\rho_{12})\Re(\rho_{23})-\Im(\rho_{12})\Im(\rho_{23})-\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\big[-\rho_{11}\Im(\rho_{23})+\Re(\rho_{12})\Im(\rho_{13})\\
+&\quad -\Re(\rho_{13})\Im(\rho_{12})\big] \Big]\\
+&\quad -\dfrac{i}{\hbar}\Big[\Re(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Re(\rho_{23})+\Im(\rho_{12})\Im(\rho_{23})+\rho_{22}\Re(\rho_{13})\big]\\
+&\quad +\Im(R^{\textsc{c-v}}_{3132})\big[-\Re(\rho_{12})\Im(\rho_{23})-\Im(\rho_{12})\Re(\rho_{23})+\rho_{22}\Im(\rho_{13})\big]\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\big[-\rho_{11}\Re(\rho_{23})+\Re(\rho_{12})\Re(\rho_{13})\\
+&\quad +\Im(\rho_{12})\Im(\rho_{13})\big]\Big]
+\end{split}
+\right.
+\end{eqnarray*}
+
+Ainsi leurs parties réelles et imaginaires de $  P^{N}(\rho) $ sont définies comme suit
+ 
+\begin{eqnarray*}
+\left\{
+\begin{split}
+\Re(P^{N}(\rho)_{12}) &= \dfrac{1}{\hbar}\big[-\Im(R^{\textsc{c-v}}_{3132})\rho_{33}\rho_{11}+\Im(R^{\textsc{c-v}}_{3132})\rho_{33}\rho_{22}\big] \\
+&\quad + \dfrac{1}{\hbar}\big[\Im(R^{\textsc{c-v}}_{3132})\Re^{2}(\rho_{13})-\Im(R^{\textsc{c-v}}_{3132})\Re^{2}(\rho_{23})\big]\\
+&\quad + \dfrac{1}{\hbar}\Big[\rho_{33}\Im(\rho_{12})+[\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})-\Re(\rho_{23})]\Im(\rho_{13})\\
+&\quad +[\Re(\rho_{13})-\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})]\Im(\rho_{23})\Big]\\
+\Im(P^{N}(\rho)_{12})&=  -\dfrac{1}{\hbar}\big[-\Re(R^{\textsc{c-v}}_{3132})\rho_{33}\rho_{11}+\Re(R^{\textsc{c-v}}_{3132})\rho_{33}\rho_{22}\big]\\
+&\quad -\dfrac{1}{\hbar}\Big[(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})\rho_{33}\Re(\rho_{12})+[\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})\\
+&\quad -(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})\Re(\rho_{23})]\Re(\rho_{13})- \Re(R^{\textsc{c-v}}_{3132})\Re^{2}(\rho_{23})\Big]\\
+&\quad -\dfrac{1}{\hbar}\Big[\Re(R^{\textsc{c-v}}_{3132})\Im^{2}(\rho_{13})+[-\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})\\
+&\quad -(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})\Im(\rho_{13})]\Im(\rho_{23})\Big]
+\end{split}
+\right.
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\begin{split}
+\Re(P^{N}(\rho)_{13}) &= \dfrac{1}{\hbar}\Big[\big(\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{23})+\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})\big)\rho_{11}\\
+&\quad -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Im(\rho_{13})\rho_{22}\Big]\\
+&\quad +\dfrac{1}{\hbar}\Big[-\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})\Re(\rho_{12})-\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{12})\Re(\rho_{13})\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Im(\rho_{12})\Re(\rho_{23})\Big]\\
+&\quad +\dfrac{1}{\hbar}\Big[\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})\Im(\rho_{12})-\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{12})\Im(\rho_{13})\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Re(\rho_{12})\Im(\rho_{23})\Big]
+\end{split}
+\end{eqnarray*}
+%
+\begin{eqnarray*}
+\begin{split}
+\Im(P^{N}(\rho)_{13})&= -\dfrac{1}{\hbar}\Big[(\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{23})-\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{23}))\rho_{11}\\
+&\quad -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Re(\rho_{13}))\rho_{22}\Big]\\
+&\quad  -\dfrac{1}{\hbar}\Big[\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})\Re(\rho_{12})-\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{12})\Re(\rho_{13})\\
+&\quad +\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Re(\rho_{12})\Re(\rho_{23})\Big]\\
+&\quad  -\dfrac{1}{\hbar}\Big[-\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})\Im(\rho_{12})-\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{12})\Im(\rho_{13})\\
+&\quad -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]\Im(\rho_{12})\Im(\rho_{23})\Big]
+\end{split}
+\end{eqnarray*}
+%
+\begin{eqnarray*}
+\left\{
+\begin{split}
+\Re(P^{N}(\rho)_{23})&= \dfrac{1}{\hbar}\Big[-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\Im(\rho_{23})\rho_{11}\\
+&\quad +\big[\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})- \Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})\big]\rho_{22}\Big]\\ &\quad +\dfrac{1}{\hbar}\Big[\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{23})\Re(\rho_{12})-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\\
+&\quad +R^{\textsc{c-v}}_{3131}\big]\Im(\rho_{12})\Re(\rho_{13})-\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{12})\Re(\rho_{23})\Big]\\
+&\quad +\dfrac{1}{\hbar}\Big[-\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})\Im(\rho_{12})+\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\\
+&\quad +R^{\textsc{c-v}}_{3131}\big]\Re(\rho_{12})\Im(\rho_{13})-\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{12})\Im(\rho_{23})\Big]\\
+\Im(P^{N}(\rho)_{23})&= -\dfrac{1}{\hbar}\Big[-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]\Re(\rho_{23})\rho_{11}\\
+&\quad +\big[\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{13})+ \Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{13})\big]\rho_{22}\Big]\\ &\quad -\dfrac{1}{\hbar}\Big[-\Im(R^{\textsc{c-v}}_{3132})\Im(\rho_{23})\Re(\rho_{12})+\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\\
+&\quad +R^{\textsc{c-v}}_{3131}\big]\Re(\rho_{12})\Re(\rho_{13}) -\Re(R^{\textsc{c-v}}_{3132})\Re(\rho_{12})\Re(\rho_{23})\Big]\\
+&\quad -\dfrac{1}{\hbar}\Big[-\Im(R^{\textsc{c-v}}_{3132})\Re(\rho_{23})\Im(\rho_{12})+\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})\\
+&\quad +R^{\textsc{c-v}}_{3131}\big]\Im(\rho_{12})\Im(\rho_{13})+\Re(R^{\textsc{c-v}}_{3132})\Im(\rho_{12})\Im(\rho_{23})\Big]
+\end{split}
+\right.
+\end{eqnarray*}
+
+En écrivant ces différentes parties réelles et imaginaires sous forme matricielle, on obtient:
+\begin{eqnarray}\label{matrice des elts non diagonaux de PN}
+\left\{
+\begin{split}
+\Re(\textrm{Diag}^{N}(P^{N}(\rho))) &=  \mathcal{R}^{3}_{C}(U) U_{p} +  \mathcal{R}^{4}_{C}(U) \Re(U_{c}) + \mathcal{R}^{5}_{C}(U)\Im(U_{c})\\
+\Im(\textrm{Diag}^{N}(P^{N}(\rho))) &=  \mathcal{R}^{6}_{C}(U) U_{p} +  \mathcal{R}^{7}_{C}(U) \Re(U_{c}) + \mathcal{R}^{8}_{C}(U) \Im(U_{c})
+\end{split}
+\right.
+\end{eqnarray}
+
+avec 
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{3}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+-\Im(R^{\textsc{c-v}}_{3132})U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{3} & 0\\
+\Im(R^{\textsc{c-v}}_{3132})U_{6}+\Re(R^{\textsc{c-v}}_{3132})U_{9} &
+-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{8} & 0 \\
+-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{9} & 
+\Re(R^{\textsc{c-v}}_{3132})U_{8}- \Im(R^{\textsc{c-v}}_{3132})U_{5} & 0
+\end{pmatrix}\\
+\end{split}
+\end{eqnarray*}
+
+\begin{small}
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{4}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & \Im(R^{\textsc{c-v}}_{3132})U_{5} & -\Im(R^{\textsc{c-v}}_{3132})U_{6} \\
+-\Re(R^{\textsc{c-v}}_{3132})U_{8} & -\Im(R^{\textsc{c-v}}_{3132})U_{4} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{7}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{6} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{7} & -\Re(R^{\textsc{c-v}}_{3132})U_{7}
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{5}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{8}-U_{6} & U_{5}-\Im(R^{\textsc{c-v}}_{3132})U_{9} \\
+\Re(R^{\textsc{c-v}}_{3132})U_{5} & -\Im(R^{\textsc{c-v}}_{3132})U_{7} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{4}\\
+-\Im(R^{\textsc{c-v}}_{3132})U_{9} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{4} & -\Re(R^{\textsc{c-v}}_{3132})U_{4}
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+\end{small}
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{6}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+\Re(R^{\textsc{c-v}}_{3132})U_{3} & -\Re(R^{\textsc{c-v}}_{3132})U_{3} & 0 \\
+-\Re(R^{\textsc{c-v}}_{3132})U_{6}+\Im(R^{\textsc{c-v}}_{3132})U_{9} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{5} & 0 \\
+\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{6} & -\Re(R^{\textsc{c-v}}_{3132})U_{5}- \Im(R^{\textsc{c-v}}_{3132})U_{8} & 0 
+\end{pmatrix}\\
+\mathcal{R}^{7}_{C}(U)&= \dfrac{1}{\hbar}
+\Bigg(\begin{smallmatrix}
+-(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{3} & -\Re(R^{\textsc{c-v}}_{3132})U_{5}
+ +(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{6} &  \Re(R^{\textsc{c-v}}_{3132})U_{6}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{8} & \Re(R^{\textsc{c-v}}_{3132})U_{4} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{4}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{9} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{4} & \Re(R^{\textsc{c-v}}_{3132})U_{4} 
+\end{smallmatrix}\Bigg)
+\end{split}
+\end{eqnarray*}
+
+\begin{small}
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{8}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & -\Re(R^{\textsc{c-v}}_{3132})U_{8} & \Re(R^{\textsc{c-v}}_{3132})U_{9}+(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{8}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{5} & \Re(R^{\textsc{c-v}}_{3132})U_{7} &  \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{7}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{6} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{7} & -\Re(R^{\textsc{c-v}}_{3132})U_{7}
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+\end{small}
+
+En regroupant les relations (\ref{matrice des elts diagonaux de PN}) et (\ref{matrice des elts non diagonaux de PN}), l'écriture matricielle des éléments diagonaux et non diagonaux de $ P^{N}(\rho)$ est donnée par:
+
+\begin{equation}\label{matrice PN}
+\begin{pmatrix} Diag(P^{N}(\rho)))\\ \Re(Diag^{N}(P^{N}(\rho))) \\ \Im(Diag^{N}(P^{N}(\rho)))\end{pmatrix}= A^{N}(t,U)U (t)
+\end{equation}
+
+avec
+
+\begin{equation}\label{matrice AN}
+A^{N}(.,U)=
+\begin{pmatrix}
+0 & \mathcal{R}^{1}_{C}(U) & \mathcal{R}^{2}_{C}(U)\\
+\mathcal{R}^{3}_{C}(U) & \mathcal{R}^{4}_{C}(U) & \mathcal{R}^{5}_{C}(U) \\
+\mathcal{R}^{6}_{C}(U) & \mathcal{R}^{7}_{C}(U)&\mathcal{R}^{8}_{C}(U)
+\end{pmatrix}
+\end{equation}
+
+
+Finalement le système dynamique réel associé au modèle de type Bloch avec les termes de relaxation et l'interaction de Coulomb est obtenu en additionnant (\ref{matricePL}) et (\ref{matrice PN}).
+Ainsi nous avons:
+\begin{equation}\label{equation du systeme dynamique reel non lineaire}
+\partial_{t}U(t) = A(t,U(t))U(t) 
+\end{equation}
+avec $ A(.,U)= A^{L}+ A^{N}(.,U)$
+
+\section{Modèles de type Bloch simplifiés}
+Les systèmes quantiques à deux espèces d’électrons sont ceux contenant deux bandes d'énergie:
+la bande de conduction et la bande de valence. Dans ces systèmes quantiques, nous retrouvons deux types de cohérences. Les cohérences au sein de la même bande sont appelés cohérences intra-bandes ($\rho_{12}$). Les cohérences entre deux bandes sont les cohérences inter-bandes ($\rho_{13}$ et $\rho_{23}$).
+
+
+\subsection{Système dynamique sans les inter-bandes}
+Sans les inter-bandes, les cohérences ($\rho_{13}$ et $\rho_{23}$) sont nulles:  
+$$\rho_{13}=0 \quad \textrm{et}\quad \rho_{23}=0 .$$
+Ce qui correspond à :
+$$ U_{5}=0 \quad U_{6}=0 ;\quad U_{8}=0 ; \quad \textrm{et}\quad U_{9}=0$$
+pour le vecteur $ U $ considéré. 
+ Alors le vecteur $ U $ se ramène à un vecteur de $ \mathbb{R}^{5}$.\\
+ Dans ce cas, la matrice $ A^{L}\in \mathcal{M}_{5}(\mathbb{R})$ et devient:
+ \begin{equation}\label{AL sans interbande} 
+A^{L}=
+\begin{pmatrix}
+W_{1} &      0           & 0                       \\
+    0 & D_{\gamma}       &  -\mathcal{E}_{0}       \\
+    0 & \mathcal{E}_{0}  &  D_{\gamma}
+\end{pmatrix}
+\end{equation}
+
+avec 
+$$ D_{\gamma} = (\gamma_{12}) \quad \textrm{et}\quad \mathcal{E}_{0} = - \dfrac{1}{\hbar}(e_{1}-e_{2}). $$
+
+En remplaçant les matrices à l'intérieur de $ A^{L}$ par leurs coefficients, on obtient:
+\begin{small}
+ $$
+A^{L}=
+\begin{pmatrix}
+-(w_{21} + w_{31}) & w_{21}\dfrac{a_{2}}{a_{1}} & w_{31}\dfrac{a_{3}}{a_{1}} & 0 & 0 \\
+w_{21} & -(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32}) & w_{32}\dfrac{a_{3}}{a_{2}} & 0 & 0 \\
+w_{31} & w_{32} & -(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}}) & 0 & 0 \\
+0 & 0 & 0 & \gamma_{12} & \dfrac{1}{\hbar}(e_{1}-e_{2})\\
+0 & 0 & 0 & -\dfrac{1}{\hbar}(e_{1}-e_{2}) & \gamma_{12}
+\end{pmatrix}.
+$$
+\end{small}
+
+De manière analogue, la matrice $ A^{N}(.,U)$ devient:
+$$
+A^{N}(.,U)=
+\begin{pmatrix}
+0 & \mathcal{R}^{1}_{C}(U) & \mathcal{R}^{2}_{C}(U)\\
+\mathcal{R}^{3}_{C}(U) & 0 & \mathcal{R}^{5}_{C}(U) \\
+\mathcal{R}^{6}_{C}(U) & \mathcal{R}^{7}_{C}(U)& 0
+\end{pmatrix}
+$$
+avec 
+ \begin{eqnarray*}
+ \begin{split}
+\mathcal{R}^{1}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+\Im(R^{\textsc{c-v}}_{3132})U_{3}\\
+-\Im(R^{\textsc{c-v}}_{3132})U_{3}\\
+            0 
+\end{pmatrix} \quad \textrm{et} \quad
+\mathcal{R}^{2}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+-\Re(R^{\textsc{c-v}}_{3132})U_{3}\\
+\Re(R^{\textsc{c-v}}_{3132})U_{3}\\
+             0
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{3}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+-\Im(R^{\textsc{c-v}}_{3132})U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{3} & 0
+\end{pmatrix}, \; 
+\mathcal{R}^{5}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+U_{3} 
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{6}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+\Re(R^{\textsc{c-v}}_{3132})U_{3} & -\Re(R^{\textsc{c-v}}_{3132})U_{3} & 0 
+\end{pmatrix}\; \textrm{et} \;
+\mathcal{R}^{7}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix} -(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{3} \end{pmatrix} 
+\end{split}
+\end{eqnarray*}
+
+Ainsi on obtient:
+\begin{equation}\label{AN sans interbande}
+A^{N}(.,U)=\dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & 0 & 0 & 2\Im(R^{\textsc{c-v}}_{3132})U_{3} & -2\Re(R^{\textsc{c-v}}_{3132})U_{3}\\
+0 & 0 & 0 & -2\Im(R^{\textsc{c-v}}_{3132})U_{3} & 2\Re(R^{\textsc{c-v}}_{3132})U_{3}\\
+0 & 0 & 0 &                   0                     &                     0              \\
+-\Im(R^{\textsc{c-v}}_{3132})U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{3} & 0 & 0 & U_{3}\\
+\Re(R^{\textsc{c-v}}_{3132})U_{3} & -\Re(R^{\textsc{c-v}}_{3132})U_{3} & 0 & (R^{\textsc{c-v}}_{3232}-R^{\textsc{c-v}}_{3131})U_{3} & 0
+\end{pmatrix}
+\end{equation}\\
+  
+Finalement le système dynamique réel associé au modèle de type Bloch sans les inter-bandes est obtenu en additionnant (\ref{AL sans interbande}) et (\ref{AN sans interbande}).
+Ainsi nous avons :
+$$
+\partial_{t}U(t) = A(t,U)U(t) 
+$$
+
+avec $ A(t,U)= A^{L}+ A^{N}(t,U)$
+
+
+\subsection{Système dynamique sans l'intra-bande}
+
+Sans l'intra-bande, la cohérence $\rho_{12}$ est égale à 0. Ce qui entraine que:
+$$\Re(\rho_{12})=0 \quad \textrm{et}\quad \Im(\rho_{12})=0 .$$
+ Alors les composantes du vecteur $U$ deviennent:  
+\begin{eqnarray*}
+ U_{p} = \begin{pmatrix}\rho_{11}\\ \rho_{22}\\ \rho_{33}\end{pmatrix}\; ; &
+U_{c} = \begin{pmatrix}\rho_{13} \\ \rho_{23}\end{pmatrix} \quad \textrm{et} &
+U = \begin{pmatrix}U_{p}\\ \Re(U_{c})\\ \Im(U_{c})\end{pmatrix}\in \mathbb{R}^{7}.
+\end{eqnarray*}
+On obtient donc:
+\begin{eqnarray*}
+ U_{p} = \begin{pmatrix}U_{1}\\ U_{2}\\ U_{3}\end{pmatrix}\; ; &
+\Re(U_{c})= \begin{pmatrix}U_{4} \\ U_{5}\end{pmatrix} \quad \textrm{et} &
+\Im(U_{c})= \begin{pmatrix}U_{6}\\ U_{7}\end{pmatrix}.
+\end{eqnarray*}
+
+La matrice $ A^{L}\in \mathcal{M}_{7}(\mathbb{R})$ devient alors :
+\begin{equation}\label{AL sans intrabande}
+A^{L}=
+\begin{pmatrix}
+W_{1} &      0                    & 0                       \\
+    0 & D_{\gamma}                &  -\big(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}\big) \\
+    0 & \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}
+\end{equation}
+
+ avec 
+$$ D_{\gamma} = \textrm{diag}(\gamma_{13}, \gamma_{23}), \; \mathcal{E}_{0} =- \dfrac{1}{\hbar}  \textrm{diag}(e_{1}-e_{3}, e_{2}-e_{3}) \; \textrm{et} \;  
+\mathcal{R}^{0}_{C} =- \dfrac{1}{\hbar}  \textrm{diag}\big(\nu^{C}, \nu^{C}\big)$$
+
+La matrice $ A^{N}(.,U)$ devient:
+\begin{equation}\label{AN sans intrabande}
+A^{N}(.,U)=
+\begin{pmatrix}
+0 & \mathcal{R}^{1}_{C}(U) & \mathcal{R}^{2}_{C}(U)\\
+\mathcal{R}^{3}_{C}(U) & 0 & 0                      \\
+\mathcal{R}^{6}_{C}(U) & 0 & 0
+\end{pmatrix}
+\end{equation}
+
+avec 
+%
+\begin{eqnarray*}
+\mathcal{R}^{1}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+ -\Im(R^{\textsc{c-v}}_{3132})U_{5} & \Re(R^{\textsc{c-v}}_{3132})U_{6}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{5}   & -\Re(R^{\textsc{c-v}}_{3132})U_{6}\\
+                                 0  & 0
+\end{pmatrix}
+\end{eqnarray*}
+et 
+\begin{eqnarray*} 
+\mathcal{R}^{2}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+ -\Im(R^{\textsc{c-v}}_{3132})U_{7} & -\Re(R^{\textsc{c-v}}_{3132})U_{4}\\
+ \Im(R^{\textsc{c-v}}_{3132})U_{7}  & \Re(R^{\textsc{c-v}}_{3132})U_{4}\\
+                                  0 & 0
+\end{pmatrix}
+\end{eqnarray*}
+ 
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{3}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+\Im(R^{\textsc{c-v}}_{3132})U_{5}+\Re(R^{\textsc{c-v}}_{3132})U_{7} &
+-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{6} & 0 \\
+-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{7} & 
+\Re(R^{\textsc{c-v}}_{3132})U_{6}- \Im(R^{\textsc{c-v}}_{3132})U_{4} & 0
+\end{pmatrix}\\
+\end{split}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{6}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+-\Re(R^{\textsc{c-v}}_{3132})U_{5}+\Im(R^{\textsc{c-v}}_{3132})U_{7} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{4} & 0 \\
+\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{5} & -\Re(R^{\textsc{c-v}}_{3132})U_{4}- \Im(R^{\textsc{c-v}}_{3132})U_{6} & 0 
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+
+Finalement le système dynamique réel associé au modèle de type Bloch sans l'intra-bande est obtenu en additionnant (\ref{AL sans intrabande}) et (\ref{AN sans intrabande}).
+Ainsi, nous avons :
+$$
+\partial_{t}U(t) = A(t,U)U(t) 
+$$
+
+avec 
+$$
+A(t,U)= A^{L}+ A^{N}(t,U).
+$$
+
+\chapter{Existence et unicité de solution}
+
+Dans ce chapitre, nous voulons nous assurer que le modèle de type Bloch déterminé est bien posé localement en temps.
+Pour cela nous présentons le problème de Cauchy du système dynamique réel non linéaire obtenu au chapitre précédent, puis nous prouvons l'existence et l'unicité d'une solution à partir du théorème de Cauchy Lipschitz local.\\
+
+Le problème de Cauchy associé au système dynamique réel non linéaire (\ref{equation du systeme dynamique reel non lineaire}) se présente comme suit: 
+\begin{equation}\label{PC1}
+(S):\left\{\begin{array}{lll}
+\partial_{t}U(t) & = & \mbox{$f(t,U(t)),\quad t>0$}\\
+U(0) & = & U^{0}
+\end{array}\right.
+\end{equation}
+où $f(t,U(t))= A(t,U)U(t),$ avec $ A(.,U)= A^{L}+ A^{N}(.,U)$.
+\begin{itemize}
+\item La matrice $ A^{L}$ ( voir l'équation (\ref{matrice Al})) ne dépend pas du vecteur $U$.
+\item La matrice $ A^{N}$ ( voir l'équation (\ref{matrice AN})) dépend du vecteur $U$, et c'est cette dépendance qui rend le système non linéaire.
+\end{itemize}
+
+Lorsque la matrice $ A(.,U)$ se réduit à la matrice $ A^{L}$, le système se résume à
+$$
+\left\{\begin{array}{lll}
+\partial_{t}U(t) & = & \mbox{$ A^{L}U(t),\quad t>0$}\\
+U(0) & = & U^{0}
+\end{array}\right.
+$$
+Ce dernier système est autonome.\\
+
+Les éléments de la matrice $A(t,U)$ notés  \mbox{$A_{jk}(t,U)$} pour tout $ j,k \in \{1,2,\cdots9\}$ et $ t> 0$ sont des variables réelles. Alors, nous avons:
+$$ t \mapsto A(t,U)\in \mathcal{M}_{9}(\mathbb{R})\quad \textrm{et} \quad t \mapsto U(t)\in \mathbb{R}^{9}.$$
+
+Dans la suite, nous allons établir plusieurs résultats sur les éléments de la matrice $ A(.,U) $.
+
+\begin{lemma}\label{lemme classe c1}
+Si les composantes du vecteur $ U $ sont de classe $ \mathcal{C}^{1}$ sur un intervalle de temps alors les éléments de la matrice $A(.,U) $ sont aussi de classe $\mathcal{C}^{1}$ sur le même intervalle de temps.
+\end{lemma}
+
+Rappelons la définition de la norme infinie d'une matrice.
+\begin{definition}
+Pour toute matrice $ M\in \mathcal{M}_{n}(\mathbb{K}) $ où $ \mathbb{K}=\mathbb{R}\; \textrm{ou}\; \mathbb{C}$ ,
+$$ \Vert M \Vert_{\infty} = \max_{1\leq i \leq n}\sum_{j=1}^{n}\vert M_{ij}\vert .$$
+\end{definition}
+
+En utilisant la définition précédente, nous déterminons la norme infinie d'une matrice diagonale par blocs à travers le lemme suivant: 
+
+\begin{lemma}\label{lemme pour la matrice diagonale par bloc}
+Soit $ M $ une matrice diagonale par blocs définie par:
+$$ M = \begin{pmatrix}
+X & 0\\
+0 & Y
+\end{pmatrix} .$$ 
+où $ X\in \mathcal{M}_{n}(\mathbb{K}) $ et $ Y \in \mathcal{M}_{p}(\mathbb{K})$.\\
+ Alors $ M $ vérifie la propriété suivante:
+$$ \Vert M \Vert_{\infty}=\max\{\Vert X \Vert_{\infty} \; ; \; \Vert Y \Vert_{\infty}\} .$$
+De plus $$ \Vert M \Vert_{\infty}\leq \Vert X \Vert_{\infty}+\Vert Y \Vert_{\infty} .$$
+\end{lemma}
+\begin{proof}
+La norme infinie de $ M $ est donnée par:
+$$ \Vert M \Vert_{\infty} = \max_{1\leq i \leq n+p}\sum_{j=1}^{n+p}\vert M_{ij}\vert.$$
+Alors $$ \Vert M \Vert_{\infty}= \max\Big\{\max_{1\leq i \leq n}\sum_{j=1}^{n+p}\vert M_{ij}\vert \; ; \; \max_{n+1\leq i \leq n+p}\sum_{j=1}^{n+p}\vert M_{ij}\vert \Big\} .$$
+Or 
+$$ \textrm{Pour} \;1\leq i \leq n,\; \sum_{j=1}^{n+p}\vert M_{ij}\vert = \sum_{j=1}^{n}\vert X_{ij}\vert $$ et
+$$\textrm{pour} \;n+1\leq i \leq n+p,\;\sum_{j=1}^{n+p}\vert M_{ij}\vert =\sum_{l=1}^{p}\vert Y_{kl}\vert \; \textrm{pour} \;1\leq k \leq p. $$
+Alors 
+$$ \Vert M \Vert_{\infty}= \max\Big\{\max_{1\leq i \leq n}\sum_{j=1}^{n}\vert X_{ij}\vert \; ; \; \max_{1\leq k \leq p}\sum_{l=1}^{p}\vert Y_{kl}\vert \Big\} .$$
+Donc $$ \Vert M \Vert_{\infty}=\max\{\Vert X \Vert_{\infty} \; ; \; \Vert Y \Vert_{\infty}\} .$$
+Or $$ \Vert X \Vert_{\infty}\leq \Vert X \Vert_{\infty}+\Vert Y \Vert_{\infty}\: \textrm {et}\: \Vert Y \Vert_{\infty}\leq \Vert X \Vert_{\infty}+\Vert Y \Vert_{\infty} .$$
+Alors $$ \Vert M \Vert_{\infty}\leq \Vert X \Vert_{\infty}+\Vert Y \Vert_{\infty} .$$
+\end{proof}
+
+\begin{proposition}\label{f bornee}
+Le second membre de l'équation du système (S) (\ref{PC1}) vérifie la propriété suivante:
+$$\forall t>0,\quad \Vert f(t,U(t))\Vert_{2}\leq C_{3}\Vert U(t)\Vert_{2} \quad \textrm{avec}\quad C_{3}=C_{1}+3C_{2} $$
+où 
+\begin{eqnarray*}
+  \left\{
+\begin{split}
+C_{1}&=\Vert W_{1} \Vert_{\infty}+\Vert D_{\gamma} \Vert_{\infty}+\Vert \mathcal{E}_{0}\Vert_{\infty}+ \Vert \mathcal{R}^{0}_{C} \Vert_{\infty}\\
+C_{2}&=\dfrac{1}{\hbar}\Big(6\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + 4\vert R^{\textsc{c-v}}_{3131}\vert + 4\vert R^{\textsc{c-v}}_{3232}\vert + 12\vert R^{\textsc{c-v}}_{3132} \vert\Big )
+\end{split}
+\right.
+ \end{eqnarray*}
+\end{proposition}
+
+\begin{proof}
+La solution du problème de Cauchy (S) vérifie:
+$$ \partial_{t}U(t) = \mbox{$f(t,U(t)),\quad t>0$} $$
+où $f(t,U(t))= A(t,U)U(t)\in \mathbb{R}^{9}$.\\
+En passant à la norme euclidienne sur $\mathbb{R}^{9}$, on a:
+$$\Vert f(t,U(t))\Vert_{2}= \Vert A(t,U)U(t)\Vert_{2}$$
+Alors en utilisant l'inégalité de H\"{o}lder, on obtient:
+\begin{eqnarray*}
+\Vert f(t,U(t))\Vert_{2}& \leq & \Vert A(t,U)\Vert_{\infty}\cdot\Vert U(t)\Vert_{2}
+\end{eqnarray*}
+
+Déterminons une majoration de la norme infinie de la matrice $A(U)$
+
+ $$ \Vert A(t,U)\Vert_{\infty} \leq \Vert A^{L}\Vert_{\infty} + \Vert A^{N}(t,U)\Vert_{\infty}$$ 
+ \begin{enumerate}
+ \item Majorons la norme infinie de $ A^{L}$.\\
+ L'expression de la matrice $ A^{L}$ est donnée par l'équation (\ref{matrice Al}) et se présente sous la forme d'une matrice diagonale par blocs. A partir du lemme (\ref{lemme pour la matrice diagonale par bloc}), on obtient:
+ $$ \Vert A^{L} \Vert_{\infty}=\max\{\Vert W_{1} \Vert_{\infty} \; ; \; \Vert \mathcal{E}_{1} \Vert_{\infty}\} .$$
+ 
+ avec $$ \mathcal{E}_{1}= \begin{pmatrix}
+ D_{\gamma}                &  -\big(\mathcal{E}_{0}+\mathcal{R}^{0}_{C}\big)  \\
+\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}. $$
+
+Or $$\Vert \mathcal{E}_{1}\Vert_{\infty} \leq \Vert D_{\gamma} \Vert_{\infty}+\Vert \mathcal{E}_{0}\Vert_{\infty}+ \Vert \mathcal{R}^{0}_{C} \Vert_{\infty} .$$
+ Donc une majoration de la matrice $ A^{L} $ est donnée par:
+ $$\Vert A^{L}\Vert_{\infty} \leq  \Vert W_{1} \Vert_{\infty}+\Vert D_{\gamma} \Vert_{\infty}+\Vert \mathcal{E}_{0}\Vert_{\infty}+ \Vert \mathcal{R}^{0}_{C} \Vert_{\infty} $$
+  
+\item Majorons la norme infinie de $ A^{N}(U)$.
+L'expression de la matrice $ A^{N}(.,U)$ est donnée par l'équation (\ref{matrice AN}).
+\begin{eqnarray*}
+\begin{split}
+ \Vert A^{N}(.,U) \Vert_{\infty} & \leq \max \Big\{\Vert \mathcal{R}^{1}_{C}(U)\Vert_{\infty}+\Vert \mathcal{R}^{2}_{C}(U)\Vert_{\infty}\: ;\\
+ &\quad \Vert \mathcal{R}^{3}_{C}(U)\Vert_{\infty}+\Vert \mathcal{R}^{4}_{C}(U)\Vert_{\infty}+\Vert \mathcal{R}^{5}_{C}(U)\Vert_{\infty}\: ; \\
+ &\quad \Vert \mathcal{R}^{6}_{C}(U)\Vert_{\infty}+\Vert \mathcal{R}^{7}_{C}(U)\Vert_{\infty}+\Vert \mathcal{R}^{8}_{C}(U)\Vert_{\infty} \Big\} 
+ \end{split}
+ \end{eqnarray*}
+
+\begin{itemize}[label=$\bullet$]
+ \item Pour tout $i\in \{1;2\}$, on a:
+$$ \Vert \mathcal{R}^{i}_{C}(U)\Vert_{\infty}  \leq \dfrac{6}{\hbar}\vert R^{\textsc{c-v}}_{3132} \vert\cdot\Vert U(t)\Vert_{2} $$
+Alors 
+$$ \Vert \mathcal{R}^{1}_{C}(U)\Vert_{\infty}+\Vert \mathcal{R}^{2}_{C}(U)\Vert_{\infty}   \leq \dfrac{12}{\hbar}\vert R^{\textsc{c-v}}_{3132} \vert\cdot\Vert U(t)\Vert_{2} $$
+
+\item Pour $i\in \{3;4\}$, on a:
+
+$$ \Vert \mathcal{R}^{i}_{C}(U)\Vert_{\infty}  \leq \dfrac{1}{\hbar}\Big(2\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + \vert R^{\textsc{c-v}}_{3131}\vert + \vert R^{\textsc{c-v}}_{3232}\vert + 2\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2}  $$
+et 
+$$ \Vert \mathcal{R}^{5}_{C}(U)\Vert_{\infty} \leq \dfrac{1}{\hbar}\Big(3+2\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + \vert R^{\textsc{c-v}}_{3131}\vert + \vert R^{\textsc{c-v}}_{3232}\vert + 2\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2}$$
+
+Alors 
+$$ \sum_{i=3}^{5}\Vert \mathcal{R}^{i}_{C}(U)\Vert_{\infty}  \leq \dfrac{1}{\hbar}\Big(3+6\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + 3\vert R^{\textsc{c-v}}_{3131}\vert + 3\vert R^{\textsc{c-v}}_{3232}\vert + 6\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2} $$
+
+\item 
+$$ \Vert \mathcal{R}^{6}_{C}(U)\Vert_{\infty}  \leq \dfrac{1}{\hbar}\Big(2\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + \vert R^{\textsc{c-v}}_{3131}\vert + \vert R^{\textsc{c-v}}_{3232}\vert + 2\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2}  $$
+
+$$ \Vert \mathcal{R}^{7}_{C}(U)\Vert_{\infty}  \leq \dfrac{1}{\hbar}\Big(2\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + 2\vert R^{\textsc{c-v}}_{3131}\vert + 2\vert R^{\textsc{c-v}}_{3232}\vert + 2\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2}  $$
+
+et 
+$$ \Vert \mathcal{R}^{8}_{C}(U)\Vert_{\infty}  \leq \dfrac{1}{\hbar}\Big(2\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + \vert R^{\textsc{c-v}}_{3131}\vert + \vert R^{\textsc{c-v}}_{3232}\vert + 2\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2}  $$
+
+Alors 
+$$ \sum_{i=6}^{8}\Vert \mathcal{R}^{i}_{C}(U)\Vert_{\infty}  \leq \dfrac{1}{\hbar}\Big(6\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + 4\vert R^{\textsc{c-v}}_{3131}\vert + 4\vert R^{\textsc{c-v}}_{3232}\vert + 6\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2} $$
+  
+\end{itemize} 
+
+Finalement, nous obtenons une  majoration de la norme infinie de $ A^{N}(.,U)$ donnée par:
+ 
+$$ \Vert A^{N}(.,U) \Vert_{\infty}\leq \dfrac{1}{\hbar}\Big(6\vert R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212}\vert + 4\vert R^{\textsc{c-v}}_{3131}\vert + 4\vert R^{\textsc{c-v}}_{3232}\vert + 12\vert R^{\textsc{c-v}}_{3132} \vert\Big )\Vert U(t)\Vert_{2} $$
+ 
+ \end{enumerate}
+ 
+Ainsi, nous pouvons conclure que:
+
+$$\forall t>0, \Vert f(t,U(t))\Vert_{2}\leq \Big(C_{1}+C_{2}\Vert U(t)\Vert_{2}\Big)\Vert U(t)\Vert_{2}. $$
+
+La positivité de la matrice densité $ \rho $ a été vérifiée dans la thèse (\cite{mareference1},Page 20) et cette positivité implique  que:
+$$\forall j,k \in \{1,2,3\},\quad \rho_{jj}\geq 0 \quad \textrm{et} \quad \vert \rho_{jk}\vert^{2}\leq \rho_{jj}\rho_{kk}.$$
+De plus les populations vérifient:
+$$\forall j \in \{1,2,3\},\quad 0\leq\rho_{jj}\leq 1 $$
+Alors 
+$$ \forall j,k \in \{1,2,3\},\quad  0\leq\vert \rho_{jk}\vert^{2}\leq 1 $$
+Donc
+
+$$ \forall j,k \in \{1,2,3\},\quad  0\leq\vert \rho_{jk}\vert\leq 1 $$
+Pour tout nombre complexe $z$, on a :
+$$ \vert \Re(z)\vert\leq \vert z \vert\ \quad \textrm{et} \quad \vert \Im(z)\vert\leq \vert z \vert\ $$
+on obtient alors:
+$$ \forall j,k \in \{1,2,3\},\quad  0\leq\vert \Re(\rho_{jk})\vert\leq 1 \quad \textrm{et} \quad 0\leq\vert \Im(\rho_{jk})\vert\leq 1 .$$
+Ainsi, en revenant au vecteur $U(t)$ (voir (\ref{vecteurs colonnes}), on a ses composantes $ U_{i}(t)$ qui vérifient:
+$$0\leq U_{i}(t) \leq 1, \quad \forall i\in\{1;2;\cdots; 9\} \; \textrm{et}\; t>0 .$$
+Majorons la norme euclidienne du vecteur $U(t)$.\\
+On a, pour tout $t>0 $,
+$$ \Vert U(t)\Vert_{2}^{2}=\sum^{i=1}_{9}U^{2}_{i}(t) .$$
+Alors
+$$ \Vert U(t)\Vert_{2}^{2} \leq 9 \Leftrightarrow \Vert U(t)\Vert_{2} \leq 3 .$$
+
+Finalement, nous pouvons conclure que: 
+$$\forall t>0,\quad \Vert f(t,U(t))\Vert_{2}\leq C_{3}\Vert U(t)\Vert_{2} \quad \textrm{avec}\quad C_{3}=C_{1}+3C_{2} .$$
+
+\end{proof}
+
+\begin{definition}
+Une fonction $ g: \mathbb{R}_{+}\times \mathcal{C}^{1}(\mathbb{R}_{+},\mathbb{R}^{p})\rightarrow \mathcal{C}^{1}(\mathbb{R}_{+},\mathbb{R}^{n})(p,n\geq 2)$ est localement Lipschitzienne par rapport à la dernière variable appartenant à $ \mathcal{C}^{1}(\mathbb{R}_{+},\mathbb{R}^{p})$ si pour tout $ t\in\mathbb{R}_{+},\: U\in \mathcal{C}^{1}(\mathbb{R}_{+},\mathbb{R}^{p})$, il existe des nombres réels $ k_{U}$ et $ r >0 $  tels que 
+$$\Vert g(t,U_{1})-g(t,U_{2})\Vert \leq k_{U}\Vert U_{1}-U_{2}\Vert $$
+pour tous $U_{1},\: U_{2}\in B(U,r)\subset \mathcal{C}^{1}(\mathbb{R}_{+},\mathbb{R}^{p})$ $($ Boule fermée de centre $ U $ et de rayon $r$ $)$.\\
+Si de plus $ k_{U}\in [0;1[$ alors $g$ est appelée une contraction.
+\end{definition}
+\bigskip 
+
+\begin{theorem}[Cauchy Lipschitz local]
+ Si la fonction  $ f $ localement Lipschitzienne par rapport à $ U $  alors le problème de Cauchy $(S)$ admet une unique solution définie sur un intervalle de temps.\\
+ 
+\end{theorem}
+  
+\begin{proof}
+La solution intégrale du système $(S)$ nous donne:
+$$ \forall t >0,\quad U(t)= U^{0}+\int_{0}^{t} f(s,U(s))\mathrm{d}s $$
+où $ U(0)=U^{0}\in \mathbb{R}^{9}$.\\
+
+Considérons une boule fermée de rayon $r$ et de centre la donnée initiale $ U^{0}$ notée $ B_{r}\subset\mathbb{R}^{9} .$\\ 
+Soit $ \mathcal{F} $ l'ensemble des fonctions continues de $[0,\tau]$ dans $B_{r}$, muni de la norme uniforme. \Big( $ \mathcal{F}=(\mathcal{C}^{0}([0,\tau],B_{r}),\Vert.\Vert_{\infty})$ est un espace complet \Big).\\
+
+La variable $ U $ est le point fixe d'un certain opérateur non linéaire $ \mathcal{T}$ défini sur
+ $ \mathcal{F}$ à valeurs dans $ \mathcal{C}^{1}([0,\tau],\mathbb{R}^{9})$ par:
+$$ \mathcal{T}(U)(t)= U^{0}+\int_{0}^{t} f(s,U(s))\mathrm{d}s. $$
+
+\begin{itemize}[label=$\bullet$]
+ \item $ f $ est bornée sur $ \mathcal{F}=(\mathcal{C}^{0}([0,\tau],B_{r}),\Vert.\Vert_{\infty})$ d'après la proposition \ref{f bornee} . \\
+ En effet pour tout $U \in \mathcal{F}$, il existe $\mu \in  \mathbb{R}$ tel que 
+ $$ \Vert f(\cdot,U)\Vert_{\infty} \leq \mu \Vert U\Vert_{\infty}\leq \mu r \:.$$
+   Soit $t \in [0,\tau].$ On a la majoration suivante:
+ \begin{eqnarray*}
+\Vert \mathcal{T}(U)(t)-U^{0}\Vert & = & \Vert\int_{0}^{t}f(s,U(s))\mathrm{d}s \Vert \\
+ &\leq & \int_{0}^{t}\Vert f(s,U(s))\Vert \mathrm{d}s \\
+& \leq & t\mu r\\
+& \leq & \tau\mu r
+\end{eqnarray*} 
+Alors quitte à remplacer $\tau$ par $\frac{1}{\mu}$ on obtient $ \mathcal{T}(U)(t)\in B_{r} .$  Donc on a $\mathcal{T}(U)\in \mathcal{F}$, par conséquent $\mathcal{T}$ est un operateur sur l'espace métrique $\cal{F}.$
+ 
+  \item D'après le lemme \ref{lemme classe c1}, $f$ est de classe $ \mathcal{C}^{1}$ sur un compact. Alors elle est Lipschitzienne. Donc il existe un réel $ K>0 $ tel que pour tous $ t\in [0,\tau]$ et $U_{1}, U_{2}\in \mathcal{F},$ 
+  $$ \Vert f(t,U_{1}(t))-f(t,U_{2}(t))\Vert  \leq K\Vert U_{1}(t)-U_{2}(t)\Vert_{\infty} .$$
+  Soient $U_{1}, U_{2}\in \mathcal{F}$ et calculons la norme de $\mathcal{T}(U_{1})-\mathcal{T}(U_{2}).$
+\begin{eqnarray*}
+\Vert \mathcal{T}(U_{1})(t)-\mathcal{T}(U_{2})(t)\Vert & \leq & \int_{0}^{t}\Vert f(s,U_{1}(s))-f(s,U_{2}(s))\Vert \mathrm{d}s \\
+& \leq & K\int_{0}^{t}\Vert U_{1}(s)-U_{2}(s)\Vert_{\infty} \mathrm{d}s.
+\end{eqnarray*}
+Nous avons 
+$$ \Vert U_{1}-U_{2}\Vert_{\infty} = \sup_{s\in[0,t]}\Vert U_{1}(s)-U_{2}(s)\Vert_{\infty} $$
+alors 
+\begin{eqnarray*}
+\Vert \mathcal{T}(U_{1})-\mathcal{T}(U_{2})\Vert_{\infty} & \leq & tK \Vert U_{1}-U_{2}\Vert_{\infty}\leq  \tau K \Vert U_{1}-U_{2}\Vert_{\infty}.
+\end{eqnarray*}
+
+L'application $\mathcal{T}$ est une $\delta $ contraction ($\delta\in [0;1[$) quitte à remplacer $\tau$ par $ \frac{\delta}{K}$\\
+Par le théorème de point ﬁxe de Banach-Picard, $\mathcal{T}$  admet un unique point ﬁxe sur $[0;\tau[$; alors le problème de Cauchy (S) admet une unique solution définie sur $[0,\min\{\frac{1}{\mu},\frac{\delta}{K}\}[ .$
+
+\end{itemize}
+
+
+\end{proof}  
+
+
+
+\chapter{Propriétés qualitatives}
+La solution du modèle de type Bloch  doit conserver au cours du temps les propriétés qualitatives telles que la conservation de la trace, l’hermicité et la positivté de sa solution. Ces propriétés ont été vérifiées sur le système dynamique complexe (voir la section (\ref{section proprietes qualitatives})).\\
+Dans ce chapitre, nous voulons prouver que les propriétés qualitatives telles que la conservation de la trace et la positivté de sa solution sont aussi vérifiées sur le système dynamique réel non linéaire obtenu. L’hermicité de la solution est détruite quand nous prenons le vecteur $U$ comme variable du système dynamique.\\
+Nous utiliserons si nécessaire les modèles simplifiés ( les système dynamiques réels sans inter-bande et sans intra-bande).\\
+
+\begin{definition}
+Soit un vecteur colonne $U=(U_{j})$ de $\mathbb{R}^{n},\: (n\geq 2).$
+L'instruction $U_{i:j}$ renvoie au vecteur colonne
+$ \begin{pmatrix}
+U_{i}\\
+\vdots\\
+U_{j}
+\end{pmatrix}$ 
+pour $ i \in \{1,...,n-1\},\: j \in \{2,...,  n\} \; et \: i<j .$
+
+\end{definition}
+
+L'étude des propriétés qualitatives se fera sur le système suivant: 
+\begin{eqnarray*}
+(S):\left\{\begin{array}{lll}
+\partial_{t}U(t) & = & \mbox{$f(t,U(t)),\quad t>0$}\\
+U(0) & = & U^{0}
+\end{array}\right.
+\end{eqnarray*}
+où $f(t,U(t))= A(t,U)U(t),$ avec $ A(t,U)= A^{L}+ A^{N}(t,U)$.
+
+
+\begin{property}
+La solution du système (S) vérifie la conservation de la trace.
+$$ \textrm{ Sachant que} \; \sum_{j=1}^{3}U_{j}^{0} \;\textrm{est finie, on a:}\quad 
+ \forall t> 0 \; \sum_{j=1}^{3}U_{j}(t)= \sum_{j=1}^{3}U_{j}^{0}.$$
+\end {property}
+
+\begin{proof}
+On a pour tout $ t> 0$:
+$$ 
+\partial_{t}\sum_{j=1}^{3}U_{j}(t)=\sum_{j=1}^{3}\left(W_{1}U_{1:3}+\mathcal{R}^{1}_{C}(U)U_{4:6}+\mathcal{R}^{2}_{C}(U)U_{7:9}\right)_{j}
+$$
+
+ En utilisant (\ref{FM1}) on obtient:
+\begin{eqnarray*}
+ \left\{
+ \begin{split}
+\sum_{j=1}^{3}\left(W_{1}U_{1:3}\right)_{j} & =  -(w_{21} + w_{31})U_{1} + w_{21}\dfrac{a_{2}}{a_{1}}U_{2}+ w_{31}\dfrac{a_{3}}{a_{1}}U_{3} \\
+&\quad +  w_{21}U_{1}-(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32})U_{2} + w_{32}\dfrac{a_{3}}{a_{2}}U_{3} \\
+&\quad + w_{31}U_{1}+ w_{32}U_{2}-(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}})U_{3} \\
+ & = 0  
+  \end{split}  
+   \right.   
+  \end{eqnarray*}
+De (\ref{matrice des elts diagonaux de PN}), on obtient:
+\begin{eqnarray*}
+  \left\{
+\begin{split}
+\sum_{j=1}^{3}\left(\mathcal{R}^{1}_{C}(U)U_{4:6}\right)_{j} &= \dfrac{2}{\hbar}\Big[\Im(R^{\textsc{c-v}}_{3132})U_{3}U_{4}-\Im(R^{\textsc{c-v}}_{3132})U_{6}U_{5}+\Re(R^{\textsc{c-v}}_{3132})U_{8}U_{6}\\
+&\quad -\Im(R^{\textsc{c-v}}_{3132})U_{3}U_{4}+ \Im(R^{\textsc{c-v}}_{3132})U_{6}U_{5}-\Re(R^{\textsc{c-v}}_{3132})U_{8}U_{6}\Big]\\
+&= 0
+\end{split}
+\right.
+ \end{eqnarray*}
+ et 
+
+\begin{eqnarray*}
+  \left\{
+\begin{split}
+\sum_{j=1}^{3}\left(\mathcal{R}^{2}_{C}(U)U_{7:9}\right)_{j} &= \dfrac{2}{\hbar}\Big[-\Re(R^{\textsc{c-v}}_{3132})U_{3}U_{7}-\Im(R^{\textsc{c-v}}_{3132})U_{9}U_{8}-\Re(R^{\textsc{c-v}}_{3132})U_{5}U_{9}\\
+&\quad +\Re(R^{\textsc{c-v}}_{3132})U_{3}U_{7}+\Im(R^{\textsc{c-v}}_{3132})U_{9}U_{8}+\Re(R^{\textsc{c-v}}_{3132})U_{5}U_{9}\Big]\\
+&= 0
+\end{split}
+\right.
+ \end{eqnarray*}\\
+
+ En faisant la somme membre à membre des trois systèmes précédents, on obtient:    
+$$ \partial_{t}\sum_{j=1}^{3}U_{j}(t)=0 $$
+Donc 
+$$ \forall t> 0 \quad \sum_{j=1}^{3}U_{j}(t)= \sum_{j=1}^{3}U_{j}^{0}$$
+
+
+\end{proof}
+
+\begin{property}
+Dans le système dynamique (S), les trois premières composantes\\(populations) de la solution $ U $ restent inférieures à 1 au cours du temps pour une trace initiale finie et égale à 1:
+$$\forall t\geq 0, \quad U_{j}(t)< 1 \quad \forall j\in \{1;2;3\} .$$
+\end {property}
+
+\begin{proof}
+La trace étant conservée dans le système dynamique $(S)$ alors pour une trace initiale finie et égale à 1, on a: pour tout $ t\geq 0 $, 
+$$ \sum_{j=1}^{3}U_{j}(t)= 1\Rightarrow U_{j}(t)< 1 .$$
+
+\end{proof}
+
+\begin{property}[\textbf{Positivité de la solution}]
+Les trois premières composantes\\de la solution $ U $ du système dynamique $(S)$  restent positives au cours du temps:
+$$\forall t\geq 0, \quad U_{j}(t)>0 \quad \forall j\in \{1;2;3\} .$$
+\end {property}
+%
+\begin{proof}
+
+\begin{enumerate}
+\item Dans le cas du système dynamique  linéaire $(S_{L})$ avec
+\begin{eqnarray*}
+(S_{L}):\left\{\begin{array}{lll}
+\partial_{t}U(t) & = & A^{L}U(t),\quad t>0\\
+U(0) & = & U^{0}
+\end{array}\right.
+\end{eqnarray*}
+%
+\begin{itemize}[label=$\bullet$]
+\item  Supposons qu'il existe un instant $t_{0}>0$, tel que toutes les populations soient nulles.
+Alors $$\partial_{t}U_{j}(t_{0})=0 \quad \forall j\in \{1;2;3\} \quad \textrm{voir (\ref{FM1})} $$
+la derivée d'ordre 2 de $ U_{1}$ à l'instant $t_{0}$ est définie par :
+$$ \partial_{t^{2}}^{2}U_{1}(t_{0}) = -(w_{21} + w_{31})\partial_{t}U_{1} + w_{21}\dfrac{a_{2}}{a_{1}}\partial_{t}U_{2}+ w_{31}\dfrac{a_{3}}{a_{1}}\partial_{t}U_{3}=0 $$
+De maniére analogue , on obtient: 
+$$ \partial_{t^{2}}^{2}U_{2}(t_{0}) =\partial_{t^{2}}^{2}U_{3}(t_{0}) = 0 $$
+%
+Alors quelque soit l'ordre $n \in \mathbb{N^{*}}$ de la dérivée, 
+$$ \partial_{t^{n}}^{n}U_{j}(t_{0}) = 0 \quad \forall j\in \{1;2;3\}$$
+Nous pouvons donc dire qu'au moment où toutes les populations sont nulles, il n'y a aucune variation(les populations n'évoluent pas en fonction du temps). Autrement dit quelque soit $t>t_{0}$, toutes les populations sont nulles, d'où la conservation de la trace n'est pas respectée. Ce qui est absurde.\\
+Par conséquent il n'existe pas un instant $t_{0}>0$ tel que toutes les populations soient nulles.
+
+\item Supposons qu'il existe un instant $t_{0}\geq 0$, tel que toutes les populations soient nulles sauf l'une d'entre elles ($ U_{i}(t_{0})\neq 0 $ et $\forall j\neq i, U_{j}(t_{0})=0 , i, j \in \{1;2;3\} \quad (\star) $). D'où $ U_{i}(t_{0})= 1 $. \\
+Observons les variations de ces populations à cet instant $ t_{0} $.\\
+En utilisant (\ref{FM1}), on a:
+\begin{eqnarray*}
+ \left\{
+ \begin{split}
+ \partial_{t}U_{i}(t_{0}) & =  \left(W_{1}\right)_{ii}U_{i}\\
+ \partial_{t}U_{j}(t_{0}) & = \left(W_{1}\right)_{ji}U_{ii}
+  \end{split}  
+   \right. \Rightarrow \left\{
+ \begin{split}
+ \partial_{t}U_{ii}(t_{0}) & <0 \\
+\partial_{t}U_{jj}(t_{0}) & >0
+  \end{split}  
+   \right.    
+  \end{eqnarray*}
+
+On remarque $\partial_{t}U_{j}(t_{0})>0 $ . Ce qui présente une discontinuité au temps $t_{0}$.\\
+En se referant au théorème de Cauchy-Lipschitz qui garantit une solution de classe $\mathcal{C}^{1}$, alors l'hypothèse($\star$) est absurde. Par conséquent ce temps $t_{0}\geq0$  où toutes les populations soient nulles sauf l'une d'entre elles n'existe pas.
+
+\item Supposons qu'il existe un instant $t_{0}\geq 0$, que toutes les populations soient non nulles sauf l'une d'entre elles ($ U_{i}(t_{0})= 0 $ et $\forall j\neq i, U_{j}(t_{0})\neq 0 , i, j \in \{1;2;3\} \quad (\star) $).\\
+Observons la variation de la population $ U_{i} $ à cet instant $ t_{0} $.\\
+En utilisant (\ref{FM1}), on a:
+\begin{eqnarray*}
+ \partial_{t}U_{i}(t_{0}) & =  \left(W_{1}\right)_{ii}U_{i}\Rightarrow \partial_{t}U_{i}(t_{0})>0     
+  \end{eqnarray*}
+On remarque $\partial_{t}U_{i}(t_{0})>0 $ . Ce qui présente une discontinuité au temps $t_{0}$.\\
+En se referant au théorème de Cauchy-Lipschitz qui garantit une solution de classe $\mathcal{C}^{1}$, alors l'hypothèse($\star$) est absurde. Par conséquent il est impossible d'avoir un temps $t_{0}\geq0$ où l'une des populations peut être nulle .
+ 
+\item Supposons à un instant $t_{0}\geq0$, qu'au moins deux populations soient égales de 1 .Alors 
+$$ \sum_{j=1}^{3}U_{j}(t_{0})\geq 2 $$
+Ce qui contredit la conservation de la trace.\\
+Donc il est impossible d'avoir un temps $t_{0}\geq0$ où au moins deux populations soient égales de 1.
+
+\item Supposons qu'il existe à un instant $t_{0}\geq0$, où exactement une des populations soit égale de 1. Alors les autres populations sont nulles.
+Cette hypothèse est absurde car ce temps $t_{0}\geq0$  où toutes les populations soient nulles sauf l'une d'entre elles n'existe pas (cas traité précédemment à savoir $ U_{i}(t_{0})\neq 0 $ et $\forall j\neq i, U_{j}(t_{0})=0 , i, j \in \{1;2;3\} $). 
+\end{itemize}
+\textbf{Partiellement, nous pouvons conclure que dans le cas du modèle linéaire il n'existe pas un temps $t_{0}\geq0$ où au moins une des populations peut être nulle ou égale à 1 .}
+ 
+ \item Dans le cas du système dynamique réel non linéaire $(S)$.
+ \begin{itemize}[label=$\bullet$]
+ \item Supposons à un instant $t_{0}>0$, que toutes les populations soient nulles.\\ 
+ Alors la trace de la solution à cet instant $t_{0}$ est nulle, ce qui est impossible
+ car il y a la conservation de la trace. Donc il n'existe pas un instant où toutes populations soient nulles.
+
+\item Supposons qu'il existe un instant $t_{0}\geq 0$, tel que toutes les populations soient nulles sauf l'une d'entre elles ($ U_{i}(t_{0})\neq 0 $ et $\forall j\neq i, U_{j}(t_{0})=0 , i, j \in \{1;2;3\} \quad (\star) $). D'où $ U_{i}(t_{0})= 1 $. \\
+Par exemple ($U_{1}(t_{0})=U_{2}(t_{0})=0 $ et $ U_{3}(t_{0})\neq 0 $). D'où $ U_{3}(t_{0})=1$. Alors d'après (\ref{FM1}) et (\ref{AN sans interbande}), on obtient: 
+ \begin{eqnarray*}
+  \left\{
+\begin{split}
+\partial_{t}U_{1}(t_{0}) &= w_{31}\dfrac{a_{3}}{a_{1}}U_{3} + \dfrac{2}{\hbar}\Big[\Im(R^{\textsc{c-v}}_{3132})U_{3}U_{4}-\Re(R^{\textsc{c-v}}_{3132})U_{3}U_{7}\Big]\\
+\partial_{t}U_{2}(t_{0}) &= w_{32}\dfrac{a_{3}}{a_{2}}U_{3} + \dfrac{2}{\hbar}\Big[-\Im(R^{\textsc{c-v}}_{3132})U_{3}U_{4} + \Re(R^{\textsc{c-v}}_{3132})U_{3}U_{7}\Big]\\
+ \end{split}  
+   \right.   
+  \end{eqnarray*}
+  Mais sans les inter-bandes, nous pouvons considerer ce paramètre de Coulomb nul ($R^{\textsc{c-v}}_{3132}=0$), alors 
+ \begin{eqnarray*}
+  \left\{
+\begin{split}
+\partial_{t}U_{1}(t_{0}) &= w_{31}\dfrac{a_{3}}{a_{1}}U_{3}\\
+\partial_{t}U_{2}(t_{0}) &= w_{32}\dfrac{a_{3}}{a_{2}}U_{3}
+ \end{split}  
+   \right.  \Rightarrow \left\{
+ \begin{split}
+ \partial_{t}U_{1}(t_{0}) & >0 \\
+\partial_{t}U_{2}(t_{0}) & >0
+  \end{split}  
+   \right.    
+\end{eqnarray*}
+On remarque $\partial_{t}U_{i}(t_{0})>0 $ . Ce qui présente une discontinuité au temps $t_{0}$.\\
+En se référant au théorème de Cauchy-Lipschitz qui garantit une solution de classe $\mathcal{C}^{1}$, alors l'hypothèse($\star$) est absurde. Par conséquent il est impossible d'avoir un temps $t_{0}\geq0$ où l'une des populations peut être nulle .
+
+ \item Supposons à un instant $t_{0}\geq0$, qu'au moins deux populations soient égales de 1 .Alors 
+$$ \sum_{j=1}^{3}U_{j}(t_{0})\geq 2 $$
+Ce qui contredit la conservation de la trace.\\
+Donc il est impossible d'avoir un temps $t_{0}\geq0$ où au moins deux populations soient égales de 1.
+
+\item Supposons qu'il existe à un instant $t_{0}\geq0$, où exactement une des populations soit égale de 1. Alors les autres populations sont nulles.
+Cette hypothèse est absurde car ce temps $t_{0}\geq0$  où toutes les populations soient nulles sauf l'une d'entre elles n'existe pas (cas traité précédemment à savoir $ U_{i}(t_{0})\neq 0 $ et $\forall j\neq i, U_{j}(t_{0})=0 , i, j \in \{1;2;3\} $). 
+   
+ \end{itemize} 
+\end{enumerate}
+\textbf{En somme, nous pouvons conclure que dans le cas du modèle non linéaire il n'existe pas un temps $t_{0}\geq0$ où au moins une des populations peut \^{e}tre nulle ou égale à 1 .}
+
+\end{proof}
+
+
+\chapter{Solutions à l'équilibre}
+Dans ce chapitre  nous déterminons les solutions à l'équilibre.
+D'abord, nous déterminons les solutions à l'équilibre dans le cas du modèle linéaire, puis, nous vérifions que la ou les solutions trouvé(es) sont aussi les solutions à l'équilibre du modèle non linéaire.
+
+\section{Solutions à l'équilibre du modèle linéaire} 
+Le modèle linéaire est le suivant:
+$$ \partial_{t}U(t)= A^{L}U(t) .$$
+Pour trouver l'équilibre de ce modèle, il faut que le second membre soit égal à 0. Ce qui nous donne le système 
+$$
+ A^{L}U(t)=0 .
+$$
+
+Le système ci dessus implique deux sous-systèmes:
+ \begin{eqnarray*}
+  (S_{1}): W_{1}U_{p}=0 . \quad \textrm{et}\quad 
+  (S_{2}):
+  \begin{pmatrix}
+D_{\gamma}                &  -\big(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}\big)  \\
+\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}\begin{pmatrix}\Re(U_{c})\\ \Im(U_{c})\end{pmatrix} = 0.
+\end{eqnarray*}
+
+Pour nous faciliter la résolution, établissons le lemme suivant:
+\begin{lemma}\label{lemmedeterminant}
+Soient $ B_{1}, B_{2} \in \mathcal{M}_{n}(\mathbb{R}).$\\
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}\geq 0
+$$
+De plus si $B_{1}$ et $B_{2}$ commutent ($B_{1}B_{2}=B_{2}B_{1}$) alors 
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}=det(B_{1}^{2}+B_{2}^{2})$$
+\end{lemma}
+\begin{proof}
+En multipliant les $n$ dernières lignes par $i$ et les $n$ dernières colonnes aussi, on obtient 
+
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}=(-1)^{n}det\begin{pmatrix}
+B_{1} & iB_{2}\\
+-iB_{2} & -B_{1}
+\end{pmatrix}
+$$
+puis par opérations sur les lignes
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}= (-1)^{n}det\begin{pmatrix}
+B_{1} & iB_{2}\\
+B_{1}-iB_{2} & -B_{1}+iB_{2}
+\end{pmatrix}
+$$
+puis par opérations sur les colonnes
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}= (-1)^{n}det\begin{pmatrix}
+B_{1}+iB_{2} & iB_{2}\\
+0 & -B_{1}+iB_{2}
+\end{pmatrix}
+$$
+On en déduit que:
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}= (-1)^{n}det(B_{1}+iB_{2})det(-B_{1}+iB_{2})
+$$
+et enfin 
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}= det(B_{1}+iB_{2})det(B_{1}-iB_{2})
+$$
+les matrices $B_{1}$ et $B_{2}$  sont réelles, cette écriture est de la forme $z\overline{z} = \vert z\vert^{2}\geq 0$.\\
+De plus $ det(B_{1}+iB_{2})det(B_{1}-iB_{2})= det(B_{1}^{2}+B_{2}^{2}) $ car $B_{1}$ et $B_{2}$  commutent. Donc 
+$$ det\begin{pmatrix}
+B_{1}& B_{2}\\
+-B_{2} & B_{1}
+\end{pmatrix}=det(B_{1}^{2}+B_{2}^{2})$$
+
+\end{proof}
+
+\begin{proposition}
+A l'équilibre, les populations sont:
+\begin{eqnarray}\label{sol à l'équilibre modele lineaire} 
+U_{p}^{*} = \dfrac{1}{a_{1}a_{2}+a_{1}a_{3}+ a_{2}a_{3}}
+\begin{pmatrix}     
+a_{2}a_{3}\\
+a_{1}a_{3}\\
+a_{1}a_{2}
+ \end{pmatrix}
+  \end{eqnarray}
+et les cohérences sont nulles ($ \Re(U_{c}^{*})=0 \quad \textrm{et} \quad \Im(U_{c}^{*})=0 $).
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+
+\item Montrons que les populations sont égales au vecteur ci-dessus à l'équilibre.
+Pour prouver cela commençons par la résolution du système 
+$$ (S_{1}):  W_{1}U_{p}=0 .$$ 
+On obtient:
+ \begin{eqnarray*}
+  (S_{1})\Leftrightarrow\left\{
+ \begin{split}
+  -(w_{21} + w_{31})U_{1} + w_{21}\dfrac{a_{2}}{a_{1}}U_{2}+ w_{31}\dfrac{a_{3}}{a_{1}}U_{3} & =0 \\
+ w_{21}U_{1}-(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32})U_{2} + w_{32}\dfrac{a_{3}}{a_{2}}U_{3} & =0 \\
+  w_{31}U_{1}+ w_{32}U_{2}-(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}})U_{3} & =0  
+  \end{split}  
+   \right.   
+  \end{eqnarray*}
+  
+  En multipliant la prémière ligne par $ a_{1} $ et les autres lignes par $ a_{1}a_{2} $, le système $(S)$ devient:
+\begin{eqnarray*}
+\begin{split}
+ (S_{1})&\Leftrightarrow\left\{
+ \begin{split}
+  -a_{1}(w_{21} + w_{31})U_{1} + w_{21}a_{2}U_{2}+ w_{31}a_{3}U_{3} &=0\\
+ a_{1}a_{2}w_{21}U_{1}-(w_{21}a_{2}^{2} + w_{32}a_{1}a_{2})U_{2} + w_{32}a_{1}a_{3}U_{3} &=0\\ 
+  a_{1}a_{2}w_{31}U_{1}+ a_{1}a_{2}w_{32}U_{2}-(w_{31}a_{2}a_{3} + w_{32}a_{1}a_{3})U_{3} & =0  
+ \end{split}  
+   \right.\\   
+  (S_{1})&\Leftrightarrow\left\{
+ \begin{split}
+  w_{21}(-a_{1}U_{1}+a_{2}U_{2})+ w_{31}( -a_{1}U_{1}+ a_{3}U_{3}) &=0\\
+   w_{21}a_{2}(a_{1}U_{1}-a_{2}U_{2})+ w_{32}a_{1}( -a_{2}U_{2}+ a_{3}U_{3}) &=0\\
+    w_{31}a_{2}(a_{1}U_{1}-a_{3}U_{3})+ w_{32}a_{1}( a_{2}U_{2}- a_{3}U_{3}) &=0  
+ \end{split}  
+   \right. 
+   \end{split}  
+  \end{eqnarray*}
+  
+  Ce qui entraine:
+  
+  \begin{eqnarray*}
+   (S_{1})\Rightarrow \left\{
+ \begin{split}
+ -a_{1}U_{1}+a_{2}U_{2} &=0\\
+ -a_{1}U_{1}+ a_{3}U_{3} &=0\\
+ -a_{2}U_{2}+ a_{3}U_{3} &=0 
+ \end{split}  
+   \right. \Leftrightarrow\left\{
+ \begin{split}
+U_{2}&=\dfrac{a_{1}}{a_{2}}U_{1}\\
+U_{3} &= \dfrac{a_{1}}{a_{3}}U_{1}\\
+U_{3} &= \dfrac{a_{2}}{a_{3}}U_{2} 
+ \end{split}  
+   \right.  
+  \end{eqnarray*}
+  
+  De plus 
+  $$ U_{1}+ U_{2}+U_{3}=1 $$
+alors 
+\begin{eqnarray*}
+U_{1}+\dfrac{a_{1}}{a_{2}}U_{1}  + \dfrac{a_{1}}{a_{3}}U_{1} =1\Leftrightarrow
+(1+\dfrac{a_{1}}{a_{2}}+\dfrac{a_{1}}{a_{3}})U_{1} =1
+\end{eqnarray*}
+
+On obtient donc 
+
+\begin{eqnarray*}
+\left\{
+ \begin{split}
+U_{1}&=\dfrac{a_{2}a_{3}}{a_{1}a_{2}+a_{1}a_{3}+ a_{2}a_{3}}\\
+U_{2} &= \dfrac{a_{1}a_{3}}{a_{1}a_{2}+a_{1}a_{3}+ a_{2}a_{3}}\\
+U_{3} &= \dfrac{a_{1}a_{2}}{a_{1}a_{2}+a_{1}a_{3}+ a_{2}a_{3}}
+ \end{split}  
+   \right.  
+  \end{eqnarray*}
+   
+  \item Montrons que les cohérences sont nulles.
+  Résolvons maintenant  le système  $(S_{2})$ défini comme suit :
+ \begin{eqnarray*}
+ (S_{2}):\begin{pmatrix}
+   D_{\gamma}                &  -\big(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}\big)  \\
+   \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}\begin{pmatrix} \Re(U_{c})\\ \Im(U_{c})\end{pmatrix}= 0
+\end{eqnarray*}
+
+ avec $$ D_{\gamma} = \textrm{diag}(\gamma_{12},\gamma_{13}, \gamma_{23}), \quad \mathcal{E}_{0} =- \dfrac{1}{\hbar}  \textrm{diag}(e_{1}-e_{2},e_{1}-e_{3}, e_{2}-e_{3}) $$
+
+et 
+$$ \mathcal{R}^{0}_{C} =- \dfrac{1}{\hbar}  \textrm{diag}(0,\nu^{C}, \nu^{C})$$  
+
+
+En posant 
+$ B_{1} = D_{\gamma} $ et $ B_{2} = -\big(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}\big) $, et en utilisant le lemme \ref{lemmedeterminant} on obtient:
+
+ \begin{eqnarray*}
+det\begin{pmatrix}
+   D_{\gamma}                &  -\big(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}\big)  \\
+   \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}= det (  D_{\gamma}^{2}+ (\mathcal{E}_{0}+ \mathcal{R}^{0}_{C})^{2})
+\end{eqnarray*}
+
+On a: 
+ \begin{eqnarray*}
+\left\{
+\begin{split}
+D_{\gamma}^{2}&= \textrm{diag}(\gamma_{12}^{2},\gamma_{13}^{2}, \gamma_{23}^{2})\\ 
+(\mathcal{E}_{0}+ \mathcal{R}^{0}_{C})^{2}&= \dfrac{1}{\hbar^{2}}\textrm{diag}((e_{1}-e_{2})^{2},(e_{1}-e_{3}+\nu^{C})^{2}, (e_{2}-e_{3}+\nu^{C})^{2})
+\end{split}
+   \right.   
+  \end{eqnarray*}
+  
+  alors 
+  \begin{eqnarray*}
+  \begin{split}
+  D_{\gamma}^{2}+ (\mathcal{E}_{0}+ \mathcal{R}^{0}_{C})^{2}&= \textrm{diag}\Big(\gamma_{12}^{2}+\dfrac{1}{\hbar^{2}}(e_{1}-e_{2})^{2},\gamma_{13}^{2}+\dfrac{1}{\hbar^{2}}(e_{1}-e_{3}+\nu^{C})^{2},\\& \quad \gamma_{23}^{2} +\dfrac{1}{\hbar^{2}}(e_{2}-e_{3}+\nu^{C})^{2}\Big)
+  \end{split}
+    \end{eqnarray*}
+
+Par conséquent  
+\begin{eqnarray*}
+\begin{split}
+det\begin{pmatrix}
+   D_{\gamma}                &  -\big(\mathcal{E}_{0}+\mathcal{R}^{0}_{C}\big)  \\
+   \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}&= \Big(\gamma_{12}^{2}+\dfrac{1}{\hbar^{2}}(e_{1}-e_{2})^{2}\Big)\Big(\gamma_{13}^{2}+\dfrac{1}{\hbar^{2}}(e_{1}-e_{3}+\nu^{C})^{2}\Big)\\
+&\quad\times\Big(\gamma_{23}^{2} +\dfrac{1}{\hbar^{2}}(e_{2}-e_{3}+\nu^{C})^{2}\Big)
+\end{split}
+\end{eqnarray*}
+
+On a:
+\begin{eqnarray*}
+\begin{split}
+det\begin{pmatrix}
+   D_{\gamma}                &  -\big(\mathcal{E}_{0}+\mathcal{R}^{0}_{C}\big)  \\
+   \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}\neq 0
+\end{split}
+\end{eqnarray*}
+Alors la matrice $
+\begin{pmatrix}
+   D_{\gamma}                &  -\big(\mathcal{E}_{0}+\mathcal{R}^{0}_{C}\big)  \\
+   \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}
+$ est inversible, donc   \\
+$ \begin{pmatrix} \Re(U_{c})\\ \Im(U_{c})\end{pmatrix}=0 $ . Par conséquent les cohérences sont nulles.
+
+\end{enumerate}
+\end{proof}
+
+Ainsi la solution à l'équilibre $ U^{*}$ pour le modèle linéaire telle que  $  A^{L}U^{*}=0 $ est définie par:
+\begin{eqnarray}
+U^{*}= \begin{pmatrix}U_{p}^{*}\\ 0_{\mathbb{R}^{3}}\\ 0_{\mathbb{R}^{3}}\end{pmatrix} \in \mathbb{R}^{9}
+\end{eqnarray}
+avec
+\begin{eqnarray*} 
+U_{p}^{*} = \dfrac{1}{a_{1}a_{2}+a_{1}a_{3}+ a_{2}a_{3}}
+\begin{pmatrix}     
+a_{2}a_{3}\\
+a_{1}a_{3}\\
+a_{1}a_{2}
+ \end{pmatrix}
+  \end{eqnarray*}
+  
+  
+ 
+\section{Solutions à l'équilibre du modèle non linéaire} 
+
+Le modèle non linéaire se présente comme suit:
+%
+$$
+\partial_{t}U(t) = A(t,U)U(t) 
+$$
+%
+avec $ A(t,U)= A^{L}+ A^{N}(t,U).$ (voir les équations (\ref{matrice Al}) et (\ref{matrice AN})) \\
+
+Notons que la solution à l'équilibre du modèle linéaire ne vérifie pas l'équilibre du modèle non linéaire.\\
+Pour nous faciliter les calculs dans la détermination des solutions à l'équilibre du modèle non linéaire, nous pouvons: 
+\begin{itemize}
+\item soit faire des hypothèses sur les paramètres de coulomb compte tenu de leurs complexités,
+\item soit utiliser au besoin les modèles simplifiés ( les systèmes dynamiques sans inter-bande et sans intra-bande).
+ \end{itemize}
+
+
+
+\chapter*{Conclusion et perspectives}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+Dans ce mémoire, nous avons d'abord présenté un modèle de type Bloch avec les termes de relaxation de Pauli et l'interaction de Coulomb; puis nous avons explicité tous les opérateurs intervenant dans ce modèle.\\ 
+Nous avons vérifié quelques propriétés qualitatives (conservation de la trace, l'hermicité et la positivité) de la matrice densité représentant la variable de ce modèle.\\
+ Ensuite nous avons écrit le modèle de type Bloch sous forme d’un système dynamique réel qui s'est présenté non linéaire à cause des termes de Coulomb en considérant un vecteur $U$ issu des éléments de la matrice densité, puis déduit des modèles simplifiés c'est à dire des systèmes dynamiques réels sans inter-bande et sans intra-bande.\\
+Pour vérifier que le problème est bien posé, nous avons prouvé l'existence et l'unicité de la solution pour le problème de Cauchy obtenu.\\
+Nous avons montré que les propriétés qualitatives observées sur le système dynamique complexe étaient aussi vérifiées sur le système dynamique réel notamment la conservation de la trace et la positivité de la solution ( l'hermicité étant détruite en considérant le vecteur $U$ comme variable du problème de Cauchy).\\
+Enfin nous avons déterminé un état d’équilibre du système dynamique réel décrivant le modèle linéaire.  Mais cette solution à l’équilibre trouvée ne vérifie pas l'équilibre du modèle non linéaire.\\
+A la suite de ces travaux, nous envisageons
+\begin{itemize}[label=$\bullet$]
+\item déterminer les états du système dynamique non linéaire et leur stabilité
+\item résoudre numériquement le système dynamique avec les méthodes qui respectent la convergence vers l'équilibre.
+\end{itemize}
+
+
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{mabibliomaster}
+ \addcontentsline{toc}{chapter}{Bibliographie} 
+
+\end{document}
+
+
+
+
+
+
