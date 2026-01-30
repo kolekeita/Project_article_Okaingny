@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.23)  30 JAN 2026 00:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.23)  30 JAN 2026 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -292,10 +292,10 @@ L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4144 strings out of 467870
- 58933 string characters out of 5419806
- 479896 words of memory out of 5000000
- 32835 multiletter control sequences out of 15000+600000
+ 4145 strings out of 467870
+ 58941 string characters out of 5419806
+ 482896 words of memory out of 5000000
+ 32836 multiletter control sequences out of 15000+600000
  634972 words of font info for 69 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  71i,5n,79p,244b,208s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -306,7 +306,7 @@ sfonts/cm/cmr10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr12.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmr9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Draft.pdf (1 page, 78801 bytes).
+Output written on Draft.pdf (1 page, 79890 bytes).
 PDF statistics:
  36 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
