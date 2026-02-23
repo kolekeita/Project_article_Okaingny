@@ -47,6 +47,12 @@
 \usepackage{geometry}
 \geometry{hmargin=2.cm,vmargin=2.cm}
 
+
+%%%%
+\newcommand{\dt}{\partial_{t}}
+\newcommand{\rC}{\rm{C}}
+\newcommand{\diag}{{\rm{diag}}}
+
 \title{Analyse numérique d'un modèle de type Bloch non linéaire }
 
 \author{Kolé KEITA}
@@ -85,19 +91,31 @@ Abstract:
 \end{itemize}}
 %%%%%%%%%%%%%%%%%%%%%%
 Les études de ce papier portent sur une seule boîte isolée dont l'interaction avec les autres boîtes  via les couches de mouillage est négligée.
-La boîte étant immobile dans l'espace alors sa position est fixée en un point noté $X_0$. Les évolutions temporelles des électrons au sein de la boîte sont modélisées avec les modèles de type Bloch. En général, la variable des modèles de type Bloch est une matrice carrée appelée matrice densité et notée $\rho(X,t) \in \mathcal{M}_N (\mathbb{C})$ avec $N$ le nombre de niveaux quantiques considérés, $X\in \Omega\subset \mathbb{R}^3$ et  $t \geq 0$ le temps. 
+La boîte étant immobile dans l'espace alors sa position est fixée en un point noté $X_0$. Les évolutions temporelles des électrons au sein de la boîte sont modélisées avec les modèles de type Bloch. En général, la variable des modèles de type Bloch est une matrice carrée appelée matrice densité et notée $\rho(X,t) \in \mathcal{M}_N (\mathbb{C})$ avec $N$ le nombre de niveaux quantiques considérés, $X\in \Omega\subset \mathbb{R}^3$ et  $t \geq 0$ le temps. Les éléments de la matrice densité notés $\rho_{jj}$, appelés les populations et représentent les probabilités d'occupation des niveaux d'énergie. Quant aux éléments non diagonaux $\rho_{jk}$, les modules correspondent aux probabilités de transition.
 \\Dans ces travaux, la densité des électrons à l'intérieur de la boîte au temps $t \geq 0$ est notée $\rho(X_0,t)\equiv \rho(t)$ puisque la boîte étudiée est immobile. Le modèle de type Bloch qui nous intéresse prend en compte les phénomènes tels que la relaxation définie par l'équation maîtresse de Pauli \cite{Bidegaray-Bourgeade-Reignier01,Keita-Dicko24}, l'interaction de Coulomb \cite{Lindberg-Koch88, Bidegaray-Keita14}  et l'interaction laser-matière \cite{Lindberg-Koch88, Bidegaray-Keita14}.   Le modèle se présente ainsi 
 \begin{equation*}
 \left\{
-\begin{array}{cc}
+\begin{array}{rcl}
+\dt \rho &=& -\frac{i}{\hbar}\left[ V(t,\rho),\rho\right] + W(\rho), \\
+\rho(0) &=& \rho^0,
 \end{array}
  \right.
 \end{equation*}
-
-%\begin{equation}
-
-%\end{equation}  
-
+où $V(t,\rho) = E_0 + V_0(t) + V^{\rC}(\rho)$, $E_0 =\diag(\{ e_1,\cdots,e_N\})$  est la matrice diagonale des énergies propres, $V_0(t)$  l'approximation dipolaire du phénomène de l'interaction laser-matière,  $V^{\rC}(\rho)$ est l'hamiltonien de l'interaction de Coulomb et $W(\rho)$ est une matrice définie à partir de l'équation maîtresse de Pauli.
+\\Nous rappelons que le terme de l'approximation dipolaire est donné par 
+\begin{equation*}
+ V_0(t)=\mathcal{E}(t)\cdot \textbf{M},
+\end{equation*}  
+où $\mathcal{E}(t)$ est le champ électromagnétique et $\textbf{M}$ est la matrice du moment dipolaire.
+\\L'équation maîtresse de Pauli définit les éléments de la matrice $W(\rho)$ donnés par
+\begin{equation*}
+\begin{array}{rcl}
+W(\rho)_{jj} &=& \sum_{\substack{k=1 \\k\neq j}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right) \\
+W(\rho)_{jj} &=& \gamma_{jk} \rho_{jk}
+\end{array}
+\end{equation*}
+où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$.
+\\La matrice correspond à la somme de deux matrices $V^{\rC}(\rho) = V_{l}^{\rC}+V^{\rC}_{n} (\rho)$ dont les expressions sont données dans \cite{Bidegaray-Keita14}
 %%%%%%%%%%%%%%%%%%%%%%
 %
 \item \textcolor{red}{Énumérer les propriétés qualitatives vérifiées et parler du problème bien posé  (référer à la thèse )}
