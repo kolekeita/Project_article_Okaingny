@@ -1,0 +1,83 @@
+\begin{thebibliography}{10}
+
+\bibitem{mareference1}
+Kolé~Keita (2014).
+\newblock {\em Modélisation mathématique et analyse numérique des modèles
+  de type Bloch pour les boîtes quantiques}.
+\newblock PhD thesis, Université de Grenoble.
+
+\bibitem{mareference11}
+B.~Bidégaray-Fesquet (2006).
+\newblock {\em Hiérarchie de modèles en optique quantique. De Maxwell–Bloch
+  à Schrödinger non–linéaire}.
+\newblock Springer.
+
+\bibitem{mareference10}
+Brigitte Bidegaray-Fesquet and Kole~Keita (2014).
+\newblock A nonlinear bloch model for coulomb interaction in quantum dots.
+\newblock {\em Journal of Mathematical Physics}.
+
+\bibitem{mareference5}
+Martin Frimmer and Lukas~Novotny (2014).
+\newblock The classical bloch equations.
+\newblock {\em American Journal of Physics}.
+
+\bibitem{mareference2}
+Antoine~Bourgeade Brigitte~Bidégaray and Didier~Reignier. (2001).
+\newblock Introducing physical relaxation terms in bloch equations.
+\newblock {\em Journal of Computational Physics}.
+
+\bibitem{mareference4}
+Brigitte~Bidégaray (2003).
+\newblock Time discretizations for maxwell-bloch equations.
+\newblock {\em Mathematical Models and Methods in Applied Sciences}.
+
+\bibitem{mareference6}
+U.~Hohenester and W.~Pôtz (1997).
+\newblock Density matrix approach to nonequilibrium free-carrier screening in
+  semiconductors.
+\newblock {\em Physical Review B}.
+
+\bibitem{mareference7}
+F.~Rossi~U. Hohenester and E.~Molinari (1999).
+\newblock Few-particle effects in the optical spectra of semiconductor quantum
+  dots.
+\newblock {\em Solid State Communications}.
+
+\bibitem{mareference9}
+Clément~Jourdana Brigitte Bidégaray-Fesquet and Kolé~Keita (2020).
+\newblock On a bloch-type model with electron–phonon interactions: modeling
+  and numerical simulations.
+\newblock In {\em Scientific Computing in Electrical Engineering}, volume~32.
+
+\bibitem{mareference8}
+Marc~E. Songolo and Brigitte Bidégaray-Fesquet (2018).
+\newblock Nonstandard finitedifference schemes for the two-level bloch model.
+\newblock {\em International Journal of Modeling, Simulation, and Scientific
+  Computing}.
+
+\bibitem{mareference15}
+W.~Heisenberg. (1926).
+\newblock On the relation between the quantum mechanics of heisenberg, born,
+  and jordan, and that of schrödinger.
+\newblock {\em Annalen der Physik}.
+
+\bibitem{mareference12}
+E.~Dumas (2005).
+\newblock Global existence for maxwell-bloch systems.
+\newblock {\em Journal of Diﬀerential Equations}.
+
+\bibitem{mareference13}
+P.~Donnat and J.~Rauch (1996).
+\newblock Global solvability of the maxwell–bloch equations from nonlinear
+  optics.
+\newblock {\em Archive for Rational Mechanics and Analysis}.
+
+\bibitem{mareference14}
+E.~Dumas and F.~Sueur (2012).
+\newblock Cauchy problem and quasi-stationnary limit for the
+  maxwell–landau–lifschitz and maxwell–bloch equations.
+\newblock {\em Annali della Scuola Normale Superiore de Pisa, classe di
+  Science}.
+
+\end{thebibliography}

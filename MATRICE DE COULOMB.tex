@@ -1,0 +1,267 @@
+\documentclass[a4paper,12pt]{article} % Type de document
+\usepackage[utf8]{inputenc} % Pour génerer les accents automatiquement
+\usepackage[T1]{fontenc} % Pour gerér la police des accents
+\usepackage[french]{babel} % Pour la typographie française
+%Ce sont les trois packages utiles pour écrire en français
+\frenchbsetup{StandardLists=true}%afin d'éviter tout conflit entre l'extension %\usepackage[french]{babel}.
+
+\parindent=0cm %pour le changement d'indentation d'un paragraghe
+%\usepackage{lipsum}pour generer du faux texte
+
+\usepackage{amsmath} % Pour écrire des symboles mathématiques
+\usepackage{amsfonts} % Pour gerer les doubles barres
+\usepackage{amsthm}
+\usepackage{enumitem}% Pour personnaliser des listes
+\usepackage{amssymb} % Pour utiliser plus de symboles 
+\usepackage{xcolor}
+%\usepackage[margin=2.5cm]{geometry}% Pour regler les marges indentiquement
+\usepackage[left=2cm,top=2cm,bottom=2.7cm,right=2cm]{geometry}% Pour regler les marges differemment
+%\usepackage{setspace}\renewcommand{\baselinestretch}{1.5}%Pour modifier l'interligne
+\usepackage{systeme}
+\usepackage{xstring}
+
+\usepackage{hyperref}
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{property}{Propriété}[section]
+\newtheorem{definition}{Définition}[section]
+\newtheorem*{remark}{Remarque}% Pour ajouter des remarques non numérotées
+\newtheorem*{example}{Exemple} % Pour ajouter des exemples non numérotés
+\newtheorem*{preuve}{\textbf{Preuve}}
+
+%\newenvironment{preuve}[1][Preuve]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+%\renewcommand{\arraystretch}{2.2}
+
+%\title{\textbf{Sujet: Modèle de type Bloch avec les termes de relaxation de Pauli et l'interaction de Coulomb.}} % Titre du document
+%\author{\textbf{OKAINGNI OKPO DORGELES} \\
+%\date{}\\ %Date de création
+%\textbf{Étudiant en Master 2 Maths-Info} \\
+%\textbf{CFC de DALOA}}
+
+\begin{document}
+%\maketitle{} % Pour generer le titre
+
+\tableofcontents
+
+\bigskip
+
+
+
+\section{Modèle de type Bloch avec les termes de relaxation, de Coulomb et le champ électromagnétique et la matière}
+
+La forme générale du modèle de type Bloch avec les termes de relaxation, de Coulomb et le champ électromagnétique et la matière est donnée par :
+\begin{equation}\label{modèle de base}
+\left\{
+   \begin{array}{rcl}
+   
+   \partial_{t}\rho & = & -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]+E(R,t)\cdot[\textbf{\textrm{m}},\rho]\Big)+ W(\rho), \forall t>0 \\
+   \rho(0)          & = & \rho^{0},
+   
+   \end{array}
+ \right.
+\end{equation}
+
+où 
+\begin{itemize}[label=$\centerdot$]
+\item $ \rho^{0}\in \mathcal{M}_{N}(\mathbb{C}) $,
+\item $ E_{0}= diag((e_{j})_{j}) $  où $j\in \{1,\ldots, N\}, \; e_{j}$ est une énergie propre libre du niveau quantique $j$ et représente une valeur propre de l'opérateur de Schrödinger non stationnaire et sans les potentiels d'interaction,
+\item $ W(\rho)\in \mathcal{M}_{N}(\mathbb{C}) $ correspond aux termes de relaxation issus de l'équation maîtresse de Pauli donnés dans \cite{mareference2},
+\item $ V^{\textrm{C}}(\rho)\in \mathcal{M}_{N}(\mathbb{C}) $ correspond aux termes de Coulomb issus de l'interaction de Coulomb entre les particules (électrons et trous) donnés dans \cite{mareference1}. Les termes de Coulomb correspondent au comportement des particules dans les systèmes quantiques à plusieurs particules. Ces particules étant chargées se repoussent ou s’attirent et ce sont ces deux actions (répulsion et attraction) qui constituent l’interaction de Coulomb (voir dans \cite{mareference1} à la page 31). 
+\item $\textbf{\textrm{M}}(R,t)=E(R,t)\cdot \textbf{\textrm{m}} $ avec $ \textbf{\textrm{m}}$ la matrice représentant le moment dipolaire, $ E(R,t)$ le champ électromagnétique et le vecteur $ R $  est la position macroscopique de la boite considérée (voir dans \cite{mareference1}, pages 27-28).                         
+ \end{itemize}
+
+\section{Le système dynamique réel associé au modèle de type Bloch avec les termes de relaxation et l'interaction de Coulomb}
+
+Le modèle de type Bloch avec les termes de relaxation, de Coulomb est donnée par :
+\begin{equation}\label{modèle de base}
+\left\{
+   \begin{array}{rcl}
+   
+   \partial_{t}\rho & = & -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]\Big)+ W(\rho), \forall t>0 \\
+   \rho(0)          & = & \rho^{0},
+   
+   \end{array}
+ \right.
+\end{equation}
+Le système dynamique réel associé à ce modèle de type Bloch est .
+\begin{equation}\label{equation du systeme dynamique reel non lineaire}
+\partial_{t}U(t) = A(t,U(t))U(t) 
+\end{equation}
+On a: $ A(.,U)= A^{L}+ A^{N}(.,U)$ \\
+où 
+\begin{equation}
+A^{L}=
+\begin{pmatrix}
+W_{1} &      0                    & 0                       \\
+    0 & D_{\gamma}                &  -\big(\mathcal{E}_{0}+\mathcal{R}^{0}_{C}\big)  \\
+    0 & \mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  D_{\gamma}
+\end{pmatrix}\label{matrice Al}
+\end{equation}
+
+$$
+ W_{1}= 
+\begin{pmatrix}
+-(w_{21} + w_{31}) & w_{21}\dfrac{a_{2}}{a_{1}} & w_{31}\dfrac{a_{3}}{a_{1}}\\
+            w_{21} & -(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32}) & w_{32}\dfrac{a_{3}}{a_{2}}\\
+            w_{31} &                                 w_{32} & -(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}})
+\end{pmatrix}
+$$
+et 
+$$ D_{\gamma} = \textrm{diag}(\gamma_{12},\gamma_{13}, \gamma_{23}), \quad \mathcal{E}_{0} = - \dfrac{1}{\hbar}  \textrm{diag}(e_{1}-e_{2},e_{1}-e_{3}, e_{2}-e_{3}) $$
+
+et 
+$$ \mathcal{R}^{0}_{C} =- \dfrac{1}{\hbar}  \textrm{diag}(0,\nu^{C}, \nu^{C})$$
+où \quad
+  $ \nu^{C} = 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232} $ , $ \nu^{C} \in \mathbb{R}. $\\
+\begin{equation}\label{matrice AN}
+A^{N}(.,U)=
+\begin{pmatrix}
+0 & \mathcal{R}^{1}_{C}(U) & \mathcal{R}^{2}_{C}(U)\\
+\mathcal{R}^{3}_{C}(U) & \mathcal{R}^{4}_{C}(U) & \mathcal{R}^{5}_{C}(U) \\
+\mathcal{R}^{6}_{C}(U) & \mathcal{R}^{7}_{C}(U)&\mathcal{R}^{8}_{C}(U)
+\end{pmatrix}
+\end{equation}
+ où
+  \begin{eqnarray*}
+ \begin{split}
+\mathcal{R}^{1}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+\Im(R^{\textsc{c-v}}_{3132})U_{3}& -\Im(R^{\textsc{c-v}}_{3132})U_{6} & \Re(R^{\textsc{c-v}}_{3132})U_{8}\\
+-\Im(R^{\textsc{c-v}}_{3132})U_{3}& \Im(R^{\textsc{c-v}}_{3132})U_{6}& -\Re(R^{\textsc{c-v}}_{3132})U_{8}\\
+            0 &                               0 & 0
+\end{pmatrix} \quad \textrm{et} \\
+\mathcal{R}^{2}_{C}(U) &= \dfrac{2}{\hbar}
+\begin{pmatrix}
+-\Re(R^{\textsc{c-v}}_{3132})U_{3} & -\Im(R^{\textsc{c-v}}_{3132})U_{9} & -\Re(R^{\textsc{c-v}}_{3132})U_{5}\\
+\Re(R^{\textsc{c-v}}_{3132})U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{9} & \Re(R^{\textsc{c-v}}_{3132})U_{5}\\
+            0 &                               0 & 0
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+
+ \begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{3}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+-\Im(R^{\textsc{c-v}}_{3132})U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{3} & 0\\
+\Im(R^{\textsc{c-v}}_{3132})U_{6}+\Re(R^{\textsc{c-v}}_{3132})U_{9} &
+-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{8} & 0 \\
+-\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{9} & 
+\Re(R^{\textsc{c-v}}_{3132})U_{8}- \Im(R^{\textsc{c-v}}_{3132})U_{5} & 0
+\end{pmatrix}\\
+\end{split}
+\end{eqnarray*}
+
+\begin{small}
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{4}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & \Im(R^{\textsc{c-v}}_{3132})U_{5} & -\Im(R^{\textsc{c-v}}_{3132})U_{6} \\
+-\Re(R^{\textsc{c-v}}_{3132})U_{8} & -\Im(R^{\textsc{c-v}}_{3132})U_{4} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{7}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{6} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{7} & -\Re(R^{\textsc{c-v}}_{3132})U_{7}
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{5}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+U_{3} & \Im(R^{\textsc{c-v}}_{3132})U_{8}-U_{6} & U_{5}-\Im(R^{\textsc{c-v}}_{3132})U_{9} \\
+\Re(R^{\textsc{c-v}}_{3132})U_{5} & -\Im(R^{\textsc{c-v}}_{3132})U_{7} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{4}\\
+-\Im(R^{\textsc{c-v}}_{3132})U_{9} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{4} & -\Re(R^{\textsc{c-v}}_{3132})U_{4}
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+\end{small}
+
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{6}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+\Re(R^{\textsc{c-v}}_{3132})U_{3} & -\Re(R^{\textsc{c-v}}_{3132})U_{3} & 0 \\
+-\Re(R^{\textsc{c-v}}_{3132})U_{6}+\Im(R^{\textsc{c-v}}_{3132})U_{9} & \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{5} & 0 \\
+\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{6} & -\Re(R^{\textsc{c-v}}_{3132})U_{5}- \Im(R^{\textsc{c-v}}_{3132})U_{8} & 0 
+\end{pmatrix}\\
+\mathcal{R}^{7}_{C}(U)&= \dfrac{1}{\hbar}
+\Bigg(\begin{smallmatrix}
+-(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{3} & -\Re(R^{\textsc{c-v}}_{3132})U_{5}
+ +(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{6} &  \Re(R^{\textsc{c-v}}_{3132})U_{6}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{8} & \Re(R^{\textsc{c-v}}_{3132})U_{4} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{4}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{9} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{4} & \Re(R^{\textsc{c-v}}_{3132})U_{4} 
+\end{smallmatrix}\Bigg)
+\end{split}
+\end{eqnarray*}
+
+\begin{small}
+\begin{eqnarray*}
+\begin{split}
+\mathcal{R}^{8}_{C}(U)&= \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & -\Re(R^{\textsc{c-v}}_{3132})U_{8} & \Re(R^{\textsc{c-v}}_{3132})U_{9}+(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{8}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{5} & \Re(R^{\textsc{c-v}}_{3132})U_{7} &  \big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\big]U_{7}\\
+\Im(R^{\textsc{c-v}}_{3132})U_{6} & -\big[2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\big]U_{7} & -\Re(R^{\textsc{c-v}}_{3132})U_{7}
+\end{pmatrix}
+\end{split}
+\end{eqnarray*}
+\end{small}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{mabibliomaster}
+ \addcontentsline{toc}{section}{Bibliographie}
+\end{document}
