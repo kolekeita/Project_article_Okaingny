@@ -1,0 +1,166 @@
+\textbf{Travail éffectué}:\\
+La forme générale du modèle de type Bloch avec les termes de relaxation, de Coulomb et le champ électromagnétique et la matière est donnée par :
+\begin{equation}\label{modèle de base}
+\left\{
+   \begin{array}{rcl}
+   
+   \partial_{t}\rho & = & -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]+E(R,t)\cdot[\textbf{\textrm{m}},\rho]\Big)+ W(\rho), \forall t>0 \\
+   \rho(0)          & = & \rho^{0},
+   
+   \end{array}
+ \right.
+\end{equation}
+
+où 
+\begin{itemize}[label=$\centerdot$]
+\item $ \rho^{0}\in \mathcal{M}_{N}(\mathbb{C}) $,
+\item $ E_{0}= diag((e_{j})_{j}) $  où $j\in \{1,\ldots, N\}, \; e_{j}$ est une énergie propre libre du niveau quantique $j$ et représente une valeur propre de l'opérateur de Schrödinger non stationnaire et sans les potentiels d'interaction,
+\item $ W(\rho)\in \mathcal{M}_{N}(\mathbb{C}) $ correspond aux termes de relaxation issus de l'équation maîtresse de Pauli donnés dans \cite{mareference2},
+\item $ V^{\textrm{C}}(\rho)\in \mathcal{M}_{N}(\mathbb{C}) $ correspond aux termes de Coulomb issus de l'interaction de Coulomb entre les particules (électrons et trous) donnés dans \cite{mareference1}. Les termes de Coulomb correspondent au comportement des particules dans les systèmes quantiques à plusieurs particules. Ces particules étant chargées se repoussent ou s’attirent et ce sont ces deux actions (répulsion et attraction) qui constituent l’interaction de Coulomb (voir dans \cite{mareference1} à la page 31). 
+\item $\textbf{\textrm{M}}(R,t)=E(R,t)\cdot \textbf{\textrm{m}} $ avec $ \textbf{\textrm{m}}$ la matrice représentant le moment dipolaire, $ E(R,t)$ le champ électromagnétique et le vecteur $ R $  est la position macroscopique de la boite considérée (voir dans \cite{mareference1}, pages 27-28).                         
+ \end{itemize}
+
+ %Dans cette partie, nous allons écrire le modèle de Bloch (\ref{modèle de base}) comme un système dynamique avec des variables réelles.
+%
+%Considérons le modèle donné par l'équation :
+%\begin{equation} 
+%\partial_{t}\rho  =  -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]+E(R,t)\cdot[\textbf{\textrm{m}},\rho]\Big)+ W(\rho), \forall t>0 
+%\end{equation}
+%
+%La forme matricielle des éléments diagonaux et non diagonaux de l'operateur 
+%$$  -\dfrac{i}{\hbar}\Big([E_{0},\rho]+[V^{\textrm{C}}(\rho),\rho]\Big)+ W(\rho)$$ est déja determinée et se trouve dans le memoire de Master soutenu par M. Okaingni à la page 33.\\
+%Il nous reste à determiner la forme matricielle de l'opérateur suivant: 
+%\begin{eqnarray*}
+% P^{E}(\rho) =  -\dfrac{i}{\hbar}E(R,t)\cdot[\textbf{\textrm{m}},\rho]
+%  \end{eqnarray*}
+%  
+%À partir des éléments de la matrice densité $ \rho $, nous définissons les vecteurs suivants:
+%\begin{eqnarray*}
+% U_{p} = \begin{pmatrix}\rho_{11}\\ \rho_{22}\\ \rho_{33}\end{pmatrix} &
+% \quad \textrm{et} \quad U_{c} = \begin{pmatrix}\rho_{12}\\ \rho_{13}\\ \rho_{23}\end{pmatrix}. 
+%\end{eqnarray*}
+%Puis nous allons ramener la matrice densité $ \rho $ en un vecteur $ U $ qui a trois blocs de composantes et qui se présente sous la forme suivante:
+%\begin{eqnarray}\label{vecteurs colonnes}
+%U = \begin{pmatrix}U_{p}\\ \Re(U_{c})\\ \Im(U_{c})\end{pmatrix}.
+%\end{eqnarray}
+%
+%Les éléments diagonaux de $ P^{E}(\rho) $ se définissent comme suit:
+% \begin{eqnarray*}
+% \left\{
+% \begin{split}
+% P^{E}(\rho)_{11} & =\dfrac{2E(R,t)}{\hbar}\Big[\Im(\textbf{\textrm{m}}_{12})\Re(\rho_{12})+\Im(\textbf{\textrm{m}}_{13})\Re(\rho_{13})-\Re(\textbf{\textrm{m}}_{12})\Im(\rho_{12})-\Re(\textbf{\textrm{m}}_{13})\Im(\rho_{13}) \Big] \\
+%P^{E}(\rho)_{22} & = \dfrac{2E(R,t)}{\hbar}\Big[-\Im(\textbf{\textrm{m}}_{12})\Re(\rho_{12})+\Im(\textbf{\textrm{m}}_{23})\Re(\rho_{23})+\Re(\textbf{\textrm{m}}_{12})\Im(\rho_{12})-\Re(\textbf{\textrm{m}}_{23})\Im(\rho_{23}) \Big] \\
+% P^{E}(\rho)_{33} & =  \dfrac{2E(R,t)}{\hbar}\Big[-\Im(\textbf{\textrm{m}}_{13})\Re(\rho_{13})-\Im(\textbf{\textrm{m}}_{23})\Re(\rho_{23})+\Re(\textbf{\textrm{m}}_{12})\Im(\rho_{13})+\Re(\textbf{\textrm{m}}_{23})\Im(\rho_{23}) \Big] 
+%  \end{split}  
+%   \right.   
+%  \end{eqnarray*}
+%  % Sous forme matricielle, on peut écrire :
+%
+%\begin{equation}\label{FME1}
+%\textrm{Diag}(P^{E}(\rho))= \begin{pmatrix}
+%0 & \Im(A^{E}_{1}(R,t)) & -\Re(A^{E}_{1}(R,t))
+%\end{pmatrix}U
+%\end{equation}
+%avec
+%$$
+% A^{E}_{1}(R,t)= \dfrac{2E(R,t)}{\hbar}
+%\begin{pmatrix}
+%\textbf{\textrm{m}}_{12}& \textbf{\textrm{m}}_{13} & 0\\
+%-\textbf{\textrm{m}}_{12} & 0 & \textbf{\textrm{m}}_{23}\\
+%0 &  -\textbf{\textrm{m}}_{13}  & -\textbf{\textrm{m}}_{23}
+%\end{pmatrix}
+%$$ \\
+%
+%%%%%
+%La forme algébrique des éléments non diagonaux de $ P^{E}(\rho) $ se définissent comme suit:
+%\begin{eqnarray*}
+%\left\{
+%\begin{split}
+%P^{E}(\rho)_{12}&=\dfrac{E(R,t)}{\hbar}\Big[-\Im(\textbf{\textrm{m}}_{12})\rho_{11}+\Im(\textbf{\textrm{m}}_{12})\rho_{22}+\Im(\textbf{\textrm{m}}_{23})\Re(\rho_{13})+\Im(\textbf{\textrm{m}}_{13})\Re(\rho_{23})\\ 
+%&\quad +(\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{22})\Im(\rho_{12})-\Re(\textbf{\textrm{m}}_{23})\Im(\rho_{13})-\Re(\textbf{\textrm{m}}_{13})\Im(\rho_{23})\Big]\\
+%&\quad +\dfrac{i}{\hbar}\Big[\Re(\textbf{\textrm{m}}_{12})\rho_{11}-\Re(\textbf{\textrm{m}}_{12})\rho_{22}-(\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{22})\Re(\rho_{12})+\Re(\textbf{\textrm{m}}_{23})\Re(\rho_{13})\\ 
+%&\quad -\Re(\textbf{\textrm{m}}_{13})\Re(\rho_{23})+\Im(\textbf{\textrm{m}}_{23})\Im(\rho_{13})-\Im(\textbf{\textrm{m}}_{13})\Im(\rho_{23})\Big]\\
+%\end{split}
+%\right.
+%\end{eqnarray*}
+%
+%\begin{eqnarray*}
+%\left\{
+%\begin{split}
+%P^{E}(\rho)_{13}&=\dfrac{E(R,t)}{\hbar}\Big[-\Im(\textbf{\textrm{m}}_{13})\rho_{11}+\Im(\textbf{\textrm{m}}_{13})\rho_{33}-\Im(\textbf{\textrm{m}}_{23})\Re(\rho_{12})+\Im(\textbf{\textrm{m}}_{12})\Re(\rho_{23})\\ 
+%&\quad -\Re(\textbf{\textrm{m}}_{23})\Im(\rho_{12})+(\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{33})\Im(\rho_{13})+\Re(\textbf{\textrm{m}}_{12})\Im(\rho_{23})\Big]\\
+%&\quad +\dfrac{i}{\hbar}\Big[\Re(\textbf{\textrm{m}}_{13})\rho_{11}-\Re(\textbf{\textrm{m}}_{13})\rho_{33}+\Re(\textbf{\textrm{m}}_{23})\Re(\rho_{12})-(\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{33})\Re(\rho_{13})\\ 
+%&\quad -\Re(\textbf{\textrm{m}}_{12})\Re(\rho_{23})-\Im(\textbf{\textrm{m}}_{23})\Im(\rho_{12})+\Im(\textbf{\textrm{m}}_{12})\Im(\rho_{23})\Big]\\
+%\end{split}
+%\right.
+%\end{eqnarray*}
+%
+%\begin{eqnarray*}
+%\left\{
+%\begin{split}
+%P^{E}(\rho)_{23}&=\dfrac{E(R,t)}{\hbar}\Big[-\Im(\textbf{\textrm{m}}_{23})\rho_{22}+\Im(\textbf{\textrm{m}}_{23})\rho_{33}-\Im(\textbf{\textrm{m}}_{13})\Re(\rho_{12})-\Im(\textbf{\textrm{m}}_{12})\Re(\rho_{13})\\ 
+%&\quad +\Re(\textbf{\textrm{m}}_{13})\Im(\rho_{12})+\Re(\textbf{\textrm{m}}_{12})\Im(\rho_{13})+(\textbf{\textrm{m}}_{22}- \textbf{\textrm{m}}_{33})\Im(\rho_{23})\Big]\\
+%&\quad +\dfrac{i}{\hbar}\Big[\Re(\textbf{\textrm{m}}_{23})\rho_{22}-\Re(\textbf{\textrm{m}}_{23})\rho_{33}+\Re(\textbf{\textrm{m}}_{13})\Re(\rho_{12})-\Re(\textbf{\textrm{m}}_{12})\Re(\rho_{13})\\ 
+%&\quad -(\textbf{\textrm{m}}_{22}- \textbf{\textrm{m}}_{33})\Re(\rho_{23})+\Im(\textbf{\textrm{m}}_{13})\Im(\rho_{12})-\Im(\textbf{\textrm{m}}_{12})\Im(\rho_{13})\Big]\\
+%\end{split}
+%\right.
+%\end{eqnarray*}
+%
+%
+%
+%
+%
+%En écrivant ces différentes parties réelles et imaginaires sous forme matricielle, on obtient:
+%\begin{eqnarray}\label{matrice des elts non diagonaux de PE}
+%\left\{
+%\begin{split}
+%\Re(\textrm{Diag}^{N}(P^{E}(\rho))) &= \Im(A^{E}_{2}(R,t)) U_{p} + \Im(A^{E}_{3}(R,t))\Re(U_{c}) + \Re(A^{E}_{4}(R,t))\Im(U_{c})\\
+%\Im(\textrm{Diag}^{N}(P^{E}(\rho))) &= -\Re(A^{E}_{2}(R,t))U_{p}+ \Re(A^{E}_{5}(R,t))\Re(U_{c})+ \Im(A^{E}_{6}(R,t)) \Im(U_{c})
+%\end{split}
+%\right.
+%\end{eqnarray}
+%
+%avec
+%$$
+% A^{E}_{2}(R,t)= \dfrac{E(R,t)}{\hbar}
+%\begin{pmatrix}
+%-\textbf{\textrm{m}}_{12}& \textbf{\textrm{m}}_{12} & 0\\
+%-\textbf{\textrm{m}}_{13} & 0 & \textbf{\textrm{m}}_{13}\\
+%0 &  -\textbf{\textrm{m}}_{23}  & \textbf{\textrm{m}}_{23}
+%\end{pmatrix}
+%\quad;\quad 
+% A^{E}_{3}(R,t)= \dfrac{E(R,t)}{\hbar}
+%\begin{pmatrix}
+%0 & \textbf{\textrm{m}}_{23} & \textbf{\textrm{m}}_{13}\\
+%-\textbf{\textrm{m}}_{23} & 0 & \textbf{\textrm{m}}_{12}\\
+%-\textbf{\textrm{m}}_{13} &  -\textbf{\textrm{m}}_{12}  & 0
+%\end{pmatrix}
+%$$ \\
+%%%
+%$$
+% A^{E}_{4}(R,t)= \dfrac{E(R,t)}{\hbar}
+%\begin{pmatrix}
+%\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{22}& -\textbf{\textrm{m}}_{23}&-\textbf{\textrm{m}}_{13}\\
+%-\textbf{\textrm{m}}_{23} & \textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{33} & \textbf{\textrm{m}}_{12}\\
+%\textbf{\textrm{m}}_{13}& \textbf{\textrm{m}}_{12}  &\textbf{\textrm{m}}_{22}- \textbf{\textrm{m}}_{33}
+%\end{pmatrix}
+%$$ \\
+%%%%%
+%$$
+% A^{E}_{5}(R,t)= \dfrac{E(R,t)}{\hbar}
+%\begin{pmatrix}
+%-(\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{22})& \textbf{\textrm{m}}_{23}&-\textbf{\textrm{m}}_{13}\\
+%\textbf{\textrm{m}}_{23}&-(\textbf{\textrm{m}}_{11}- \textbf{\textrm{m}}_{33})& -\textbf{\textrm{m}}_{12}\\
+%\textbf{\textrm{m}}_{13}& -\textbf{\textrm{m}}_{12}&-(\textbf{\textrm{m}}_{22}- \textbf{\textrm{m}}_{33})
+%\end{pmatrix}
+%$$
+%$$
+% A^{E}_{6}(R,t)= \dfrac{E(R,t)}{\hbar}
+%\begin{pmatrix}
+%0 & \textbf{\textrm{m}}_{23} & -\textbf{\textrm{m}}_{13}\\
+%-\textbf{\textrm{m}}_{23} & 0 & \textbf{\textrm{m}}_{12}\\
+%\textbf{\textrm{m}}_{13} &  -\textbf{\textrm{m}}_{12}  & 0
+%\end{pmatrix}
+%$$ \\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

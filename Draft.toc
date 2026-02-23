@@ -1,9 +1,8 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Dérivation du modèle de type Bloch non linéaire à variables réelles }}{1}{section.2}%
-\contentsline {section}{\tocsection {}{3}{Analyse du modèle à variables réelles }}{4}{section.3}%
-\contentsline {section}{\tocsection {}{4}{Discrétisation du modèle à variable réelle}}{4}{section.4}%
-\contentsline {section}{\tocsection {}{5}{Simulations numériques}}{4}{section.5}%
-\contentsline {section}{\tocsection {}{6}{Conclusion}}{4}{section.6}%
-\contentsline {section}{\tocsection {}{}{R\'ef\'erences}}{4}{section*.2}%
-\contentsline {section}{Bibliographie}{4}{section*.2}%
+\contentsline {section}{\tocsection {}{3}{Analyse du modèle à variables réelles }}{2}{section.3}%
+\contentsline {section}{\tocsection {}{4}{Discrétisation du modèle à variable réelle}}{2}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Simulations numériques}}{2}{section.5}%
+\contentsline {section}{\tocsection {}{6}{Conclusion}}{2}{section.6}%
+\contentsline {section}{Bibliographie}{2}{section.6}%
