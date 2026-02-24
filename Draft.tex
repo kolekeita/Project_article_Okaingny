@@ -99,10 +99,10 @@ Nous rappelons que le terme de l'approximation dipolaire est donné par
 où $\mathcal{E}(t)$ est le champ électromagnétique et $\textbf{M}$ est la matrice du moment dipolaire (voir \cite{Bidegaray-Bourgeade-Reignier01, Keita-Dicko24}) 
 \\Rappelons aussi  les éléments de la matrice $W(\rho)$ (voir \cite{Bidegaray-Bourgeade-Reignier01,Keita-Dicko24}) :
 \begin{equation*}
-W(\rho)_{jj} = \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right), \quad
-W(\rho)_{jk} = \gamma_{jk} \rho_{jk}
+W(\rho)_{jj} = \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right) \equiv \sum_{\substack{k=1}}^{N} w_{kj}\left( e^{\frac{e_k -e_j}{\kappa_B T}} \rho_{kk} -  \rho_{jj} \right) , \quad
+W(\rho)_{jk} = -\gamma_{jk} \rho_{jk}
 \end{equation*}
-où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$.
+où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$, $\kappa_B$ est la constante de Boltzmann et $T$ la température.
 \\La matrice $V^{\rC}(\rho)$ correspond à la somme de deux matrices $ V_{l}^{\rC}$ et $V^{\rC}_{n} (\rho)$ dont les expressions sont données dans \cite{Bidegaray-Keita14}. En remplaçant ces termes dans le système \eqref{Eq_bloch1}, le modèle peut s'écrire ainsi
 \begin{equation}
 \left\{
@@ -125,22 +125,19 @@ est polynomiale en $\rho$ avec $I \subset \mathcal{M}_N(\mathbb{C})$ et $(\mathc
 \item Présenter clairement les résultats avec tous les phénomènes considérés
 \end{itemize}}
 Les systèmes physiques (systèmes de boîtes quantiques) possèdent des propriétés importantes qui se traduisent pour le système \eqref{Eq_bloch1} par les propriétés qualitatives telles que la conservation de la trace, de la positivité et de l'hermicité de la solution à tout temps $t \geq 0$. Dans cette partie, nous établissons des résultats sur ces propriétés.
-\begin{property}
 La solution du système \eqref{Eq_bloch1} vérifie les propriétés suivantes:
 \begin{enumerate}
-\item Pour tout temps $t\geq 0$, $\Tr(\rho(t))=\Tr(\rho^0)$.
-\end{enumerate}
-\end{property}
-\begin{preuve}
-
-\begin{enumerate}
-\item $\forall t \geq 0$, nous avons 
+\item $\forall t \geq 0$, nous avons  $\Tr(\rho(t)) = \Tr(\rho^0)$ car
 \begin{eqnarray*}
 \dt \Tr(\rho(t)) &=&\Tr\left(\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]\right) \\
                        &=& \Tr( W(\rho))= \sum_{j=1}^{N} \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right)=0
 \end{eqnarray*}
 \end{enumerate}
-\end{preuve}
+
+
+
+
+
 
 \item \textcolor{red}{Écrire le modèle à trois niveaux en vérifiant les propriétés dans les cas sans intra-bandes et sans inter-bandes}
 \item \textcolor{red}{ Présentation du modèle à variables réelles pour un système à trois niveaux}
