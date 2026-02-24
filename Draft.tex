@@ -1,4 +1,4 @@
-\documentclass[12 pt,a4paper]{amsart}
+\documentclass[a4paper]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[utf8]{inputenc} % Pour génerer les accents automatiquement
 \usepackage[T1]{fontenc} % Pour gerér la police des accents
@@ -9,7 +9,7 @@
 \parindent=0cm %pour le changement d'indentation d'un paragraghe
 %\usepackage{lipsum}pour generer du faux texte
 
-\usepackage{amsmath} % Pour écrire des symboles mathématiques
+\usepackage[leqno]{amsmath} % Pour écrire des symboles mathématiques
 \usepackage{amsfonts} % Pour gerer les doubles barres
 \usepackage{amsthm}
 \usepackage{enumitem}% Pour personnaliser des listes
@@ -17,7 +17,7 @@
 \usepackage{xcolor}
 %\usepackage[margin=2.5cm]{geometry}% Pour regler les marges indentiquement
 \usepackage[left=2cm,top=2cm,bottom=2.7cm,right=2cm]{geometry}% Pour regler les marges differemment
-%\usepackage{setspace}\renewcommand{\baselinestretch}{1.5}%Pour modifier l'interligne
+\usepackage{setspace}\renewcommand{\baselinestretch}{1.}%Pour modifier l'interligne
 \usepackage{systeme}
 \usepackage{xstring}
 
@@ -32,38 +32,25 @@
 \newtheorem*{example}{Exemple} % Pour ajouter des exemples non numérotés
 \newtheorem*{preuve}{\textbf{Preuve}}
 
-%\newenvironment{preuve}[1][Preuve]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-
-%\renewcommand{\arraystretch}{2.2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amsfonts,amssymb,verbatim}
 \usepackage{graphicx}
-\usepackage{xcolor}
-
-\usepackage{setspace}
-\singlespacing
-\usepackage{geometry}
-\geometry{hmargin=2.cm,vmargin=2.cm}
-
-
 %%%%
 \newcommand{\dt}{\partial_{t}}
-\newcommand{\rC}{\rm{C}}
-\newcommand{\diag}{{\rm{diag}}}
+\newcommand{\rC}{\mathrm{C}}
+\newcommand{\diag}{{\mathrm{diag}}}
+\newcommand{\Tr}{{\mathrm{Tr}}}
 
 \title{Analyse numérique d'un modèle de type Bloch non linéaire }
-
-\author{Kolé KEITA}
-\author{Okpo Dorgeles Okaingny}
+\author{Kolé KEITA, Okpo Dorgeles Okaingny}
 
 
 \begin{document}
 \maketitle
 %\tableofcontents
 
-\bigskip
+%\bigskip
 
 Abstract:
 
@@ -91,38 +78,70 @@ Abstract:
 \end{itemize}}
 %%%%%%%%%%%%%%%%%%%%%%
 Les études de ce papier portent sur une seule boîte isolée dont l'interaction avec les autres boîtes  via les couches de mouillage est négligée.
-La boîte étant immobile dans l'espace alors sa position est fixée en un point noté $X_0$. Les évolutions temporelles des électrons au sein de la boîte sont modélisées avec les modèles de type Bloch. En général, la variable des modèles de type Bloch est une matrice carrée appelée matrice densité et notée $\rho(X,t) \in \mathcal{M}_N (\mathbb{C})$ avec $N$ le nombre de niveaux quantiques considérés, $X\in \Omega\subset \mathbb{R}^3$ et  $t \geq 0$ le temps. Les éléments de la matrice densité notés $\rho_{jj}$, appelés les populations et représentent les probabilités d'occupation des niveaux d'énergie. Quant aux éléments non diagonaux $\rho_{jk}$, les modules correspondent aux probabilités de transition.
+La boîte étant immobile dans l'espace alors sa position est fixée en un point noté $X_0$. Les évolutions temporelles des électrons au sein de la boîte sont modélisées avec les modèles de type Bloch. En général, la variable des modèles de type Bloch est une matrice carrée appelée matrice densité et notée $\rho(X,t) \in \mathcal{M}_N (\mathbb{C})$ avec $N$ le nombre de niveaux quantiques considérés, $X\in \Omega\subset \mathbb{R}^3$ et  $t \geq 0$ le temps. Les éléments diagonaux de la matrice densité notés $\rho_{jj}$, sont appelés populations et représentent les probabilités d'occupation des niveaux d'énergie quantiques. Quant aux éléments non diagonaux $\rho_{jk}$, leurs modules correspondent aux probabilités de transition.
 \\Dans ces travaux, la densité des électrons à l'intérieur de la boîte au temps $t \geq 0$ est notée $\rho(X_0,t)\equiv \rho(t)$ puisque la boîte étudiée est immobile. Le modèle de type Bloch qui nous intéresse prend en compte les phénomènes tels que la relaxation définie par l'équation maîtresse de Pauli \cite{Bidegaray-Bourgeade-Reignier01,Keita-Dicko24}, l'interaction de Coulomb \cite{Lindberg-Koch88, Bidegaray-Keita14}  et l'interaction laser-matière \cite{Lindberg-Koch88, Bidegaray-Keita14}.   Le modèle se présente ainsi 
-\begin{equation*}
+\begin{equation}
 \left\{
 \begin{array}{rcl}
 \dt \rho &=& -\frac{i}{\hbar}\left[ V(t,\rho),\rho\right] + W(\rho), \\
 \rho(0) &=& \rho^0,
 \end{array}
  \right.
-\end{equation*}
+\label{Eq_bloch1}
+\end{equation}
 où $V(t,\rho) = E_0 + V_0(t) + V^{\rC}(\rho)$, $E_0 =\diag(\{ e_1,\cdots,e_N\})$  est la matrice diagonale des énergies propres, $V_0(t)$  l'approximation dipolaire du phénomène de l'interaction laser-matière,  $V^{\rC}(\rho)$ est l'hamiltonien de l'interaction de Coulomb et $W(\rho)$ est une matrice définie à partir de l'équation maîtresse de Pauli.
-\\Nous rappelons que le terme de l'approximation dipolaire est donné par 
+%\\Nous allons rappeler les expressions des termes qui apparaissent dans le le modèle dans le cadre d'une configuration électronique à deux bandes (valence et conduction). Le nombres de niveaux de la bande de valence et de conduction sont respectivement notés $N_v$ et $N_c$ avec $N=N_v +N_c$.
+
+Nous rappelons que le terme de l'approximation dipolaire est donné par 
 \begin{equation*}
  V_0(t)=\mathcal{E}(t)\cdot \textbf{M},
 \end{equation*}  
-où $\mathcal{E}(t)$ est le champ électromagnétique et $\textbf{M}$ est la matrice du moment dipolaire.
-\\L'équation maîtresse de Pauli définit les éléments de la matrice $W(\rho)$ donnés par
+où $\mathcal{E}(t)$ est le champ électromagnétique et $\textbf{M}$ est la matrice du moment dipolaire (voir \cite{Bidegaray-Bourgeade-Reignier01, Keita-Dicko24}) 
+\\Rappelons aussi  les éléments de la matrice $W(\rho)$ (voir \cite{Bidegaray-Bourgeade-Reignier01,Keita-Dicko24}) :
 \begin{equation*}
-\begin{array}{rcl}
-W(\rho)_{jj} &=& \sum_{\substack{k=1 \\k\neq j}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right) \\
-W(\rho)_{jj} &=& \gamma_{jk} \rho_{jk}
-\end{array}
+W(\rho)_{jj} = \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right), \quad
+W(\rho)_{jk} = \gamma_{jk} \rho_{jk}
 \end{equation*}
 où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$.
-\\La matrice $V^{\rC}(\rho)$ correspond à la somme de deux matrices $ V_{l}^{\rC}$ et $V^{\rC}_{n} (\rho)$ dont les expressions sont données dans \cite{Bidegaray-Keita14}
+\\La matrice $V^{\rC}(\rho)$ correspond à la somme de deux matrices $ V_{l}^{\rC}$ et $V^{\rC}_{n} (\rho)$ dont les expressions sont données dans \cite{Bidegaray-Keita14}. En remplaçant ces termes dans le système \eqref{Eq_bloch1}, le modèle peut s'écrire ainsi
+\begin{equation}
+\left\{
+\begin{aligned}
+ \dt \rho &= F(t,\rho) , \\
+\rho(0) &= \rho^0.
+\end{aligned}
+ \right.
+\label{Eq_bloch2}
+\end{equation}
+où $F(t,\rho)=\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]$.
+\\Ce modèle est non linéaire (semi-linéaire) et l'application 
+$$\rho \in I \mapsto F(t,\rho) \in I$$
+est polynomiale en $\rho$ avec $I \subset \mathcal{M}_N(\mathbb{C})$ et $(\mathcal{M}_N(\mathbb{C}),\|.\|)$ est un espace de Banach.  Alors $F$ est localement lipschitzienne en $\rho$ (L'inégalité de Taylor). Grâce au théorème de Cauchy-Lipschitz, nous pouvons déduire que le système de Cauchy \eqref{Eq_bloch2} admet une unique solution locale en temps à partir de toutes données initiales $\rho^0$.
 %%%%%%%%%%%%%%%%%%%%%%
 %
 \item \textcolor{red}{Énumérer les propriétés qualitatives vérifiées et parler du problème bien posé  (référer à la thèse )}
-\begin{itemize}
+\textcolor{green}{\begin{itemize}
  \item Voir la section 3.2 de la thèse (Faire des petits théorèmes)
 \item Présenter clairement les résultats avec tous les phénomènes considérés
-\end{itemize}
+\end{itemize}}
+Les systèmes physiques (systèmes de boîtes quantiques) possèdent des propriétés importantes qui se traduisent pour le système \eqref{Eq_bloch1} par les propriétés qualitatives telles que la conservation de la trace, de la positivité et de l'hermicité de la solution à tout temps $t \geq 0$. Dans cette partie, nous établissons des résultats sur ces propriétés.
+\begin{property}
+La solution du système \eqref{Eq_bloch1} vérifie les propriétés suivantes:
+\begin{enumerate}
+\item Pour tout temps $t\geq 0$, $\Tr(\rho(t))=\Tr(\rho^0)$.
+\end{enumerate}
+\end{property}
+\begin{preuve}
+
+\begin{enumerate}
+\item $\forall t \geq 0$, nous avons 
+\begin{eqnarray*}
+\dt \Tr(\rho(t)) &=&\Tr\left(\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]\right) \\
+                       &=& \Tr( W(\rho))= \sum_{j=1}^{N} \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right)=0
+\end{eqnarray*}
+\end{enumerate}
+\end{preuve}
+
 \item \textcolor{red}{Écrire le modèle à trois niveaux en vérifiant les propriétés dans les cas sans intra-bandes et sans inter-bandes}
 \item \textcolor{red}{ Présentation du modèle à variables réelles pour un système à trois niveaux}
 \end{itemize}
