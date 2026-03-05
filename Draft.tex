@@ -132,6 +132,21 @@ La solution du système \eqref{Eq_bloch1} vérifie les propriétés suivantes:
 \dt \Tr(\rho(t)) &=&\Tr\left(\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]\right) \\
                        &=& \Tr( W(\rho))= \sum_{j=1}^{N} \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right)=0
 \end{eqnarray*}
+\item $\forall t \geq 0$, on  a $\rho^*(t)=\rho(t)$ :
+\\écriture du modèle avec la structure de Lindblad donne 
+$$\dt \rho(t) =-\frac{i}{\hbar}\left[ V(t,\rho),\rho\right] + \sum_{\alpha \in \mathcal{I}} \left( L_{\alpha}\rho L_{\alpha}^* -\frac12\left\{ L_{\alpha}^* L_{\alpha}, \rho \right\}\right)$$
+où $ \mathcal{I}=\left\{ (n,m) \in \mathbb{N}^2; n<m<N\right\}$,
+$$ L_{\alpha} =\sum_{j=1}^{N} \sum_{k=1}^{N} \alpha_{jk} M_{jk}, \quad \text{avec}  \quad 
+(M_{jk} )_{l,m}=\left\{
+\begin{array}{rcl}
+1  & \text{si} & (l,m)=(j,k) \\
+0 & sinon
+\end{array}
+\right.$$
+Calculons 
+$$\dt \rho^*(t) =-\frac{i}{\hbar}\left[ V(t,\rho^*),\rho^*\right] + \sum_{\alpha \in \mathcal{I}} \left( L_{\alpha}\rho L_{\alpha}^* -\frac12\left\{ L_{\alpha}^* L_{\alpha}, \rho^* \right\}\right).$$
+Sachant que l'unicité de la solution est vérifiée alors $\forall t \geq 0$, $\rho^*(t) =\rho^(t)$.
+\item \textcolor{blue}{La positivité à rédiger après} 
 \end{enumerate}
 
 
