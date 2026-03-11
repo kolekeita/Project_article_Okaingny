@@ -39,11 +39,13 @@
 %%%%
 \newcommand{\dt}{\partial_{t}}
 \newcommand{\rC}{\mathrm{C}}
+\newcommand{\rc}{\mathrm{c}}
+\newcommand{\rv}{\mathrm{v}}
 \newcommand{\diag}{{\mathrm{diag}}}
 \newcommand{\Tr}{{\mathrm{Tr}}}
 
 \title{Analyse numérique d'un modèle de type Bloch non linéaire }
-\author{Kolé KEITA, Okpo Dorgeles Okaingny}
+\author{Kolé KEITA, Okpo Dorgeles OkAINGNY}
 
 
 \begin{document}
@@ -78,8 +80,8 @@ Abstract:
 \end{itemize}}
 %%%%%%%%%%%%%%%%%%%%%%
 Les études de ce papier portent sur une seule boîte isolée dont l'interaction avec les autres boîtes  via les couches de mouillage est négligée.
-La boîte étant immobile dans l'espace alors sa position est fixée en un point noté $X_0$. Les évolutions temporelles des électrons au sein de la boîte sont modélisées avec les modèles de type Bloch. En général, la variable des modèles de type Bloch est une matrice carrée appelée matrice densité et notée $\rho(X,t) \in \mathcal{M}_N (\mathbb{C})$ avec $N$ le nombre de niveaux quantiques considérés, $X\in \Omega\subset \mathbb{R}^3$ et  $t \geq 0$ le temps. Les éléments diagonaux de la matrice densité notés $\rho_{jj}$, sont appelés populations et représentent les probabilités d'occupation des niveaux d'énergie quantiques. Quant aux éléments non diagonaux $\rho_{jk}$, leurs modules correspondent aux probabilités de transition.
-\\Dans ces travaux, la densité des électrons à l'intérieur de la boîte au temps $t \geq 0$ est notée $\rho(X_0,t)\equiv \rho(t)$ puisque la boîte étudiée est immobile. Le modèle de type Bloch qui nous intéresse prend en compte les phénomènes tels que la relaxation définie par l'équation maîtresse de Pauli \cite{Bidegaray-Bourgeade-Reignier01,Keita-Dicko24}, l'interaction de Coulomb \cite{Lindberg-Koch88, Bidegaray-Keita14}  et l'interaction laser-matière \cite{Lindberg-Koch88, Bidegaray-Keita14}.   Le modèle se présente ainsi 
+La boîte étant immobile dans l'espace alors sa position est fixée en un point noté $X_0$. Les évolutions temporelles des électrons au sein de la boîte sont modélisées avec les modèles de type Bloch. En général, la variable des modèles de type Bloch est une matrice carrée appelée matrice densité et notée $\rho(X,t) \in \mathcal{M}_N (\mathbb{C})$ avec $N$ le nombre de niveaux quantiques considérés, $X\in \Omega\subset \mathbb{R}^3$ et  $t \geq 0$ le temps. Les éléments diagonaux de la matrice densité notés $\rho_{jj}$, sont appelés populations et représentent les probabilités d'occupation des niveaux d'énergie quantiques. Quant aux éléments non diagonaux appelés cohérences $\rho_{jk}$, leurs modules correspondent aux probabilités de transition.
+\\Dans ces travaux, la densité des électrons à l'intérieur de la boîte au temps $t \geq 0$ est notée $\rho(X_0,t)\equiv \rho(t)$ puisque la boîte étudiée est immobile dans l'espace. Le modèle de type Bloch qui nous intéresse prend en compte les phénomènes tels que la relaxation définie par l'équation maîtresse de Pauli \cite{Bidegaray-Bourgeade-Reignier01,Keita-Dicko24}, l'interaction de Coulomb \cite{Lindberg-Koch88, Bidegaray-Keita14}  et l'interaction laser-matière \cite{Lindberg-Koch88, Bidegaray-Keita14}.   Il se présente ainsi 
 \begin{equation}
 \left\{
 \begin{array}{rcl}
@@ -90,7 +92,7 @@ La boîte étant immobile dans l'espace alors sa position est fixée en un point
 \label{Eq_bloch1}
 \end{equation}
 où $V(t,\rho) = E_0 + V_0(t) + V^{\rC}(\rho)$, $E_0 =\diag(\{ e_1,\cdots,e_N\})$  est la matrice diagonale des énergies propres, $V_0(t)$  l'approximation dipolaire du phénomène de l'interaction laser-matière,  $V^{\rC}(\rho)$ est l'hamiltonien de l'interaction de Coulomb et $W(\rho)$ est une matrice définie à partir de l'équation maîtresse de Pauli.
-%\\Nous allons rappeler les expressions des termes qui apparaissent dans le le modèle dans le cadre d'une configuration électronique à deux bandes (valence et conduction). Le nombres de niveaux de la bande de valence et de conduction sont respectivement notés $N_v$ et $N_c$ avec $N=N_v +N_c$.
+
 
 Nous rappelons que le terme de l'approximation dipolaire est donné par 
 \begin{equation*}
@@ -116,7 +118,7 @@ où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$, $\kappa_B$ est la cons
 où $F(t,\rho)=\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]$.
 \\Ce modèle est non linéaire (semi-linéaire) et l'application 
 $$\rho \in I \mapsto F(t,\rho) \in I$$
-est polynomiale en $\rho$ avec $I \subset \mathcal{M}_N(\mathbb{C})$ et $(\mathcal{M}_N(\mathbb{C}),\|.\|)$ est un espace de Banach.  Alors $F$ est localement lipschitzienne en $\rho$ (L'inégalité de Taylor). Grâce au théorème de Cauchy-Lipschitz, nous pouvons déduire que le système de Cauchy \eqref{Eq_bloch2} admet une unique solution locale en temps à partir de toutes données initiales $\rho^0$.
+est polynomiale en $\rho$ avec $I \subset \mathcal{M}_N(\mathbb{C})$ et $(\mathcal{M}_N(\mathbb{C}),\|.\|)$ est un espace de Banach.  Alors $F$ est localement lipschitzienne en $\rho$. Grâce au théorème de Cauchy-Lipschitz, nous pouvons déduire que le système de Cauchy \eqref{Eq_bloch2} admet une unique solution locale en temps à partir de la densité initiale $\rho^0$.
 %%%%%%%%%%%%%%%%%%%%%%
 %
 \item \textcolor{red}{Énumérer les propriétés qualitatives vérifiées et parler du problème bien posé  (référer à la thèse )}
@@ -124,15 +126,15 @@ est polynomiale en $\rho$ avec $I \subset \mathcal{M}_N(\mathbb{C})$ et $(\mathc
  \item Voir la section 3.2 de la thèse (Faire des petits théorèmes)
 \item Présenter clairement les résultats avec tous les phénomènes considérés
 \end{itemize}}
-Les systèmes physiques (systèmes de boîtes quantiques) possèdent des propriétés importantes qui se traduisent pour le système \eqref{Eq_bloch1} par les propriétés qualitatives telles que la conservation de la trace, de la positivité et de l'hermicité de la solution à tout temps $t \geq 0$. Dans cette partie, nous établissons des résultats sur ces propriétés.
-La solution du système \eqref{Eq_bloch1} vérifie les propriétés suivantes:
+Les systèmes physiques (systèmes de boîtes quantiques) possèdent des propriétés mathématiques importantes. Ces propriétés  vérifiées par le système \eqref{Eq_bloch1}  les propriétés qualitatives sont telles que la conservation de la trace de la densité,  la majoration des populations,  de l'hermicité  de la solution à tout temps $t \geq 0$. En plus de ces propriétés, il est aussi possible de montrer que le système quantique est dissipatif (perte d'énergie au cours du temps).
+\\ Les propriétés conservées par la solution du système \eqref{Eq_bloch1} sont
 \begin{enumerate}
-\item $\forall t \geq 0$, nous avons  $\Tr(\rho(t)) = \Tr(\rho^0)$ car
+\item conservation de la trace de la densité : $\forall t \geq 0$, nous avons  $\Tr(\rho(t)) = \Tr(\rho^0)$ car
 \begin{eqnarray*}
 \dt \Tr(\rho(t)) &=&\Tr\left(\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]\right) \\
                        &=& \Tr( W(\rho))= \sum_{j=1}^{N} \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right)=0
 \end{eqnarray*}
-\item $\forall t \geq 0$, on  a $\rho^*(t)=\rho(t)$ :
+\item La densité est hermitienne : $\forall t \geq 0$, on  a $\rho^*(t)=\rho(t)$ :
 \\écriture du modèle avec la structure de Lindblad donne 
 $$\dt \rho(t) =-\frac{i}{\hbar}\left[ V(t,\rho),\rho\right] + \sum_{\alpha \in \mathcal{I}} \left( L_{\alpha}\rho L_{\alpha}^* -\frac12\left\{ L_{\alpha}^* L_{\alpha}, \rho \right\}\right)$$
 où $ \mathcal{I}=\left\{ (n,m) \in \mathbb{N}^2; n<m<N\right\}$,
@@ -146,34 +148,253 @@ $$ L_{\alpha} =\sum_{j=1}^{N} \sum_{k=1}^{N} \alpha_{jk} M_{jk}, \quad \text{ave
 Calculons 
 $$\dt \rho^*(t) =-\frac{i}{\hbar}\left[ V(t,\rho^*),\rho^*\right] + \sum_{\alpha \in \mathcal{I}} \left( L_{\alpha}\rho L_{\alpha}^* -\frac12\left\{ L_{\alpha}^* L_{\alpha}, \rho^* \right\}\right).$$
 Sachant que l'unicité de la solution est vérifiée alors $\forall t \geq 0$, $\rho^*(t) =\rho^(t)$.
-\item \textcolor{blue}{La positivité à rédiger après} 
+\item La majoration des populations : on sait que $\Tr(\rho(t)) = \Tr(\rho^0)$ alors $\forall j \in \{1,2,\cdots,N\}$, $\rho_{jj}(t) \leq \Tr(\rho^0)$.
 \end{enumerate}
-
+\begin{property}
+Le système quantique représenté parle modèle \eqref{Eq_bloch1} est dissipatif vers un état stationnaire et $\forall t \geq 0$, $\|\rho(t)\|\leq \|\rho_0\|$
+\end{property}
+\begin{preuve}
+\end{preuve}
 
 
 
 
 
 \item \textcolor{red}{Écrire le modèle à trois niveaux en vérifiant les propriétés dans les cas sans intra-bandes et sans inter-bandes}
+\\Les expressions de la matrice densité  dans le modèle \eqref{Eq_bloch1} prennent en compte la configuration électronique de la boîte à deux bandes (valence et conduction). Le nombres de niveaux de la bande de valence et de conduction sont respectivement notés $N_{\rv}$ et $N_{\rc}$ avec $N=N_{\rv} +N_{\rc}$.
+\\ Dans la suite de ces travaux, le système quantique étudié comporte trois niveaux d'énergies $N=3$ dont $N_{\rv}=2$, $N_{\rc}=1$ et la forme de la densité retenue est donnée par 
+\begin{equation*}
+\rho=\begin{pmatrix}
+\rho_{11}^{v} & \rho_{12}^{v} & \rho_{11}^{vc} \\
+\rho_{21}^{v} & \rho_{22}^{v} & \rho_{21}^{vc} \\
+\rho_{11}^{cv} & \rho_{12}^{cv} & \rho_{11}^{c} 
+\end{pmatrix} = \begin{pmatrix}
+\rho_{11} & \rho_{12} & \rho_{13} \\
+\rho_{21} & \rho_{22} & \rho_{23} \\
+\rho_{31} & \rho_{32} & \rho_{33} 
+\end{pmatrix}
+\end{equation*}
+
+
 \item \textcolor{red}{ Présentation du modèle à variables réelles pour un système à trois niveaux}
+\\ Les études sur le modèle à trois niveaux d'énergie ont été établies dans \cite{Keita-Dicko24} sans considérer le phénomène de Coulomb. 
+Dans ce papier, nous ajoutons le phénomène de Coulomb avec les paramètres d'interaction $\forall (n_1,n_2,n_1',n_2') \in \{1,2,\cdots,N\}^4$, $\forall \delta \in \{\rc,\rv\}$, $R_{n_1,n_2,n_1',n_2'}^{\delta} \in \mathbb{R}$ dont les ordres de grandeur sont déterminés dans \cite{Keita-Okou-Kamagate26}.  Dans le modèle à trois niveaux d'énergie, une nouvelle variable vectorielle réelle est définie et les commutateurs au second membre sont modifiés pour donner lieu à des produits matriciels classiques. Définissons la variable vectorielle à composantes réelles
+\begin{equation*}
+ U=\left( U_p, \Re(U_c),\Im(U_c)\right)^t
+\end{equation*}
+où $U_p=\left( \rho_{11},\rho_{22},\rho_{33}\right)$ et $U_c=\left( \rho_{12},\rho_{13},\rho_{23}\right)$
+\\Les systèmes d'équations vérifiées par la variable $U$ se présentent ainsi 
+\begin{equation}
+\dt U =A(t,U)U,
+\label{Eq_bloch3}
+\end{equation}
+où $A(t,U)=A^L (t) U + A^N(U) U$,
+%%%%
+\begin{equation*}
+A^L(t)=
+\begin{pmatrix}
+W_{1} &   \Im\left(A_{1}\right)    & \Re\left(A_{1}\right)                        \\
+    -\frac{1}{2}\Im\left(A^\mathrm{\small *}_{1}\right) & \Im\left(A_{2}\right)+D_{\gamma}                &  \Re\left(A_{3}\right) -\left(\mathcal{E}_{0}+\mathcal{R}^{0}_{C} \right) \\
+-\frac{1}{2}\Re\left(A^\mathrm{\small *}_{1}\right)  & -\Re\left(A_{2}\right)+\mathcal{E}_{0}+ \mathcal{R}^{0}_{C}  &  \Im\left(A_{3}\right) + D_{\gamma}
+\end{pmatrix},
+\label{matrice Al}
+\end{equation*} 
+$$ W_{1}= 
+\begin{pmatrix}
+-(w_{21} + w_{31}) & w_{21}\dfrac{a_{2}}{a_{1}} & w_{31}\dfrac{a_{3}}{a_{1}}\\
+            w_{21} & -(w_{21}\dfrac{a_{2}}{a_{1}} + w_{32}) & w_{32}\dfrac{a_{3}}{a_{2}}\\
+            w_{31} &                                 w_{32} & -(w_{31}\dfrac{a_{3}}{a_{1}} + w_{32}\dfrac{a_{3}}{a_{2}})
+\end{pmatrix}$$
+%%%%
+\[D_{\gamma} = -\mathrm{diag}\left(\gamma_{12},  \gamma_{13}, \gamma_{23}\right), \quad  \mathcal{E}_{0} = -\frac{1}{\hbar}\mathrm{diag}\left(e_1-e_2, e_1-e_3, e_2-e_3\right),\]
+%%%%%
+$$\mathcal{R}^{0}_{C} =- \dfrac{1}{\hbar}  \textrm{diag}\left(0,2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232} , 2(R^{\textsc{v}}_{2112}-R^{\textsc{v}}_{2121})+R^{\textsc{c-v}}_{3131} + R^{\textsc{c-v}}_{3232}\right)$$
+%%%%
+\begin{equation*}
+A_{1}\  =  \frac{2 e(t)}{\hbar} 
+\begin{pmatrix} 
+- \textbf{M}_{21}  & - \textbf{M}_{31}& 0 \\ 
+\vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
+\textbf{M}_{21}& 0 & - \textbf{M}_{32}\\ 
+\vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
+0& \textbf{M}_{31}& \textbf{M}_{32}
+\end{pmatrix}, 
+A_{2} = \, \frac{e(t)}{\hbar} 
+\begin{pmatrix} 
+\textbf{M}_{11} - \textbf{M}_{22}  & - \textbf{M}_{32}& \textbf{M}_{13} \\ 
+\vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
+-\textbf{M}_{23}& \textbf{M}_{11} - \textbf{M}_{33} &  \textbf{M}_{12}\\ 
+\vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
+ - \textbf{M}_{13}& \textbf{M}_{21}& \textbf{M}_{22} - \textbf{M}_{33}
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+A_{3}  =  \frac{e}{\hbar} 
+\begin{pmatrix} 
+\textbf{M}_{11} - \textbf{M}_{22}  & - \textbf{M}_{32}& - \textbf{M}_{13} \\ 
+\vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
+-\textbf{M}_{23}& \textbf{M}_{11} - \textbf{M}_{33} &  \textbf{M}_{12}\\ 
+\vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
+ \textbf{M}_{13}& \textbf{M}_{21}& \textbf{M}_{22} - \textbf{M}_{33}
+\end{pmatrix},
+\end{equation*} 
+\begin{equation*}\label{matrice AN}
+A^{N}(U)=
+\begin{pmatrix}
+0 & \mathcal{R}^{1}_{C}(U) & \mathcal{R}^{2}_{C}(U)\\
+\mathcal{R}^{3}_{C}(U) & \mathcal{R}^{4}_{C}(U) & \mathcal{R}^{5}_{C}(U) \\
+\mathcal{R}^{6}_{C}(U) & \mathcal{R}^{7}_{C}(U)&\mathcal{R}^{8}_{C}(U)
+\end{pmatrix}
+\end{equation*}
+
+\[\mathcal{R}^{1}_{C}(U) = \dfrac{2}{\hbar}
+\begin{pmatrix}
+0 & 0 & R^{\textsc{c-v}}_{3132}U_{8}\\
+0 & 0 & -R^{\textsc{c-v}}_{3132}U_{8}\\
+            0 &                               0 & 0
+\end{pmatrix},
+\mathcal{R}^{2}_{C}(U) = \dfrac{2}{\hbar}
+\begin{pmatrix}
+-R^{\textsc{c-v}}_{3132}U_{3} & 0 & -R^{\textsc{c-v}}_{3132}U_{5}\\
+R^{\textsc{c-v}}_{3132}U_{3} & 0& R^{\textsc{c-v}}_{3132}U_{5}\\
+            0 &                               0 & 0
+\end{pmatrix}\]
+%%%
+
+\[\mathcal{R}^{3}_{C}(U)= \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & 0 & 0\\
+R^{\textsc{c-v}}_{3132}U_{9} &
+-\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right) U_{8} & 0 \\
+-\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{9} & R^{\textsc{c-v}}_{3132} U_{8} & 0
+\end{pmatrix}\]
+
+%%%%
+\[\mathcal{R}^{4}_{C}(U)= \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & 0 & 0 \\
+-R^{\textsc{c-v}}_{3132}U_{8} & 0 & \left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{7}\\
+0 & -\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{7} & - R^{\textsc{c-v}}_{3132} U_{7}
+\end{pmatrix}\]
+%%%%
+\[\mathcal{R}^{5}_{C}(U) = \dfrac{1}{\hbar}
+\begin{pmatrix}
+U_{3} & -U_{6} & U_{5} \\
+R^{\textsc{c-v}}_{3132}U_{5} & 0 & \left( 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{4}\\
+0 & \left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{4} & -R^{\textsc{c-v}}_{3132}U_{4}
+\end{pmatrix}\]
+%%%%
+\[\mathcal{R}^{6}_{C}(U)= \dfrac{1}{\hbar}
+\begin{pmatrix}
+R^{\textsc{c-v}}_{3132}U_{3} & -R^{\textsc{c-v}}_{3132}U_{3} & 0 \\
+-R^{\textsc{c-v}}_{3132}U_{6} & \left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{5} & 0 \\
+\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{6} & -R^{\textsc{c-v}}_{3132}U_{5} & 0 
+\end{pmatrix}\]
+%%%%%
+\[\mathcal{R}^{7}_{C}(U)= \dfrac{1}{\hbar}
+\begin{pmatrix}
+-(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{3} & -R^{\textsc{c-v}}_{3132}U_{5}+(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{6} &  R^{\textsc{c-v}}_{3132}U_{6}\\
+0& R^{\textsc{c-v}}_{3132}U_{4} & -\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{4}\\
+0 & -\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{4} & R^{\textsc{c-v}}_{3132}U_{4} 
+\end{pmatrix}\]
+%%%%%
+\[\mathcal{R}^{8}_{C}(U) = \dfrac{1}{\hbar}
+\begin{pmatrix}
+0 & -R^{\textsc{c-v}}_{3132}U_{8} & R^{\textsc{c-v}}_{3132}U_{9}+(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{8}\\
+0 & R^{\textsc{c-v}}_{3132})U_{7} &  \left( 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{7}\\
+0 & -\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{7} & -R^{\textsc{c-v}}_{3132}U_{7}
+\end{pmatrix}\]
+
+Après avoir explicité le modèle de type Bloch spécifique à trois niveaux d'énergie, il nous revient d'analyser ce modèle afin de vérifier la conservation de  certaines propriétés mathématiques.
 \end{itemize}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 \section{Analyse du modèle à variables réelles }
+Le problème de Cauchy associé au problème \eqref{Eq_bloch3} peut s'écrire ainsi 
+\begin{equation}
+\left\{
+\begin{array}{rcl}
+\dt U &= F(t,U) \\
+U(0) &= U^0,
+\end{array}
+\right.
+\label{Eq_bloch4}
+\end{equation}
+où $F(t,U)=A(t,U)U$ est une écriture simplifiée dans $\mathbb{R}^9$ de la fonction $f$ donnée par \eqref{Eq_bloch2}. Elle correspond à un vecteur de polynôme en $U$ dont $U \mapsto A^L (t) U$ est linéaire en $U$ et $U \mapsto A^N(U) U$ est quadratique.
+ \\Dans l'espace de Banach $\mathbb{R}^9$, la fonction $F$ est de classe $\mathcal{C}^{\infty}$ ($F$ est localement lipschitzienne). Par conséquent, le système \eqref{Eq_bloch4} admet une unique solution locale en temps.
+
+
 \begin{itemize}
 \item \textcolor{red}{ Vérifier les propriétés qualificatives et le caractère bien posé du nouveau modèle}
+\\L'unique solution du problème de Cauchy \eqref{Eq_bloch4} vérifie des propriétés qualitatives telles que la  conservation de la trace et la majoration des populations. 
+\begin{enumerate}
+\item Conservation de la trace :  $\forall t >0$,
+\begin{eqnarray*}
+\dt\left(\sum_{j=1}^{3} U_j (t)\right)&=& \sum_{j=1}^{3} F_j(t,U)\\
+&=& \sum_{j=1}^{3} W_1  U_j +  \sum_{j=4}^{6}\left( \Im\left(A_{1}\left(x_{0}, t\right)\right)+\mathcal{R}^{1}_{C}(U) \right)  U_j   + \sum_{j=7}^{9} \left( \Re\left(A_{1}\left(x_{0}, t\right)\right) +\mathcal{R}^{2}_{C}(U)  \right) U_j\\
+&=& 0
+\end{eqnarray*}
+Alors 
+$$\sum_{j=1}^{3} U_j (t)=\sum_{j=1}^{3} U_{j}^{0} = \Tr(\rho^0).$$
+\item Majoration des populations : $\forall t >0$,
+$$\sum_{j=1}^{3} U_j (t)=\sum_{j=1}^{3} U_{j}^{0} \Rightarrow \forall j \in \{1,2,3\}, \quad U_j (t) \leq \sum_{j=1}^{3} U_{j}^{0}= \Tr(\rho^0) .$$
+\item La bornitude de la norme de $U$: 
+$\forall t \leq 0$,  
+$$\|U(t)\|^2\leq \|\rho(t)\|^2\leq \|\rho_0\|^2 \Rightarrow \|U(t)\|\leq \|\rho_0\|$$
+\\Ce résultat confirme l'existence d'une solution globale en temps pour le problème de Cauchy \eqref{Eq_bloch4}.
+\end{enumerate}
 \item  \textcolor{red}{ Analyser les modèles sans intra-bandes et sans inter-bandes}
+\\Dans un système de boîte quantique sans cohérences, le modèle de type Bloch se résume simplement à
+$$\dt U = W_1 U.$$
+Rappelons que la solution de ce modèle simplifié converge vers les états de Gibbs (\cite{Keita-Dicko24}) donnés par 
+$$U_{eq}= \frac{1}{e^{-\frac{e_1}{\kappa_B T}}+e^{-\frac{e_2}{\kappa_B T}}+e^{-\frac{e_3}{\kappa_B T}}} \left(e^{-\frac{e_1}{\kappa_B T}},e^{-\frac{e_2}{\kappa_B T}},e^{-\frac{e_3}{\kappa_B T}} \right)^t$$
 \end{itemize}
-
+Les simulations numériques du modèle complet à trois niveaux d'énergie vont permettre de vérifier les états d'équilibre obtenus dans cette partie.
 
 
 \section{Discrétisation du modèle à variable réelle}
+Avant de procéder aux simulations numériques du modèle de type Bloch, nous procédons à sa discrétisation temporelle. Soit $\delta t$ le pas de temps, les temps $t_n = n \delta t$  pour tout  $n\geq 0$ et notons par $U^n =U(t_n)$ .
 \begin{itemize}
 \item \textcolor{red}{Méthodes classiques : Euler, Runge-Kutta, Crank-Nicolson}
+\\La première méthode numérique utilisée est celle de Runge-Kutta $4$ définie par 
+\begin{equation*}
+\forall n \geq 0, \quad U^{n+1}=U^n + \frac{\delta t}{6}\left( F(t_n,U_n)+2F\left(t_n+\frac{\delta t}{2},R^{(1)}\right)+2F\left(t_n+\frac{\delta t}{2},R^{(2)}\right)+F\left(t_n+\delta t,R^{(3)})\right)\right),
+\end{equation*}
+avec 
+$$R^{(1)}=U_n + \frac{\delta t}{2} F(t_n,U_n),$$
+$$R^{(2)}=U_n + \frac{\delta t}{2} F\left(t_n+\frac{\delta t}{2},R^{(1)}\right),$$
+$$R^{(3)}=U_n + \delta t F\left(t_n+\delta t,R^{(2)}\right).$$
 \item \textcolor{red}{Vérifier les propriétés des solutions numériques obtenues avec ces méthodes classiques et la stabilité numérique}
+\\La solution obtenue vérifie les propriétés suivantes 
+\begin{enumerate}
+\item l'ordre de consistance est $4$.
+\item La complexité : le calcul de $F(t,U)$ est de $O(9^2)$ donc à chaque itération, on a une complexité de $4\times O(9^2)$. Puisqu'on a une constante, la complexité dépend du nombre de pas de temps.
+ \item $$\forall n\geq 0, \quad \sum_{j=1}^{3} U^{n+1}_j = \sum_{j=1}^{3} U^{n}_j,\quad\text{car}\quad \forall U \in \mathbb{R}^9, \sum_{j=1}^{3} F_j(t,U)=0$$
+\item $\forall j \in \{1,2,3\}$, $\forall n \geq 0$, 
+$$U^{n}_j \leq \sum_{j=1}^{3} U^{0}_j$$
+\item On définit l'énergie du système au temps $t_{n+1}$
+\begin{eqnarray*}
+\sum_{j=1}^{9} \left(U_{j}^{n+1} \right)^2 & =& \sum_{j=1}^{9} \left(U_{j}^{n} +(U_{j}^{n+1}-U_{j}^{n}) \right)^2  \\
+&=& \sum_{j=1}^{9} \left(\left(U_{j}^{n} \right)^2 + 2 U_{j}^{n}  \left( U_{j}^{n+1}-U_{j}^{n}\right)+ \left(U_{j}^{n+1}-U_{j}^{n}\right)^2 \right)
+\end{eqnarray*}
+Si $U_{j}^{n+1}$ et $U_{j}^{n}$ sont assez proches alors 
+\begin{eqnarray*}
+\sum_{j=1}^{9} \left(U_{j}^{n+1} \right)^2 &\approx& \sum_{j=1}^{9} \left(\left(U_{j}^{n} \right)^2 + 2 U_{j}^{n}  \left( U_{j}^{n+1}-U_{j}^{n}\right) \right) = \|U^n\|^2 + 2U^n \cdot (U^{n+1}-U^n)
+\end{eqnarray*}
+Alors 
+\begin{eqnarray*}
+\|U^{n+1}\|^2 - \|U^n\|^2 &\approx& 2U^n \cdot (U^{n+1}-U^n) \\
+                                           &\approx & \frac{1}{3} U^n \cdot \left( F(t_n,U_n)+2F\left(t_n+\frac{\delta t}{2},R^{(1)}\right)+2F\left(t_n+\frac{\delta t}{2},R^{(2)}\right)+F\left(t_n+\delta t,R^{(3)})\right)\right)
+\end{eqnarray*}
+Pour tout $\delta t$ suffisamment petit, on a $F\left(t_n+\frac{\delta t}{2},R^{(j)}\right)\approx F\left(t_n,U^n\right)$ et $U^n \cdot F(t_n,U_n) \leq 0$ alors 
+$$\|U^{n+1}\|^2 \leq  \|U^n\|^2 \Rightarrow \|U^{n+1}\| \leq  \|U^n\|$$
+\end{enumerate}
 \item \textcolor{red}{Méthodes de Splitting et vérification des propriétés} 
+\\La seconde méthode numérique est celle de Splitting d'ordre $4$
 \end{itemize}
 
 \section{Simulations numériques}
@@ -194,12 +415,14 @@ Sachant que l'unicité de la solution est vérifiée alors $\forall t \geq 0$, $
 
 
 \begin{thebibliography}{99}
-\bibitem{Bidegaray-Bourgeade-Reignier01} Brigitte Bidégaray, Antoine Bourgeade, and Didier Reignier, \emph{Introducing physical relaxation terms in Bloch equations}, J. Comput. Phys,\textbf{170} (2001), no.~2, 603--613.
+\bibitem{Bidegaray-Bourgeade-Reignier01} B. Bidégaray, A. Bourgeade, and D. Reignier, \emph{Introducing physical relaxation terms in Bloch equations}, J. Comput. Phys,\textbf{170} (2001), no.~2, 603--613.
 %%%
-\bibitem{Keita-Dicko24}  Kolé Keita and Mahamar Dicko. \emph{Time Convergence of Bloch-Type Model with Pauli’s Master Equation and Wave–Matter Interaction}, Proceeding of Workshop in Abidjan, Côte d'Ivoire 2023 : Harmonic Analysis and Partial Differential Equations. pp 235–254. 
+\bibitem{Keita-Dicko24}  K. Keita and  M. Dicko. \emph{Time Convergence of Bloch-Type Model with Pauli’s Master Equation and Wave–Matter Interaction}, Proceeding of Workshop in Abidjan, Côte d'Ivoire 2023 : Harmonic Analysis and Partial Differential Equations. pp 235–254. 
 %%%
 \bibitem{Bidegaray-Keita14} B. Bidégaray-Fesquet and K. Keita, \emph{A nonlinear Bloch model for Coulomb interaction in quantum dots}, J. Math. Phys,   \textbf {55(2)}(2014), 021501. 
 %%%%
 \bibitem{Lindberg-Koch88} M. Lindberg and S.W. Koch,  \emph{Effective Bloch equations for semiconductors}, Phys. Rev. B, \textbf{38} (1988), 3342–3350.
+%%%%
+\bibitem{Keita-Okou-Kamagate26}  K. Keita, G. C. Okou and A. Kamagaté,  ...
 \end{thebibliography}
 \end{document}
