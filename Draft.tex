@@ -148,12 +148,33 @@ $$ L_{\alpha} =\sum_{j=1}^{N} \sum_{k=1}^{N} \alpha_{jk} M_{jk}, \quad \text{ave
 Calculons 
 $$\dt \rho^*(t) =-\frac{i}{\hbar}\left[ V(t,\rho^*),\rho^*\right] + \sum_{\alpha \in \mathcal{I}} \left( L_{\alpha}\rho L_{\alpha}^* -\frac12\left\{ L_{\alpha}^* L_{\alpha}, \rho^* \right\}\right).$$
 Sachant que l'unicité de la solution est vérifiée alors $\forall t \geq 0$, $\rho^*(t) =\rho^(t)$.
-\item La majoration des populations : on sait que $\Tr(\rho(t)) = \Tr(\rho^0)$ alors $\forall j \in \{1,2,\cdots,N\}$, $\rho_{jj}(t) \leq \Tr(\rho^0)$.
+\item La majoration des populations : on sait que $\Tr(\rho(t)) = \Tr(\rho^0)$ alors $\forall j \in \{1,2,\cdots,N\}$, $\forall t \geq 0$ $\rho_{jj}(t) \leq \Tr(\rho^0)$.
+\item la bornitude des cohérences : on utilise la propriété \ref{prop1} et on obtient 
+$$\forall j, k \in \{1,2,\cdots,N\}, \forall t \geq 0, 0\leq  |\rho_{jk}| \leq \|\rho_0\|$$ 
 \end{enumerate}
 \begin{property}
-Le système quantique représenté parle modèle \eqref{Eq_bloch1} est dissipatif vers un état stationnaire et $\forall t \geq 0$, $\|\rho(t)\|\leq \|\rho_0\|$
+Le système quantique représenté par le modèle \eqref{Eq_bloch1} est dissipatif vers un état stationnaire et $\forall t \geq 0$, $\|\rho(t)\|\leq \|\rho_0\|$
+\label{prop1}
 \end{property}
 \begin{preuve}
+L'espace de Hilbert considéré est $\mathcal{M}_N(\mathbb{C})$ muni du produit scalaire suivant 
+$$\forall A, B \in \mathcal{M}_N(\mathbb{C}), \quad A\cdot B = \Tr(A^* B).$$
+Calculons la dérivée de la l'énergie du système quantique définie par  $\|\rho\|^2=\Tr(\rho^* \rho)$.
+\begin{eqnarray*}
+\dt \|\rho\|^2 &=& 2 \dt \rho \cdot \rho=2\Tr\left( \dt \rho^* \rho\right)\\
+                  &=& \frac{2i}{\hbar}\Tr\left( \left[ V(t,\rho),\rho\right]^* \rho\right) + 2\Tr\left(  W(\rho)^*\rho\right)
+\end{eqnarray*}
+On a $$\Tr\left( \left[ V(t,\rho),\rho\right]^* \rho\right)=\Tr\left(\rho V(t,\rho)\rho-V(t,\rho)\rho^2\right)=0$$
+et 
+\begin{eqnarray*}
+\Tr\left(  W(\rho)^*\rho\right) &=& \sum_{\alpha \in \mathcal{I}} \Tr\left(   L_{\alpha}^*\rho L_{\alpha}\rho\right) -\frac12\Tr\left(\left\{ L_{\alpha}^* L_{\alpha}, \rho \right\}^* \rho\right)  \\
+&=& \sum_{\alpha \in \mathcal{I}} \Tr\left(   L_{\alpha}^*\rho L_{\alpha}\rho\right) -\Tr\left( \rho L_{\alpha}^* L_{\alpha}\rho\right) \\
+&=&-\frac12 \sum_{\alpha \in \mathcal{I}} \Tr\left( \left[\rho,L_{\alpha}\right]^* \left[\rho,L_{\alpha}\right]\right) = -\frac12 \| \left[\rho,L_{\alpha}\right]\|^2
+\end{eqnarray*}
+Alors 
+$$\dt \|\rho\|^2 =-\frac12 \| \left[\rho,L_{\alpha}\right]\|^2 \leq 0$$
+L'énergie décroît en fonction du temps et le système est dissipatif. Par conséquent 
+$$\forall t \geq 0,  \|\rho(t)\|^2 \leq  \|\rho_0\|^2  \Rightarrow  \|\rho(t)\| \leq  \|\rho_0\|$$  
 \end{preuve}
 
 
@@ -305,7 +326,8 @@ R^{\textsc{c-v}}_{3132}U_{3} & -R^{\textsc{c-v}}_{3132}U_{3} & 0 \\
 0 & -\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{7} & -R^{\textsc{c-v}}_{3132}U_{7}
 \end{pmatrix}\]
 
-Après avoir explicité le modèle de type Bloch spécifique à trois niveaux d'énergie, il nous revient d'analyser ce modèle afin de vérifier la conservation de  certaines propriétés mathématiques.
+En considérant le sous modèle $\dt U = A^L(t) U$, on remarque clairement qu'en absence du champ électromagnétique, un découplage entre les populations et les cohérences. Le couplage entre les populations est provoqué par le champ et le phénomène de Coulomb. 
+\\Après avoir explicité le modèle de type Bloch spécifique à trois niveaux d'énergie, il nous revient d'analyser ce modèle afin de vérifier la conservation de  certaines propriétés mathématiques.
 \end{itemize}
 
 
@@ -318,14 +340,14 @@ Le problème de Cauchy associé au problème \eqref{Eq_bloch3} peut s'écrire ai
 \begin{equation}
 \left\{
 \begin{array}{rcl}
-\dt U &= F(t,U) \\
+\dt U &= A(t,U) \\
 U(0) &= U^0,
 \end{array}
 \right.
 \label{Eq_bloch4}
 \end{equation}
-où $F(t,U)=A(t,U)U$ est une écriture simplifiée dans $\mathbb{R}^9$ de la fonction $f$ donnée par \eqref{Eq_bloch2}. Elle correspond à un vecteur de polynôme en $U$ dont $U \mapsto A^L (t) U$ est linéaire en $U$ et $U \mapsto A^N(U) U$ est quadratique.
- \\Dans l'espace de Banach $\mathbb{R}^9$, la fonction $F$ est de classe $\mathcal{C}^{\infty}$ ($F$ est localement lipschitzienne). Par conséquent, le système \eqref{Eq_bloch4} admet une unique solution locale en temps.
+La fonction matricielle $A(t,U)$  correspond à un vecteur de polynôme en $U$ dont $U \mapsto A^L (t) U$ est linéaire en $U$ et $U \mapsto A^N(U) U$ est quadratique.
+ Dans l'espace de Banach $\mathbb{R}^9$, la fonction $A$ est de classe $\mathcal{C}^{\infty}$ ($A$ est localement lipschitzienne). Par conséquent, le système \eqref{Eq_bloch4} admet une unique solution locale en temps.
 
 
 \begin{itemize}
@@ -334,7 +356,7 @@ où $F(t,U)=A(t,U)U$ est une écriture simplifiée dans $\mathbb{R}^9$ de la fon
 \begin{enumerate}
 \item Conservation de la trace :  $\forall t >0$,
 \begin{eqnarray*}
-\dt\left(\sum_{j=1}^{3} U_j (t)\right)&=& \sum_{j=1}^{3} F_j(t,U)\\
+\dt\left(\sum_{j=1}^{3} U_j (t)\right)&=& \sum_{j=1}^{3} A_j(t,U)\\
 &=& \sum_{j=1}^{3} W_1  U_j +  \sum_{j=4}^{6}\left( \Im\left(A_{1}\left(x_{0}, t\right)\right)+\mathcal{R}^{1}_{C}(U) \right)  U_j   + \sum_{j=7}^{9} \left( \Re\left(A_{1}\left(x_{0}, t\right)\right) +\mathcal{R}^{2}_{C}(U)  \right) U_j\\
 &=& 0
 \end{eqnarray*}
@@ -362,18 +384,18 @@ Avant de procéder aux simulations numériques du modèle de type Bloch, nous pr
 \item \textcolor{red}{Méthodes classiques : Euler, Runge-Kutta, Crank-Nicolson}
 \\La première méthode numérique utilisée est celle de Runge-Kutta $4$ définie par 
 \begin{equation*}
-\forall n \geq 0, \quad U^{n+1}=U^n + \frac{\delta t}{6}\left( F(t_n,U_n)+2F\left(t_n+\frac{\delta t}{2},R^{(1)}\right)+2F\left(t_n+\frac{\delta t}{2},R^{(2)}\right)+F\left(t_n+\delta t,R^{(3)})\right)\right),
+\forall n \geq 0, \quad U^{n+1}=U^n + \frac{\delta t}{6}\left( A(t_n,U_n)+2A\left(t_n+\frac{\delta t}{2},R^{(1)}\right)+2A\left(t_n+\frac{\delta t}{2},R^{(2)}\right)+A\left(t_n+\delta t,R^{(3)})\right)\right),
 \end{equation*}
 avec 
-$$R^{(1)}=U_n + \frac{\delta t}{2} F(t_n,U_n),$$
-$$R^{(2)}=U_n + \frac{\delta t}{2} F\left(t_n+\frac{\delta t}{2},R^{(1)}\right),$$
-$$R^{(3)}=U_n + \delta t F\left(t_n+\delta t,R^{(2)}\right).$$
+$$R^{(1)}=U_n + \frac{\delta t}{2} A(t_n,U_n),$$
+$$R^{(2)}=U_n + \frac{\delta t}{2} A\left(t_n+\frac{\delta t}{2},R^{(1)}\right),$$
+$$R^{(3)}=U_n + \delta t A\left(t_n+\delta t,R^{(2)}\right).$$
 \item \textcolor{red}{Vérifier les propriétés des solutions numériques obtenues avec ces méthodes classiques et la stabilité numérique}
 \\La solution obtenue vérifie les propriétés suivantes 
 \begin{enumerate}
 \item l'ordre de consistance est $4$.
-\item La complexité : le calcul de $F(t,U)$ est de $O(9^2)$ donc à chaque itération, on a une complexité de $4\times O(9^2)$. Puisqu'on a une constante, la complexité dépend du nombre de pas de temps.
- \item $$\forall n\geq 0, \quad \sum_{j=1}^{3} U^{n+1}_j = \sum_{j=1}^{3} U^{n}_j,\quad\text{car}\quad \forall U \in \mathbb{R}^9, \sum_{j=1}^{3} F_j(t,U)=0$$
+\item La complexité : le calcul de $a(t,U)$ est de $O(9^2)$ donc à chaque itération, on a une complexité de $4\times O(9^2)$. Puisqu'on a une constante, la complexité dépend du nombre de pas de temps.
+ \item $$\forall n\geq 0, \quad \sum_{j=1}^{3} U^{n+1}_j = \sum_{j=1}^{3} U^{n}_j,\quad\text{car}\quad \forall U \in \mathbb{R}^9, \sum_{j=1}^{3} A_j(t,U)=0$$
 \item $\forall j \in \{1,2,3\}$, $\forall n \geq 0$, 
 $$U^{n}_j \leq \sum_{j=1}^{3} U^{0}_j$$
 \item On définit l'énergie du système au temps $t_{n+1}$
@@ -388,9 +410,9 @@ Si $U_{j}^{n+1}$ et $U_{j}^{n}$ sont assez proches alors
 Alors 
 \begin{eqnarray*}
 \|U^{n+1}\|^2 - \|U^n\|^2 &\approx& 2U^n \cdot (U^{n+1}-U^n) \\
-                                           &\approx & \frac{1}{3} U^n \cdot \left( F(t_n,U_n)+2F\left(t_n+\frac{\delta t}{2},R^{(1)}\right)+2F\left(t_n+\frac{\delta t}{2},R^{(2)}\right)+F\left(t_n+\delta t,R^{(3)})\right)\right)
+                                           &\approx & \frac{1}{3} U^n \cdot \left( A(t_n,U_n)+2A\left(t_n+\frac{\delta t}{2},R^{(1)}\right)+2A\left(t_n+\frac{\delta t}{2},R^{(2)}\right)+A\left(t_n+\delta t,R^{(3)})\right)\right)
 \end{eqnarray*}
-Pour tout $\delta t$ suffisamment petit, on a $F\left(t_n+\frac{\delta t}{2},R^{(j)}\right)\approx F\left(t_n,U^n\right)$ et $U^n \cdot F(t_n,U_n) \leq 0$ alors 
+Pour tout $\delta t$ suffisamment petit, on a $A\left(t_n+\frac{\delta t}{2},R^{(j)}\right)\approx A\left(t_n,U^n\right)$ et $U^n \cdot A(t_n,U_n) \leq 0$ alors 
 $$\|U^{n+1}\|^2 \leq  \|U^n\|^2 \Rightarrow \|U^{n+1}\| \leq  \|U^n\|$$
 \end{enumerate}
 \item \textcolor{red}{Méthodes de Splitting et vérification des propriétés} 

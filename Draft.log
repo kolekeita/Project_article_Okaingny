@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.23)  11 MAR 2026 14:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.23)  13 MAR 2026 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,36 +528,32 @@ Package hyperref Info: Link coloring OFF on input line 51.
 
 {C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 197.
+LaTeX Font Warning: Command \small invalid in math mode on input line 218.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 198.
+LaTeX Font Warning: Command \small invalid in math mode on input line 219.
 
 [3] [4] [5]
-Overfull \hbox (36.08278pt too wide) in alignment at lines 389--392
+Overfull \hbox (34.80501pt too wide) in alignment at lines 411--414
  [][][] []
  []
 
-[6] (Draft.aux)
+[6] [7] (Draft.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Draft.out' has not changed.
 (rerunfilecheck)             Checksum: 8E8215E3F9B0ED95CD4B3388F5427EAE;1326.
  ) 
 Here is how much of TeX's memory you used:
- 13979 strings out of 467870
- 219815 string characters out of 5419806
- 679729 words of memory out of 5000000
- 42627 multiletter control sequences out of 15000+600000
+ 13982 strings out of 467870
+ 219835 string characters out of 5419806
+ 688757 words of memory out of 5000000
+ 42628 multiletter control sequences out of 15000+600000
  645584 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,844b,759s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,844b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc070
 0.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
 1000.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
@@ -580,9 +576,9 @@ rs/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
 :/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
 bm10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /symbols/msbm7.pfb>
-Output written on Draft.pdf (6 pages, 249090 bytes).
+Output written on Draft.pdf (7 pages, 253774 bytes).
 PDF statistics:
- 431 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
+ 447 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
