@@ -250,7 +250,7 @@ A_{2} = \, \frac{e(t)}{\hbar}
 \end{pmatrix}
 \end{equation*}
 \begin{equation*}
-A_{3}  =  \frac{e}{\hbar} 
+A_{3}  =  \frac{e(t)}{\hbar} 
 \begin{pmatrix} 
 \textbf{M}_{11} - \textbf{M}_{22}  & - \textbf{M}_{32}& - \textbf{M}_{13} \\ 
 \vspace{0.0025cm} & \vspace{0.0025cm} & \vspace{0.0025cm}\\
@@ -322,7 +322,7 @@ R^{\textsc{c-v}}_{3132}U_{3} & -R^{\textsc{c-v}}_{3132}U_{3} & 0 \\
 \[\mathcal{R}^{8}_{C}(U) = \dfrac{1}{\hbar}
 \begin{pmatrix}
 0 & -R^{\textsc{c-v}}_{3132}U_{8} & R^{\textsc{c-v}}_{3132}U_{9}+(R^{\textsc{c-v}}_{3131}-R^{\textsc{c-v}}_{3232})U_{8}\\
-0 & R^{\textsc{c-v}}_{3132})U_{7} &  \left( 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{7}\\
+0 & R^{\textsc{c-v}}_{3132}U_{7} &  \left( 2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3232}\right)U_{7}\\
 0 & -\left(2(R^{\textsc{v}}_{1221}-R^{\textsc{v}}_{1212})+R^{\textsc{c-v}}_{3131}\right)U_{7} & -R^{\textsc{c-v}}_{3132}U_{7}
 \end{pmatrix}\]
 
@@ -369,11 +369,12 @@ $\forall t \leq 0$,
 $$\|U(t)\|^2\leq \|\rho(t)\|^2\leq \|\rho_0\|^2 \Rightarrow \|U(t)\|\leq \|\rho_0\|$$
 \\Ce résultat confirme l'existence d'une solution globale en temps pour le problème de Cauchy \eqref{Eq_bloch4}.
 \end{enumerate}
-\item  \textcolor{red}{ Analyser les modèles sans intra-bandes et sans inter-bandes}
+\item  \textcolor{red}{Les équilibres des populations en absence de cohérences}
 \\Dans un système de boîte quantique sans cohérences, le modèle de type Bloch se résume simplement à
 $$\dt U = W_1 U.$$
 Rappelons que la solution de ce modèle simplifié converge vers les états de Gibbs (\cite{Keita-Dicko24}) donnés par 
 $$U_{eq}= \frac{1}{e^{-\frac{e_1}{\kappa_B T}}+e^{-\frac{e_2}{\kappa_B T}}+e^{-\frac{e_3}{\kappa_B T}}} \left(e^{-\frac{e_1}{\kappa_B T}},e^{-\frac{e_2}{\kappa_B T}},e^{-\frac{e_3}{\kappa_B T}} \right)^t$$
+\item  \textcolor{red}{Réduction du modèle à 8 variables}
 \end{itemize}
 Les simulations numériques du modèle complet à trois niveaux d'énergie vont permettre de vérifier les états d'équilibre obtenus dans cette partie.
 
