@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.18)  9 FEB 2026 19:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.18)  16 MAR 2026 22:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1309,7 +1309,7 @@ Package amsmath Warning: Cannot use `split' here;
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1280.
+(amsmath)                trying to recover with `aligned' on input line 1278.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1322,11 +1322,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [27]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1292.
+(amsmath)                trying to recover with `aligned' on input line 1290.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1303.
+(amsmath)                trying to recover with `aligned' on input line 1301.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 1317.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1339,15 +1343,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [28]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1319.
+(amsmath)                trying to recover with `aligned' on input line 1327.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1329.
+(amsmath)                trying to recover with `aligned' on input line 1342.
+
+
+Overfull \hbox (68.62778pt too wide) in alignment at lines 1332--1343
+ [][][] []
+ []
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1344.
+(amsmath)                trying to recover with `aligned' on input line 1354.
+
+
+Overfull \hbox (22.85541pt too wide) in alignment at lines 1346--1355
+ [][][] []
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1360,32 +1374,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [29]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1356.
+(amsmath)                trying to recover with `aligned' on input line 1366.
 
 
-Overfull \hbox (22.85541pt too wide) in alignment at lines 1348--1357
+Overfull \hbox (42.44165pt too wide) in alignment at lines 1358--1367
  [][][] []
  []
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1368.
-
-
-Overfull \hbox (14.33871pt too wide) in alignment at lines 1360--1369
- [][][] []
- []
+(amsmath)                trying to recover with `aligned' on input line 1385.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1387.
+(amsmath)                trying to recover with `aligned' on input line 1397.
 
 
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1399.
-
-
-Overfull \hbox (28.39018pt too wide) in alignment at lines 1391--1400
+Overfull \hbox (28.39018pt too wide) in alignment at lines 1389--1398
  [][][] []
  []
 
@@ -1409,11 +1414,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [31]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1491.
+(amsmath)                trying to recover with `aligned' on input line 1489.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1504.
+(amsmath)                trying to recover with `aligned' on input line 1502.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1426,15 +1431,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [32]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1515.
+(amsmath)                trying to recover with `aligned' on input line 1513.
 
 
-Overfull \hbox (0.51088pt too wide) in alignment at lines 1507--1516
+Overfull \hbox (0.51088pt too wide) in alignment at lines 1505--1514
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1528--1529
+Underfull \hbox (badness 10000) in paragraph at lines 1526--1527
 
  []
 
@@ -1458,11 +1463,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [34]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1610.
+(amsmath)                trying to recover with `aligned' on input line 1608.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1620.
+(amsmath)                trying to recover with `aligned' on input line 1618.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1475,12 +1480,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [35]
 Chapitre 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1636--1638
+Underfull \hbox (badness 10000) in paragraph at lines 1634--1636
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1658--1660
+Underfull \hbox (badness 10000) in paragraph at lines 1656--1658
 
  []
 
@@ -1498,27 +1503,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [37]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1712.
+(amsmath)                trying to recover with `aligned' on input line 1710.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 1712.
+(Font)              using `T1/cmr/m/scsl' instead on input line 1710.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 1712.
+(Font)              using `T1/cmr/m/scsl' instead on input line 1710.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 1712.
+(Font)              using `T1/cmr/m/scsl' instead on input line 1710.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 1712.
+(Font)              using `T1/cmr/m/scsl' instead on input line 1710.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 1712.
+(Font)              using `T1/cmr/m/scsl' instead on input line 1710.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1531,7 +1536,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [38]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1752.
+(amsmath)                trying to recover with `aligned' on input line 1750.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1551,17 +1556,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1828--1829
+Underfull \hbox (badness 10000) in paragraph at lines 1826--1827
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1834--1836
+Underfull \hbox (badness 10000) in paragraph at lines 1832--1834
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1837--1839
+Underfull \hbox (badness 10000) in paragraph at lines 1835--1837
 
  []
 
@@ -1585,7 +1590,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [42]
 Chapitre 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1882--1885
+Underfull \hbox (badness 10000) in paragraph at lines 1880--1883
 
  []
 
@@ -1594,18 +1599,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1882--1885
 ]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1928.
+(amsmath)                trying to recover with `aligned' on input line 1926.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1938.
+(amsmath)                trying to recover with `aligned' on input line 1936.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1949.
+(amsmath)                trying to recover with `aligned' on input line 1947.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1951--1952
+Underfull \hbox (badness 10000) in paragraph at lines 1949--1950
 
  []
 
@@ -1618,7 +1623,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [44]
-Overfull \hbox (14.45067pt too wide) in paragraph at lines 2001--2004
+Overfull \hbox (14.45067pt too wide) in paragraph at lines 1999--2002
 \T1/cmr/m/n/12 nulles sauf l'une d'entre elles ($\OML/cmm/m/it/12 U[]\OT1/cmr/m
 /n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 
 = 0$ \T1/cmr/m/n/12 et $\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 j \OMS/cmsy/m/n/12 6
@@ -1639,11 +1644,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [45]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2009.
+(amsmath)                trying to recover with `aligned' on input line 2007.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2014.
+(amsmath)                trying to recover with `aligned' on input line 2012.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1654,7 +1659,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [46]
-Overfull \hbox (14.45067pt too wide) in paragraph at lines 2046--2048
+Overfull \hbox (14.45067pt too wide) in paragraph at lines 2044--2046
 \T1/cmr/m/n/12 nulles sauf l'une d'entre elles ($\OML/cmm/m/it/12 U[]\OT1/cmr/m
 /n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 
 = 0$ \T1/cmr/m/n/12 et $\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 j \OMS/cmsy/m/n/12 6
@@ -1666,15 +1671,15 @@ $\T1/cmr/m/n/12 ).
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2053.
+(amsmath)                trying to recover with `aligned' on input line 2051.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2062.
+(amsmath)                trying to recover with `aligned' on input line 2060.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2067.
+(amsmath)                trying to recover with `aligned' on input line 2065.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1687,7 +1692,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [47]
 Chapitre 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2112--2113
+Underfull \hbox (badness 10000) in paragraph at lines 2110--2111
 
  []
 
@@ -1705,27 +1710,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [49]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2200.
+(amsmath)                trying to recover with `aligned' on input line 2198.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2221.
+(amsmath)                trying to recover with `aligned' on input line 2219.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2221.
+(amsmath)                trying to recover with `aligned' on input line 2219.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2221.
+(amsmath)                trying to recover with `aligned' on input line 2219.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2232.
+(amsmath)                trying to recover with `aligned' on input line 2230.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2238.
+(amsmath)                trying to recover with `aligned' on input line 2236.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1738,11 +1743,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [50]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2258.
+(amsmath)                trying to recover with `aligned' on input line 2256.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2293.
+(amsmath)                trying to recover with `aligned' on input line 2291.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1755,20 +1760,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [51]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2301.
+(amsmath)                trying to recover with `aligned' on input line 2299.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2312.
+(amsmath)                trying to recover with `aligned' on input line 2310.
 
 
-Overfull \hbox (5.88101pt too wide) in alignment at lines 2305--2313
+Overfull \hbox (5.88101pt too wide) in alignment at lines 2303--2311
  [][][] []
  []
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2322.
+(amsmath)                trying to recover with `aligned' on input line 2320.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1779,7 +1784,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 2357--2360
+Underfull \hbox (badness 10000) in paragraph at lines 2355--2358
 
  []
 
@@ -1847,7 +1852,7 @@ m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX
 nts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/m
 sam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on "MEMOIRE MASTER SOUTENU CORRIGE.pdf" (63 pages, 541225 bytes)
+Output written on "MEMOIRE MASTER SOUTENU CORRIGE.pdf" (63 pages, 541326 bytes)
 .
 PDF statistics:
  1122 PDF objects out of 1200 (max. 8388607)
