@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.23)  14 MAR 2026 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.23)  17 MAR 2026 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,18 +527,29 @@ Package hyperref Info: Link coloring OFF on input line 51.
  [1
 
 {C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
+Overfull \hbox (33.99936pt too wide) in paragraph at lines 181--183
+[][]\T1/cmr/bx/n/10 Propriété 2.2. []\T1/cmr/m/it/10 En ab-sence du champ élec-
+tro-ma-gné-tique $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^U \OT
+1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/
+it/10 t\OT1/cmr/m/n/10 ) = 0$\T1/cmr/m/it/10 , la fonc-tion $\OML/cmm/m/it/10 C
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = [][] [][] \OMS/cmsy/m/
+n/10 j\OML/cmm/m/it/10 ^^Z[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 
+)\OMS/cmsy/m/n/10 j[]$
+ []
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 218.
+[3]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 240.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 219.
+LaTeX Font Warning: Command \small invalid in math mode on input line 241.
 
-[3] [4] [5]
-Overfull \hbox (34.80501pt too wide) in alignment at lines 412--415
+[4] [5] [6]
+Overfull \hbox (34.80501pt too wide) in alignment at lines 435--438
  [][][] []
  []
 
-[6] [7] (Draft.aux)
+[7] [8] (Draft.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -547,9 +558,9 @@ Package rerunfilecheck Info: File `Draft.out' has not changed.
 (rerunfilecheck)             Checksum: 8E8215E3F9B0ED95CD4B3388F5427EAE;1326.
  ) 
 Here is how much of TeX's memory you used:
- 13982 strings out of 467870
- 219835 string characters out of 5419806
- 689757 words of memory out of 5000000
+ 13985 strings out of 467870
+ 219860 string characters out of 5419806
+ 681757 words of memory out of 5000000
  42628 multiletter control sequences out of 15000+600000
  645584 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -576,9 +587,9 @@ rs/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
 :/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
 bm10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /symbols/msbm7.pfb>
-Output written on Draft.pdf (7 pages, 253760 bytes).
+Output written on Draft.pdf (8 pages, 259890 bytes).
 PDF statistics:
- 447 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
+ 456 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

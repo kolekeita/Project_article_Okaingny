@@ -104,7 +104,7 @@ où $\mathcal{E}(t)$ est le champ électromagnétique et $\textbf{M}$ est la mat
 W(\rho)_{jj} = \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right) \equiv \sum_{\substack{k=1}}^{N} w_{kj}\left( e^{\frac{e_k -e_j}{\kappa_B T}} \rho_{kk} -  \rho_{jj} \right) , \quad
 W(\rho)_{jk} = -\gamma_{jk} \rho_{jk}
 \end{equation*}
-où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$, $\kappa_B$ est la constante de Boltzmann et $T$ la température.
+où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}_{+}^{*}$, $\kappa_B$ est la constante de Boltzmann et $T$ la température.
 \\La matrice $V^{\rC}(\rho)$ correspond à la somme de deux matrices $ V_{l}^{\rC}$ et $V^{\rC}_{n} (\rho)$ dont les expressions sont données dans \cite{Bidegaray-Keita14}. En remplaçant ces termes dans le système \eqref{Eq_bloch1}, le modèle peut s'écrire ainsi
 \begin{equation}
 \left\{
@@ -115,7 +115,7 @@ où $\forall j,k $, $w_{jk}, \gamma_{jk} \in \mathbb{R}$, $\kappa_B$ est la cons
  \right.
 \label{Eq_bloch2}
 \end{equation}
-où $F(t,\rho)=\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]$.
+où $F(t,\rho)=-\frac{i}{\hbar}\left[ E_0,\rho\right] -\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) -\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] - \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]$ avec  $V^{\rC} (\rho)=V_{l}^{\rC}+V_{n}^{\rC}(\rho)$.
 \\Ce modèle est non linéaire (semi-linéaire) et l'application 
 $$\rho \in I \mapsto F(t,\rho) \in I$$
 est polynomiale en $\rho$ avec $I \subset \mathcal{M}_N(\mathbb{C})$ et $(\mathcal{M}_N(\mathbb{C}),\|.\|)$ est un espace de Banach.  Alors $F$ est localement lipschitzienne en $\rho$. Grâce au théorème de Cauchy-Lipschitz, nous pouvons déduire que le système de Cauchy \eqref{Eq_bloch2} admet une unique solution locale en temps à partir de la densité initiale $\rho^0$.
@@ -131,7 +131,7 @@ Les systèmes physiques (systèmes de boîtes quantiques) possèdent des propri�
 \begin{enumerate}
 \item conservation de la trace de la densité : $\forall t \geq 0$, nous avons  $\Tr(\rho(t)) = \Tr(\rho^0)$ car
 \begin{eqnarray*}
-\dt \Tr(\rho(t)) &=&\Tr\left(\frac{i}{\hbar}\left[ E_0,\rho\right] +\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] + \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]\right) \\
+\dt \Tr(\rho(t)) &=&\Tr\left(-\frac{i}{\hbar}\left[ E_0,\rho\right] -\frac{i}{\hbar}\left[ V_{l}^{\rC},\rho\right] + W(\rho) +\frac{i}{\hbar}\mathcal{E}(t) \cdot \left[ \textbf{M},\rho\right] - \frac{i}{\hbar}\left[ V^{\rC}_{n} (\rho),\rho\right]\right) \\
                        &=& \Tr( W(\rho))= \sum_{j=1}^{N} \sum_{\substack{k=1}}^{N} \left( w_{jk} \rho_{kk} - w_{kj} \rho_{jj} \right)=0
 \end{eqnarray*}
 \item La densité est hermitienne : $\forall t \geq 0$, on  a $\rho^*(t)=\rho(t)$ :
@@ -176,8 +176,30 @@ $$\dt \|\rho\|^2 =-\frac12 \| \left[\rho,L_{\alpha}\right]\|^2 \leq 0$$
 L'énergie décroît en fonction du temps et le système est dissipatif. Par conséquent 
 $$\forall t \geq 0,  \|\rho(t)\|^2 \leq  \|\rho_0\|^2  \Rightarrow  \|\rho(t)\| \leq  \|\rho_0\|$$  
 \end{preuve}
-
-
+%%%%%
+\begin{property}
+En absence du champ électromagnétique $\forall t\geq 0, \mathcal{E}(t)=0$, la fonction
+$ C_q(t)=\sum_{k=1}^{N}\sum_{j=1}^{N}|\rho_{jk} (t)|^2 $ est à décroissance exponentielle.
+\end{property}
+\begin{preuve}
+Soient $ j, k \in\{1,2,\cdots,N\}$ et pour tout $t\geq 0$, calculons 
+\begin{eqnarray*}
+\dt |\rho_{jk} |^2 &=& 2 \Re\left(\rho_{jk} \right)\dt \Re\left(\rho_{jk} \right) +2 \Im\left(\rho_{jk} \right)\dt \Im\left(\rho_{jk} \right) \\
+&=&  \frac{2}{\hbar} \left( e_j-e_k\right)\Re\left(\rho_{jk} \right)\Im\left(\rho_{jk} \right)-\frac{2}{\hbar} \left( e_j-e_k\right)\Re\left(\rho_{jk} \right)\Im\left(\rho_{jk} \right)-2\gamma_{jk}  |\rho_{jk} |^2\\
+&+& \frac{2}{\hbar}\Re\left(\rho_{jk} \right)\Im\left( \left[ V^{\rC}(\rho),\rho\right]_{jk}\right) -\frac{2}{\hbar}\Im\left(\rho_{jk} \right)\Re\left( \left[ V^{\rC}(\rho),\rho\right]_{jk}\right)\\
+&=& -2\gamma_{jk}  |\rho_{jk} |^2+\frac{2}{\hbar} \Im\left(\bar{\rho}_{jk} \left[ V^{\rC}(\rho),\rho\right]_{jk}\right).
+\end{eqnarray*}
+$\Rightarrow$ 
+\begin{eqnarray*}
+\dt C_q(t)=\sum_{k=1}^{N}\sum_{j=1}^{N}\dt  |\rho_{jk} |^2 &=&- 2\sum_{k=1}^{N}\sum_{j=1}^{N}\gamma_{jk}  |\rho_{jk} |^2+ \frac{2}{\hbar} \Im\left(\sum_{k=1}^{N}\sum_{j=1}^{N}\rho_{kj}\left[ V^{\rC}(\rho),\rho\right]_{jk}\right)\\
+&=& - 2\sum_{k=1}^{N}\sum_{j=1}^{N}\gamma_{jk}  |\rho_{jk} |^2+\frac{2}{\hbar} \Im\left( \Tr\left(\rho\left[ V^{\rC}(\rho),\rho\right]\right) \right) \\
+&=& - 2\sum_{k=1}^{N}\sum_{j=1}^{N}\gamma_{jk}  |\rho_{jk} |^2
+\end{eqnarray*}
+Il existe $\gamma \in \mathbb{R}_{+}^{*}$ tel que $\forall j,k \in\{1,2,\cdots,N\}$, $\gamma_{jk}\geq \gamma$, alors 
+$$\dt C_q(t) =\sum_{k=1}^{N}\sum_{j=1}^{N}\dt  |\rho_{jk} |^2 \leq -2  \gamma C_q(t).$$
+Avec la lemme de Gronwall, nous obtenons
+$$\forall t \geq 0, C_q(t) \leq C_q(0) e^{-2\gamma t}$$
+\end{preuve}
 
 
 
@@ -209,7 +231,7 @@ où $U_p=\left( \rho_{11},\rho_{22},\rho_{33}\right)$ et $U_c=\left( \rho_{12},\
 \dt U =A(t,U)U,
 \label{Eq_bloch3}
 \end{equation}
-où $A(t,U)=A^L (t) U + A^N(U) U$,
+où $A(t,U)=A^L (t)  + A^N(U)$,
 %%%%
 \begin{equation*}
 A^L(t)=
@@ -340,14 +362,14 @@ Le problème de Cauchy associé au problème \eqref{Eq_bloch3} peut s'écrire ai
 \begin{equation}
 \left\{
 \begin{array}{rcl}
-\dt U &= A(t,U) \\
-U(0) &= U^0,
+\dt U &=& A(t,U) U\\
+U(0) &=& U^0,
 \end{array}
 \right.
 \label{Eq_bloch4}
 \end{equation}
-La fonction matricielle $A(t,U)$  correspond à un vecteur de polynôme en $U$ dont $U \mapsto A^L (t) U$ est linéaire en $U$ et $U \mapsto A^N(U) U$ est quadratique.
- Dans l'espace de Banach $\mathbb{R}^9$, la fonction $A$ est de classe $\mathcal{C}^{\infty}$ ($A$ est localement lipschitzienne). Par conséquent, le système \eqref{Eq_bloch4} admet une unique solution locale en temps.
+La fonction vectorielle $U\mapsto A(t,U)U$  correspond à un vecteur de polynôme en $U$ dont $U \mapsto A^L (t) U$ est linéaire en $U$ et $U \mapsto A^N(U) U$ est quadratique.
+ Dans l'espace de Banach $\mathbb{R}^9$, la fonction $U\mapsto A(t,U)U$ est de classe $\mathcal{C}^{\infty}$ (localement lipschitzienne). Par conséquent, le système \eqref{Eq_bloch4} admet une unique solution locale en temps.
 
 
 \begin{itemize}
@@ -356,7 +378,7 @@ La fonction matricielle $A(t,U)$  correspond à un vecteur de polynôme en $U$ d
 \begin{enumerate}
 \item Conservation de la trace :  $\forall t >0$,
 \begin{eqnarray*}
-\dt\left(\sum_{j=1}^{3} U_j (t)\right)&=& \sum_{j=1}^{3} A_j(t,U)\\
+\dt\left(\sum_{j=1}^{3} U_j (t)\right)&=& \sum_{j=1}^{3} A_{j\cdot}(t,U) U\\
 &=& \sum_{j=1}^{3} W_1  U_j +  \sum_{j=4}^{6}\left( \Im\left(A_{1}\left(x_{0}, t\right)\right)+\mathcal{R}^{1}_{C}(U) \right)  U_j   + \sum_{j=7}^{9} \left( \Re\left(A_{1}\left(x_{0}, t\right)\right) +\mathcal{R}^{2}_{C}(U)  \right) U_j\\
 &=& 0
 \end{eqnarray*}
@@ -366,8 +388,9 @@ $$\sum_{j=1}^{3} U_j (t)=\sum_{j=1}^{3} U_{j}^{0} = \Tr(\rho^0).$$
 $$\sum_{j=1}^{3} U_j (t)=\sum_{j=1}^{3} U_{j}^{0} \Rightarrow \forall j \in \{1,2,3\}, \quad U_j (t) \leq \sum_{j=1}^{3} U_{j}^{0}= \Tr(\rho^0) .$$
 \item La bornitude de la norme de $U$: 
 $\forall t \leq 0$,  
-$$\|U(t)\|^2\leq \|\rho(t)\|^2\leq \|\rho_0\|^2 \Rightarrow \|U(t)\|\leq \|\rho_0\|$$
+$$\|U(t)\|^2\leq \|\rho(t)\|^2\leq \|\rho_0\|^2 \Rightarrow \|U(t)\|=\sqrt{\sum_{j=1}^{9} U_{j}^{2}}\leq \|\rho_0\|$$
 \\Ce résultat confirme l'existence d'une solution globale en temps pour le problème de Cauchy \eqref{Eq_bloch4}.
+\item \textcolor{green}{Vérifier si  $C_q(t)=\sum_{j=4}^{9} U_{j}^{2}$ se conserve.}
 \end{enumerate}
 \item  \textcolor{red}{Les équilibres des populations en absence de cohérences}
 \\Dans un système de boîte quantique sans cohérences, le modèle de type Bloch se résume simplement à
